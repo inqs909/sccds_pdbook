@@ -1,0 +1,107 @@
+# RStudio
+
+RStudio is an integrated development environment ([IDE](https://en.wikipedia.org/wiki/Integrated_development_environment)) that allows users to write code in a script and execute code to the R console in one application. Furthermore, RStudio has rich set of features that make data science projects easier to execute.
+
+While RStudio has originally been used to program in R, it has been extended to program in python with the use of the [reticulate](https://rstudio.github.io/reticulate/) package.
+
+## Installing
+
+You can download and install the open-source (free) version of RStudio [here](https://posit.co/downloads/).
+
+### Installing on Windows
+
+### Installing on Mac
+
+## Start-up
+
+On start-up, RStudio will look like very similar to the image below:
+
+![](img/rstudio_1.png){fig-align="center"}
+
+You can see that there are 3 parts in RStudio, these are known as panes.
+
+Additionally, we can add a fourth pane to RStudio for writing code in a text file. Choosing the white plus sign with a green border followed by a white document on the upper-right hand side:
+
+![](img/rstudio_2.png){fig-align="center"}
+
+This will open up a menu of text files that a user can choose to code in:
+
+![](img/rstudio_3.png){fig-align="center"}
+
+The "R Script" Button will open a standard R text file with the extension as ".R". This is the text file that most R programmers used to save and execute code. This will make RStudio to look like this:
+
+![](img/rstudio_4.png){fig-align="center"}
+
+Notice a new pane is created on the top-left that allows you to write R code in a script. This script is also connected to the R console below which will allow you to send lines of code from the script to the console to be executed (also known as [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)).
+
+## Global Options
+
+In this section, here are some recommended "Global Options" for users to set in RStudio. To begin, click on *Tools* ➜ *Global Options* from the top-menu. The following window should open:
+
+![](img/rstudio_5.png){fig-align="center"}
+
+The window allows you to make several changes in RStudio that will make your experience better. Here is a list of items that are recommended for users to change:
+
+1.  *R General*
+    1.  Make sure "Restore .RData into workspace at startup:" is unchecked (**Highly** Recommended[^rstudio-1])
+    2.  Set "Save workspce to .RData on exit:" to "Never" (**Highly** Recommended)
+
+[^rstudio-1]: This will ensure that your environment is always recreated from the code you write and not from anything else. It increases reproducibility.
+
+![](img/rstudio_6.png){fig-align="center"}
+
+2.  *Code*
+    1.  "Use native pipe operator `|>`" is recommended[^rstudio-2] (Optional)
+
+[^rstudio-2]: The native pipe does not require to have any packages installed. Additionally, it executes code slightly faster than `%>%`.
+
+![](img/rstudio_8.png){fig-align="center"}
+
+3.  *Appearance*
+    1.  In the "Editor theme:" box, choose a setting that you will prefer to work in (Optional)
+
+![](img/rstudio_7.png){fig-align="center"}
+
+4.  *Pane Layout* (Optional)
+    1.  Change the pane layout to have the "Console" on the top-right corner
+    2.  Add all components (checkmark) to the lower-right corner except for "History" and "Connections"
+
+This will allow for you to expand the "Source" (script) to be expanded for the entire left hand side. It will allow you to view more code at one time.
+
+RStudio will look more like this:
+
+![](img/rstudio_9.png){fig-align="center"}
+
+With the expanded script:
+
+![](img/rstudio_10.png){fig-align="center"}
+
+## Source, Console and Plots
+
+The source pane allows you to write an R script for analysis. Below `x <- mtcars` is written (top-left) and executed to R (top-right). Afterwards the "Environment" Tab in the lower right pane now how `x`. The "Environment" tab displays which R objects were created and available to use for further analysis.
+
+![](img/rstudio_11.png){fig-align="center"}
+
+Since `x` is a data frame, clicking on `x` from the "Environment" tab will open a new tab in the Source pane containing the data set:
+
+![](img/rstudio_12.png){fig-align="center"}
+
+If we create an object that is a vector ( `y <- 4` as pictured below), the "Environment" tab now shows a new object as a value.
+
+![](img/rstudio_13.png){fig-align="center"}
+
+If a plot is created (`plot(mtcars$mpg)`), a plot will be displayed in the "Plots" tab in the lower-right pane.
+
+![](img/rstudio_17.png){fig-align="center"}
+
+The lower right-pane also contains other useful features such as access to your computer's file directory:
+
+![](img/rstudio_14.png){fig-align="center"}
+
+Access to installed packages:
+
+![](img/rstudio_16.png){fig-align="center"}
+
+And access to help documentation:
+
+![](img/rstudio_15.png){fig-align="center"}

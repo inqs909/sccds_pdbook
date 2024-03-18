@@ -1,0 +1,56 @@
+project:
+  type: book
+  output-dir: docs
+
+
+book:
+  title: "SCCDS Professional Development Book"
+  author:   
+  - name: Isaac Quintanilla Salinas
+    url: https://www.inqs.info
+    orcid: 0000-0002-1137-4310
+  chapters:
+    - index.qmd
+    - preface.qmd
+    - part: r.qmd
+      chapters: 
+        - r_basics.qmd
+        - rstudio.qmd
+        - r_base.qmd
+        - r_tidyverse.qmd
+        - r_teaching.qmd
+    - part: python.qmd
+      chapters: 
+        - python_basics.qmd
+        - python_ds.qmd
+        - python_teaching.qmd
+    - part: oc.qmd
+      chapters: 
+        - notebooks.qmd
+        - google.qmd
+        - jupyterhub.qmd
+        - lms.qmd
+    - part: vc.qmd
+      chapters: 
+        - vc_github.qmd
+        - vc_git.qmd
+    - part: reporting.qmd
+      chapters:
+        - markdown.qmd
+        - document.qmd
+        - presentations.qmd
+  sidebar:
+    style: docked
+    background: light
+  repo-url: https://github.com/inqs909/sccds_pdbook/
+  downloads: [pdf, epub]
+
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

@@ -1,0 +1,130 @@
+# Markdown Basics
+
+Markdown files contain basic formatting capabilities. The use of the `#` followed by text creates a heading. Using two or more `#` symbols will create subheadings based on the number of `#`. A text is *italicized* by surrounding the text with one asterisk (`*italicized*`). A text is **boldfaced** by surrounding it with 2 asterisk (`**boldfaced**`). A text is ~~strikethrough~~ by surrounding the text with 2 tildes (`~~strikethrough~~`). A text with^superscript^ is created by surrounding a word with caret (`^superscript^`). A text with~subscript~ is created by surrounding a word with 1 tilde (`~subscript~`).
+
+To create an unordered list, use the `-` symbol at the beginning of each line. To create a sub-item, press the tab button, then the `-` symbol. Repeat this method for further sub-items.
+
++-------------------------------------+----------------------------------------+
+| Syntax                              | Output                                 |
++=====================================+========================================+
+| ``` default                         | -   First Item                         |
+| - First Item                        | -   Second Item                        |
+| - Second Item                       |     -   First Sub-Item                 |
+|    - First Sub-Item                 |         -   First Sub-Sub Item         |
+|        - First Sub-Sub Item         |             -   First Sub-Sub-Sub Item |
+|            - First Sub-Sub-Sub Item |                                        |
+| ```                                 |                                        |
++-------------------------------------+----------------------------------------+
+
+To created an ordered list, type the number followed by a period for each line. To create sub-lists, press the tab button twice and order them appropriately.
+
++---------------------------------+------------------------------------+
+| Syntax                          | Output                             |
++=================================+====================================+
+| ``` default                     | 1.  First Item                     |
+| 1. First Item                   | 2.  Second Item                    |
+| 2. Second Item                  |     a.  First Sub-Item             |
+|    a. First Sub-Item            |         i.  First Sub-Sub Item     |
+|        i. First Sub-Sub-Item    |         ii. Second Sub-Sub Item    |
+|        ii. Second Sub-Sub-Item  |                                    |
+| ```                             |                                    |
++---------------------------------+------------------------------------+
+
+> A block quote is created with the `>` symbol at the beginning of a line.
+
+Markdown files allows a table to be constructed in 2 ways, manually or using a package such as the `gt` package. A table is manually created by using `|`, `:`, and `-`. The first line contains `|` and the column names in between. The second line contains `|:-|:-|` which indicates how the table is aligned. The location of `:` symbol just tells RStudio about the alignment. Below is the example code of @tbl-greektable:
+
+``` default
+| Letter     |   Lowercase   |      Code     |  Uppercase |    Code    |
+|:-----------|:-------------:|:-------------:|:----------:|:----------:|
+| alpha      |    $\alpha$   |    `\alpha`   |     --     |     --     |
+| beta       |    $\beta$    |    `\beta`    |     --     |     --     |
+| gamma      |    $\gamma$   |    `\gamma`   |  $\Gamma$  |  `\Gamma`  |
+| delta      |    $\delta$   |    `\delta`   |  $\Delta$  |  `\Delta`  |
+| epsilon    |   $\epsilon$  |   `\epsilon`  |     --     |     --     |
+| zeta       |    $\zeta$    |    `\zeta`    |     --     |     --     |
+| eta        |     $\eta$    |     `\eta`    |     --     |     --     |
+| theta      |    $\theta$   |    `\theta`   |  $\Theta$  |  `\Theta`  |
+| iota       |    $\iota$    |    `\iota`    |     --     |     --     |
+| kappa      |    $\kappa$   |    `\kappa`   |     --     |     --     |
+| lambda     |   $\lambda$   |   `\lambda`   |  $\Lambda$ |  `\Lambda` |
+| mu         |     $\mu$     |     `\mu`     |     --     |     --     |
+| nu         |     $\nu$     |     `\nu`     |     --     |     --     |
+| xi         |     $\xi$     |     `\xi`     |    $\Xi$   |    `\Xi`   |
+| pi         |     $\pi$     |     `\pi`     |    $\Pi$   |    `\pi`   |
+| rho        |     $\rho$    |     `\rho`    |     --     |     --     |
+| sigma      |    $\sigma$   |    `\sigma`   |  $\Sigma$  |  `\Sigma`  |
+| tau        |     $\tau$    |     `\tau`    |     --     |     --     |
+| upsilon    |   $\upsilon$  |   `\upsilon`  | $\Upsilon$ | `\Upsilon` |
+| phi        |     $\phi$    |     `\phi`    |   $\Phi$   |   `\Phi`   |
+| chi        |     $\chi$    |     `\chi`    |     --     |     --     |
+| psi        |     $\psi$    |     `\psi`    |   $\Psi$   |   `\Psi`   |
+| omega      |    $\omega$   |    `\omega`   |  $\Omega$  |  `\Omega`  |
+| varepsilon | $\varepsilon$ | `\varepsilon` |     --     |     --     |
+```
+
+## Math
+
+Quarto is capable of writing mathematical formulas using LaTeX code. A mathematical symbol can be written inline using single `$` signs. For example, `$\alpha$` is viewed as $\alpha$ in a document. To write mathematical formulas on its own line use `$$`. For example, `$$Y=mX+b$$` is viewed as $$Y=mX+b.$$
+
+### Mathematical Notation
+
+| Notation                        | code                              |
+|:--------------------------------|:----------------------------------|
+| $x=y$                           | `$x=y$`                           |
+| $x>y$                           | `$x>y$`                           |
+| $x<y$                           | `$x<y$`                           |
+| $x\geq y$                       | `$x\geq y$`                       |
+| $x\leq y$                       | `$x\leq y$`                       |
+| $x^{y}$                         | `$x^{y}$`                         |
+| $x_{y}$                         | `$x_{y}$`                         |
+| $\bar x$                        | `$\bar x$`                        |
+| $\hat x$                        | `$\hat x$`                        |
+| $\tilde x$                      | `$\tilde x$`                      |
+| $\frac{x}{y}$                   | `$\frac{x}{y}$`                   |
+| $\frac{\partial x}{\partial y}$ | `$\frac{\partial x}{\partial y}$` |
+| $x\in A$                        | `$x\in A$`                        |
+| $x\subset A$                    | `$x\subset A$`                    |
+| $x\subseteq A$                  | `$x\subseteq A$`                  |
+| $x\cup A$                       | `$x\cup A$`                       |
+| $x\cap A$                       | `$x\cap A$`                       |
+| $\{1,2,3\}$                     | `$\{1,2,3\}$`                     |
+| $\int_a^bf(x)dx$                | `$\int_a^bf(x)dx$`                |
+| $\left\{\int_a^bf(x)dx\right\}$ | `$\left\{\int_a^bf(x)dx\right\}$` |
+| $\sum^n_{i=1}x_i$               | `$\sum^n_{i=1}x_i$`               |
+| $\prod^n_{i=1}x_i$              | `$\prod^n_{i=1}x_i$`              |
+| $\lim_{x\to0}f(x)$              | `$\lim_{x\to0}f(x)$`              |
+| $X\sim \Gamma(\alpha,\beta)$    | `$X\sim \Gamma(\alpha,\beta)$`    |
+
+: LaTeX syntax for common examples. {#tbl-latextable}
+
+### Greek Letters
+
+| Letter     |   Lowercase   |     Code      | Uppercase  |    Code    |
+|:-----------|:-------------:|:-------------:|:----------:|:----------:|
+| alpha      |   $\alpha$    |   `\alpha`    |     --     |     --     |
+| beta       |    $\beta$    |    `\beta`    |     --     |     --     |
+| gamma      |   $\gamma$    |   `\gamma`    |  $\Gamma$  |  `\Gamma`  |
+| delta      |   $\delta$    |   `\delta`    |  $\Delta$  |  `\Delta`  |
+| epsilon    |  $\epsilon$   |  `\epsilon`   |     --     |     --     |
+| zeta       |    $\zeta$    |    `\zeta`    |     --     |     --     |
+| eta        |    $\eta$     |    `\eta`     |     --     |     --     |
+| theta      |   $\theta$    |   `\theta`    |  $\Theta$  |  `\Theta`  |
+| iota       |    $\iota$    |    `\iota`    |     --     |     --     |
+| kappa      |   $\kappa$    |   `\kappa`    |     --     |     --     |
+| lambda     |   $\lambda$   |   `\lambda`   | $\Lambda$  | `\Lambda`  |
+| mu         |     $\mu$     |     `\mu`     |     --     |     --     |
+| nu         |     $\nu$     |     `\nu`     |     --     |     --     |
+| xi         |     $\xi$     |     `\xi`     |   $\Xi$    |   `\Xi`    |
+| pi         |     $\pi$     |     `\pi`     |   $\Pi$    |   `\pi`    |
+| rho        |    $\rho$     |    `\rho`     |     --     |     --     |
+| sigma      |   $\sigma$    |   `\sigma`    |  $\Sigma$  |  `\Sigma`  |
+| tau        |    $\tau$     |    `\tau`     |     --     |     --     |
+| upsilon    |  $\upsilon$   |  `\upsilon`   | $\Upsilon$ | `\Upsilon` |
+| phi        |    $\phi$     |    `\phi`     |   $\Phi$   |   `\Phi`   |
+| chi        |    $\chi$     |    `\chi`     |     --     |     --     |
+| psi        |    $\psi$     |    `\psi`     |   $\Psi$   |   `\Psi`   |
+| omega      |   $\omega$    |   `\omega`    |  $\Omega$  |  `\Omega`  |
+| varepsilon | $\varepsilon$ | `\varepsilon` |     --     |     --     |
+
+: LaTeX syntax for greek letters. {#tbl-greektable}

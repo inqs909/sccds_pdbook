@@ -1,0 +1,9 @@
+# Teaching Data Science {.unnumbered}
+
+## SCCDS
+
+The [Southern California Consortium of Data Science](https://sites.google.com/view/socaldatasci/home) is a collaboration of 8 institutions from the CCC, CSU, and UC systems.
+
+## Acknowledgements
+
+Parts of this webbook have been adapted from the [Statistical Computing](https://www.inqs.info/stat_comp/) book from Isaac Quintanilla Salinas.
