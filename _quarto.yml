@@ -14,8 +14,8 @@ book:
     - preface.qmd
     - part: r.qmd
       chapters: 
-        - r_basics.qmd
         - rstudio.qmd
+        - r_basics.qmd
         - r_base.qmd
         - r_tidyverse.qmd
         - r_teaching.qmd

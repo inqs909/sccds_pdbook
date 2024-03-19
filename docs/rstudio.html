@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SCCDS Professional Development Handbook - 2&nbsp; RStudio</title>
+<title>SCCDS Professional Development Handbook - 1&nbsp; RStudio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./r_base.html" rel="next">
-<link href="./r_basics.html" rel="prev">
+<link href="./r_basics.html" rel="next">
+<link href="./r.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./r.html">R Programming</a></li><li class="breadcrumb-item"><a href="./rstudio.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">RStudio</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./r.html">R Programming</a></li><li class="breadcrumb-item"><a href="./rstudio.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -148,14 +148,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basic R Programming</span></span></a>
+  <a href="./rstudio.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rstudio.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">RStudio</span></span></a>
+  <a href="./r_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basic R Programming</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -304,23 +304,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#installing" id="toc-installing" class="nav-link active" data-scroll-target="#installing"><span class="header-section-number">2.1</span> Installing</a>
+  <li><a href="#installing" id="toc-installing" class="nav-link active" data-scroll-target="#installing"><span class="header-section-number">1.1</span> Installing</a>
   <ul class="collapse">
-  <li><a href="#installing-on-windows" id="toc-installing-on-windows" class="nav-link" data-scroll-target="#installing-on-windows"><span class="header-section-number">2.1.1</span> Installing on Windows</a></li>
-  <li><a href="#installing-on-mac" id="toc-installing-on-mac" class="nav-link" data-scroll-target="#installing-on-mac"><span class="header-section-number">2.1.2</span> Installing on Mac</a></li>
+  <li><a href="#installing-on-windows" id="toc-installing-on-windows" class="nav-link" data-scroll-target="#installing-on-windows"><span class="header-section-number">1.1.1</span> Installing on Windows</a></li>
+  <li><a href="#installing-on-mac" id="toc-installing-on-mac" class="nav-link" data-scroll-target="#installing-on-mac"><span class="header-section-number">1.1.2</span> Installing on Mac</a></li>
   </ul></li>
-  <li><a href="#start-up" id="toc-start-up" class="nav-link" data-scroll-target="#start-up"><span class="header-section-number">2.2</span> Start-up</a></li>
-  <li><a href="#global-options" id="toc-global-options" class="nav-link" data-scroll-target="#global-options"><span class="header-section-number">2.3</span> Global Options</a></li>
-  <li><a href="#source-console-and-plots" id="toc-source-console-and-plots" class="nav-link" data-scroll-target="#source-console-and-plots"><span class="header-section-number">2.4</span> Source, Console and Plots</a></li>
+  <li><a href="#start-up" id="toc-start-up" class="nav-link" data-scroll-target="#start-up"><span class="header-section-number">1.2</span> Start-up</a></li>
+  <li><a href="#global-options" id="toc-global-options" class="nav-link" data-scroll-target="#global-options"><span class="header-section-number">1.3</span> Global Options</a></li>
+  <li><a href="#source-console-and-plots" id="toc-source-console-and-plots" class="nav-link" data-scroll-target="#source-console-and-plots"><span class="header-section-number">1.4</span> Source, Console and Plots</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./r.html">R Programming</a></li><li class="breadcrumb-item"><a href="./rstudio.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">RStudio</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./r.html">R Programming</a></li><li class="breadcrumb-item"><a href="./rstudio.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">RStudio</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio</span></h1>
 </div>
 
 
@@ -339,18 +339,18 @@ ul.task-list li input[type="checkbox"] {
 
 <p>RStudio is an integrated development environment (<a href="https://en.wikipedia.org/wiki/Integrated_development_environment">IDE</a>) that allows users to write code in a script and execute code to the R console in one application. Furthermore, RStudio has rich set of features that make data science projects easier to execute.</p>
 <p>While RStudio has originally been used to program in R, it has been extended to program in python with the use of the <a href="https://rstudio.github.io/reticulate/">reticulate</a> package.</p>
-<section id="installing" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="installing"><span class="header-section-number">2.1</span> Installing</h2>
+<section id="installing" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="installing"><span class="header-section-number">1.1</span> Installing</h2>
 <p>You can download and install the open-source (free) version of RStudio <a href="https://posit.co/downloads/">here</a>.</p>
-<section id="installing-on-windows" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="installing-on-windows"><span class="header-section-number">2.1.1</span> Installing on Windows</h3>
+<section id="installing-on-windows" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="installing-on-windows"><span class="header-section-number">1.1.1</span> Installing on Windows</h3>
 </section>
-<section id="installing-on-mac" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="installing-on-mac"><span class="header-section-number">2.1.2</span> Installing on Mac</h3>
+<section id="installing-on-mac" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="installing-on-mac"><span class="header-section-number">1.1.2</span> Installing on Mac</h3>
 </section>
 </section>
-<section id="start-up" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="start-up"><span class="header-section-number">2.2</span> Start-up</h2>
+<section id="start-up" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="start-up"><span class="header-section-number">1.2</span> Start-up</h2>
 <p>On start-up, RStudio will look like very similar to the image below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -378,8 +378,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Notice a new pane is created on the top-left that allows you to write R code in a script. This script is also connected to the R console below which will allow you to send lines of code from the script to the console to be executed (also known as <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>).</p>
 </section>
-<section id="global-options" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="global-options"><span class="header-section-number">2.3</span> Global Options</h2>
+<section id="global-options" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="global-options"><span class="header-section-number">1.3</span> Global Options</h2>
 <p>In this section, here are some recommended “Global Options” for users to set in RStudio. To begin, click on <em>Tools</em> ➜ <em>Global Options</em> from the top-menu. The following window should open:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -442,8 +442,8 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
-<section id="source-console-and-plots" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="source-console-and-plots"><span class="header-section-number">2.4</span> Source, Console and Plots</h2>
+<section id="source-console-and-plots" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="source-console-and-plots"><span class="header-section-number">1.4</span> Source, Console and Plots</h2>
 <p>The source pane allows you to write an R script for analysis. Below <code>x &lt;- mtcars</code> is written (top-left) and executed to R (top-right). Afterwards the “Environment” Tab in the lower right pane now how <code>x</code>. The “Environment” tab displays which R objects were created and available to use for further analysis.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -897,13 +897,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./r_basics.html" class="pagination-link  aria-label=" &lt;span="" r="" programming&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basic R Programming</span></span>
+      <a href="./r.html" class="pagination-link  aria-label=" r="" programming"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R Programming</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./r_base.html" class="pagination-link" aria-label="<span class='chapter-number'>3</span>&nbsp; <span class='chapter-title'>Base R</span>">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Base R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./r_basics.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>Basic R Programming</span>">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basic R Programming</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
