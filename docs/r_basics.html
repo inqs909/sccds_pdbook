@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SCCDS Professional Development Book - 1&nbsp; Basic R Programming</title>
+<title>SCCDS Professional Development Handbook - 1&nbsp; Basic R Programming</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,20 +131,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">SCCDS Professional Development Book</a> 
+      <a href="./">SCCDS Professional Development Handbook</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/inqs909/sccds_pdbook/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./SCCDS-Professional-Development-Book.pdf">
+            <a class="dropdown-item sidebar-tools-main-item" href="./SCCDS-Professional-Development-Handbook.pdf">
               <i class="bi bi-bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./SCCDS-Professional-Development-Book.epub">
+            <a class="dropdown-item sidebar-tools-main-item" href="./SCCDS-Professional-Development-Handbook.epub">
               <i class="bi bi-bi-journal pe-1"></i>
             Download ePub
             </a>
@@ -367,6 +367,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-basics-lists" id="toc-sec-basics-lists" class="nav-link" data-scroll-target="#sec-basics-lists"><span class="header-section-number">1.4.6</span> Lists</a></li>
   </ul></li>
   <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages"><span class="header-section-number">1.5</span> R Packages</a></li>
+  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data"><span class="header-section-number">1.6</span> Load Data</a>
+  <ul class="collapse">
+  <li><a href="#importing-data-via-rstudio" id="toc-importing-data-via-rstudio" class="nav-link" data-scroll-target="#importing-data-via-rstudio"><span class="header-section-number">1.6.1</span> Importing Data Via RStudio</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -742,7 +746,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-03-18 14:23:39 PDT"</code></pre>
+<pre><code>[1] "2024-03-19 15:50:39 PDT"</code></pre>
 </div>
 </div>
 <p>Now lets check if its of POSIX class, you can use the <code>class()</code> function to figure out which class is it. Try <code>class(Sys.time())</code>:</p>
@@ -809,9 +813,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The last data class in R is missing data. The table below provides a brief introduction of the different types of missing data</p>
 <table class="table">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 53%">
-<col style="width: 23%">
+<col style="width: 24%">
+<col style="width: 50%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -973,10 +977,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">rbinom</span>(<span class="dv">12</span>, <span class="dv">1</span>, .<span class="dv">5</span>), <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3]
-[1,]    0    0    1
-[2,]    1    0    0
-[3,]    0    1    1
-[4,]    1    0    1</code></pre>
+[1,]    0    0    0
+[2,]    1    1    0
+[3,]    1    0    1
+[4,]    1    0    0</code></pre>
 </div>
 </div>
 <p>Your matrix may look different, but that is to be expected. Notice that some elements in a matrix are 0’s and some are 1’s. Each element in a matrix can hold any value.</p>
@@ -1240,9 +1244,32 @@ $array
 </section>
 <section id="r-packages" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="r-packages"><span class="header-section-number">1.5</span> R Packages</h2>
-<p>As I stated before, R can be extended to do more things, such as create this tutorial. This is done by installing R packages. An R package can be thought of as extra software. This allows you to do more with R. To install an R package, you will need to use <code>install.packages("NAME_OF_PACKAGE")</code>. Once you install it, you do not need to install it again. To use the R package, use <code>library("NAME_OF_PACKAGE")</code>. This allows you to load the package in R. You will need to load the package every time you start R. For more information, please watch the video: <a href="https://vimeo.com/203516241" class="uri">https://vimeo.com/203516241</a>.</p>
+<p>As stated before, R’s functionality can be extended to do more things by installing R packages. An R package can be thought as extra software. This allows you to do more with R. To install an R package, you will need to use the <code>install.packages("NAME_OF_PACKAGE")</code> function. Once you install it, you do not need to install it again. To use the R package, use <code>library("NAME_OF_PACKAGE")</code>. This allows you to load the package in R. You will need to load the package every time you start R. For more information, please watch the video:</p>
+<iframe src="https://player.vimeo.com/video/203516241?h=819422ce1e&amp;color=428bca" width="640" height="400" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe>
+<p><a href="https://vimeo.com/203516241">install Packages</a> from <a href="https://vimeo.com/rstudioinc">RStudio, Inc.</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+</section>
+<section id="load-data" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="load-data"><span class="header-section-number">1.6</span> Load Data</h2>
+<p>In order to analyze data in R, we must load it into the R environment. This can be done in 2 ways, using the “Import Dataset” button in the “Environment” tab in RStudio or use R code.</p>
+<section id="importing-data-via-rstudio" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="importing-data-via-rstudio"><span class="header-section-number">1.6.1</span> Importing Data Via RStudio</h3>
+<p>This is the most recommended way to import data in RStudio because it can provide R code that you can copy and paste in an R Script.</p>
+<p>To begin choose the “Import Dataset” from the “Environment” tab in RStudio:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/import.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Afterwards, select the type of file that you may need to import. If you select the “From Text (readr)…” option, a popup window will appear:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/import_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>You can now navigate to the file that you may want to import with the “Browse…” button and modify it the process as needed with the options. Afterwards, you can copy the code in the lower-right hand corner and save it in an R script</p>
 
 
+</section>
 </section>
 <aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>

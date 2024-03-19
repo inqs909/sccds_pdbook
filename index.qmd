@@ -1,8 +1,12 @@
+::: callout-warning
+This is a current work in progress. There will be several revisions before the final product is produced.
+:::
+
 # Teaching Data Science {.unnumbered}
 
 ## SCCDS
 
-The [Southern California Consortium of Data Science](https://sites.google.com/view/socaldatasci/home) is a collaboration of 8 institutions from the CCC, CSU, and UC systems.
+The [Southern California Consortium For Data Science](https://sites.google.com/view/socaldatasci/home) is a collaboration of 8 institutions from the CCC, CSU, and UC systems.
 
 ## Acknowledgements
 
