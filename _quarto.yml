@@ -39,6 +39,7 @@ book:
         - markdown.qmd
         - document.qmd
         - presentations.qmd
+        - website.qmd
   sidebar:
     style: docked
     background: light

@@ -16,21 +16,21 @@ You can download and install the open-source (free) version of RStudio [here](ht
 
 On start-up, RStudio will look like very similar to the image below:
 
-![](img/rstudio_1.png){fig-align="center"}
+![](img/rstudio_1.png){fig-alt="An image of the RStudio IDE. There are 3 panes displayed with the console, environment, and plots showing. Majority of the panes are empty except for the console which contains the R startup message." fig-align="center"}
 
 You can see that there are 3 parts in RStudio, these are known as panes.
 
 Additionally, we can add a fourth pane to RStudio for writing code in a text file. Choosing the white plus sign with a green border followed by a white document on the upper-right hand side:
 
-![](img/rstudio_2.png){fig-align="center"}
+![](img/rstudio_2.png){fig-alt="A zoomed portion of Rstudio showing add buttons for new files or RStudio Projects." fig-align="center"}
 
 This will open up a menu of text files that a user can choose to code in:
 
-![](img/rstudio_3.png){fig-align="center"}
+![](img/rstudio_3.png){fig-alt="The drop-down menu when the add new file is chosen. The different types of files are displayed that can be chosen." fig-align="center"}
 
 The "R Script" Button will open a standard R text file with the extension as ".R". This is the text file that most R programmers used to save and execute code. This will make RStudio to look like this:
 
-![](img/rstudio_4.png){fig-align="center"}
+![](img/rstudio_4.png){fig-alt="An image of the RStudio IDE. There are 4 panes displayed with the script (source) console, environment, and plots showing. Majority of the panes are empty except for the console which contains the R startup message." fig-align="center"}
 
 Notice a new pane is created on the top-left that allows you to write R code in a script. This script is also connected to the R console below which will allow you to send lines of code from the script to the console to be executed (also known as [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)).
 
@@ -38,7 +38,7 @@ Notice a new pane is created on the top-left that allows you to write R code in 
 
 In this section, here are some recommended "Global Options" for users to set in RStudio. To begin, click on *Tools* ➜ *Global Options* from the top-menu. The following window should open:
 
-![](img/rstudio_5.png){fig-align="center"}
+![](img/rstudio_5.png){fig-alt="The global options of RStudio are displayed. The \"R General\" options are displayed." fig-align="center"}
 
 The window allows you to make several changes in RStudio that will make your experience better. Here is a list of items that are recommended for users to change:
 
@@ -48,19 +48,19 @@ The window allows you to make several changes in RStudio that will make your exp
 
 [^rstudio-1]: This will ensure that your environment is always recreated from the code you write and not from anything else. It increases reproducibility.
 
-![](img/rstudio_6.png){fig-align="center"}
+![](img/rstudio_6.png){fig-alt="The global options of RStudio are displayed. The \"Code\" options are displayed." fig-align="center"}
 
 2.  *Code*
     1.  "Use native pipe operator `|>`" is recommended[^rstudio-2] (Optional)
 
 [^rstudio-2]: The native pipe does not require to have any packages installed. Additionally, it executes code slightly faster than `%>%`.
 
-![](img/rstudio_8.png){fig-align="center"}
+![](img/rstudio_8.png){fig-alt="The global options of RStudio are displayed. The \"Appearance\" options are displayed with code colors are changed." fig-align="center"}
 
 3.  *Appearance*
     1.  In the "Editor theme:" box, choose a setting that you will prefer to work in (Optional)
 
-![](img/rstudio_7.png){fig-align="center"}
+![](img/rstudio_7.png){fig-alt="The global options of RStudio are displayed. The \"Pane Layout\" options are displayed to control how the panes are organized in RStudio." fig-align="center"}
 
 4.  *Pane Layout* (Optional)
     1.  Change the pane layout to have the "Console" on the top-right corner
@@ -70,38 +70,38 @@ This will allow for you to expand the "Source" (script) to be expanded for the e
 
 RStudio will look more like this:
 
-![](img/rstudio_9.png){fig-align="center"}
+![](img/rstudio_9.png){fig-alt="The RStudio IDE is displayed with 4 panes: source, history, console, and environment." fig-align="center"}
 
 With the expanded script:
 
-![](img/rstudio_10.png){fig-align="center"}
+![](img/rstudio_10.png){fig-alt="The RStudio IDE is displayed with 3 panes: source, console, and environment. The source pane is expanded to cover half the image." fig-align="center"}
 
 ## Source, Console and Plots
 
 The source pane allows you to write an R script for analysis. Below `x <- mtcars` is written (top-left) and executed to R (top-right). Afterwards the "Environment" Tab in the lower right pane now how `x`. The "Environment" tab displays which R objects were created and available to use for further analysis.
 
-![](img/rstudio_11.png){fig-align="center"}
+![](img/rstudio_11.png){fig-alt="The RStudio IDE is displayed with 3 panes: source, console, and environment. The source pane is expanded to cover half the image. The source pane contains written code, the console shows executed code, and environment shows objects created." fig-align="center"}
 
 Since `x` is a data frame, clicking on `x` from the "Environment" tab will open a new tab in the Source pane containing the data set:
 
-![](img/rstudio_12.png){fig-align="center"}
+![](img/rstudio_12.png){fig-alt="The RStudio IDE is displayed with 3 panes: source, console, and environment. The source pane is expanded to cover half the image. The source pane displays a data set." fig-align="center"}
 
 If we create an object that is a vector ( `y <- 4` as pictured below), the "Environment" tab now shows a new object as a value.
 
-![](img/rstudio_13.png){fig-align="center"}
+![](img/rstudio_13.png){fig-alt="The RStudio IDE is displayed with 3 panes: source, console, and environment. The source pane is expanded to cover half the image. The source pane contains written code, the console shows executed code, and environment shows objects created." fig-align="center"}
 
 If a plot is created (`plot(mtcars$mpg)`), a plot will be displayed in the "Plots" tab in the lower-right pane.
 
-![](img/rstudio_17.png){fig-align="center"}
+![](img/rstudio_17.png){fig-alt="The RStudio IDE is displayed with 3 panes: source, console, and plot. The source pane is expanded to cover half the image. The source pane contains written code, the console shows executed code, and plot pane shows a dot plot on mtcars data set mpg.." fig-align="center"}
 
 The lower right-pane also contains other useful features such as access to your computer's file directory:
 
-![](img/rstudio_14.png){fig-align="center"}
+![](img/rstudio_14.png){fig-alt="The RStudio IDE is displayed with 3 panes: source, console, and files on computer. The source pane is expanded to cover half the image." fig-align="center"}
 
 Access to installed packages:
 
-![](img/rstudio_16.png){fig-align="center"}
+![](img/rstudio_16.png){fig-alt="The RStudio IDE is displayed with 3 panes: source, console, and R packages installed on computer. The source pane is expanded to cover half the image." fig-align="center"}
 
 And access to help documentation:
 
-![](img/rstudio_15.png){fig-align="center"}
+![](img/rstudio_15.png){fig-alt="The RStudio IDE is displayed with 3 panes: source, console, and help documentation on the mean function. The source pane is expanded to cover half the image." fig-align="center"}

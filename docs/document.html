@@ -134,7 +134,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reporting.html">Scientific Documentation</a></li><li class="breadcrumb-item"><a href="./document.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quarto Documents with R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reporting.html">Scientific Documentation and Communication</a></li><li class="breadcrumb-item"><a href="./document.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quarto Documents with R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -322,7 +322,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./reporting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Scientific Documentation</span></a>
+ <span class="menu-text">Scientific Documentation and Communication</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -343,7 +343,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./presentations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Quarto Presentations in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Quarto Presentations with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./website.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Creating a Quarto Website</span></span></a>
   </div>
 </li>
       </ul>
@@ -391,7 +397,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reporting.html">Scientific Documentation</a></li><li class="breadcrumb-item"><a href="./document.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quarto Documents with R</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reporting.html">Scientific Documentation and Communication</a></li><li class="breadcrumb-item"><a href="./document.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quarto Documents with R</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quarto Documents with R</span></h1>
 </div>
@@ -438,23 +444,21 @@ div.csl-indent {
 <section id="global-chunk-options" class="level3" data-number="16.3.1">
 <h3 data-number="16.3.1" class="anchored" data-anchor-id="global-chunk-options"><span class="header-section-number">16.3.1</span> Global Chunk Options</h3>
 <p>To set global chunks options, add the two lines to YAML header:</p>
-<div class="cell tbl-cap-location-bottom">
-<div class="sourceCode cell-code" id="cb3" data-cap-location="bottom"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>knitr:</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  opts_chunk: </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>#| echo: true</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>knitr:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  opts_chunk: </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Followed by the chunks and R options you want to set:</p>
-<div class="cell tbl-cap-location-bottom">
-<div class="sourceCode cell-code" id="cb4" data-cap-location="bottom"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>knitr:</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  opts_chunk:</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    eval: false</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    tidy: styler</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    R.options:</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      digits: 2</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>#| echo: true</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>knitr:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  opts_chunk:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    eval: false</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    tidy: styler</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    R.options:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      digits: 2</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A couple of recommended chunk options set globally are <code>eval: false</code>, and <code>tidy: styler</code>. These options make rendering the document easier.</p>
 <p>One chunk option is <code>tidy: styler</code>. This tells Quarto to prevent code from printing in a long line, possibly off the page. For example, look at the output of this chunk:</p>
 <div class="cell tbl-cap-location-bottom">
@@ -518,7 +522,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="document_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="336"></p>
+<p><img src="document_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="336"></p>
 </figure>
 </div>
 </div>
@@ -537,7 +541,7 @@ div.csl-indent {
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="in">plot(mtcars$mpg, mtcars$drat)</span></span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-mtcars" class="quarto-figure quarto-figure-center anchored" width="336" data-cap-location="bottom" data-fig-align="center">
+<div id="fig-mtcars" class="quarto-figure quarto-figure-center anchored" data-cap-location="bottom" width="336" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mtcars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="document_files/figure-html/fig-mtcars-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="336">
@@ -559,8 +563,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
 <section id="formatting" class="level2" data-number="16.4">
 <h2 data-number="16.4" class="anchored" data-anchor-id="formatting"><span class="header-section-number">16.4</span> Formatting</h2>
 <p>Qmd files allows a table to be constructed in 2 ways, manually or using a package such as the <code>gt</code> package. Below is the example code of <a href="markdown.html#tbl-greektable" class="quarto-xref">Table&nbsp;<span>15.2</span></a>:</p>
-<div class="cell tbl-cap-location-bottom">
-<div class="sourceCode cell-code" id="cb15" data-cap-location="bottom"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>| Letter     |   Lowercase   |      Code     |  Uppercase |    Code    |</span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>| Letter     |   Lowercase   |      Code     |  Uppercase |    Code    |</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>|:-----------|:-------------:|:-------------:|:----------:|:----------:|</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>| alpha      |    $\alpha$   |    `\alpha`   |     --     |     --     |</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>| beta       |    $\beta$    |    `\beta`    |     --     |     --     |</span>
@@ -588,7 +591,6 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
 <span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>| varepsilon | $\varepsilon$ | `\varepsilon` |     --     |     --     |</span>
 <span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>: LaTeX syntax for greek letters. {#tbl-greektable}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>The last line will adds a caption to the table and <code>{#tbl-greektable}</code> creates a label to reference the table in the text using <code>@tbl-greektable</code>.</p>
 <p>The <code>gt</code> function from the <code>gt</code> package creates a table from a data frame or R object. Here is an example code to create a table from the first 6 rows of the <code>mtcars</code> dataset:</p>
 <div class="cell" data-tbl-cap-location="bottom">
@@ -605,23 +607,23 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-mtcarsdata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="wqkwlpgrvi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wqkwlpgrvi table {
+<div id="rgvkolnkrh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rgvkolnkrh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wqkwlpgrvi thead, #wqkwlpgrvi tbody, #wqkwlpgrvi tfoot, #wqkwlpgrvi tr, #wqkwlpgrvi td, #wqkwlpgrvi th {
+#rgvkolnkrh thead, #rgvkolnkrh tbody, #rgvkolnkrh tfoot, #rgvkolnkrh tr, #rgvkolnkrh td, #rgvkolnkrh th {
   border-style: none;
 }
 
-#wqkwlpgrvi p {
+#rgvkolnkrh p {
   margin: 0;
   padding: 0;
 }
 
-#wqkwlpgrvi .gt_table {
+#rgvkolnkrh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -647,12 +649,12 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-left-color: #D3D3D3;
 }
 
-#wqkwlpgrvi .gt_caption {
+#rgvkolnkrh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wqkwlpgrvi .gt_title {
+#rgvkolnkrh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -664,7 +666,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-bottom-width: 0;
 }
 
-#wqkwlpgrvi .gt_subtitle {
+#rgvkolnkrh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -676,7 +678,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-top-width: 0;
 }
 
-#wqkwlpgrvi .gt_heading {
+#rgvkolnkrh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -688,13 +690,13 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-right-color: #D3D3D3;
 }
 
-#wqkwlpgrvi .gt_bottom_border {
+#rgvkolnkrh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wqkwlpgrvi .gt_col_headings {
+#rgvkolnkrh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -709,7 +711,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-right-color: #D3D3D3;
 }
 
-#wqkwlpgrvi .gt_col_heading {
+#rgvkolnkrh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -729,7 +731,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   overflow-x: hidden;
 }
 
-#wqkwlpgrvi .gt_column_spanner_outer {
+#rgvkolnkrh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -741,15 +743,15 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 4px;
 }
 
-#wqkwlpgrvi .gt_column_spanner_outer:first-child {
+#rgvkolnkrh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wqkwlpgrvi .gt_column_spanner_outer:last-child {
+#rgvkolnkrh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wqkwlpgrvi .gt_column_spanner {
+#rgvkolnkrh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -761,11 +763,11 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   width: 100%;
 }
 
-#wqkwlpgrvi .gt_spanner_row {
+#rgvkolnkrh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wqkwlpgrvi .gt_group_heading {
+#rgvkolnkrh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -791,7 +793,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   text-align: left;
 }
 
-#wqkwlpgrvi .gt_empty_group_heading {
+#rgvkolnkrh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -806,15 +808,15 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   vertical-align: middle;
 }
 
-#wqkwlpgrvi .gt_from_md > :first-child {
+#rgvkolnkrh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wqkwlpgrvi .gt_from_md > :last-child {
+#rgvkolnkrh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wqkwlpgrvi .gt_row {
+#rgvkolnkrh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -833,7 +835,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   overflow-x: hidden;
 }
 
-#wqkwlpgrvi .gt_stub {
+#rgvkolnkrh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -846,7 +848,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#wqkwlpgrvi .gt_stub_row_group {
+#rgvkolnkrh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -860,15 +862,15 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   vertical-align: top;
 }
 
-#wqkwlpgrvi .gt_row_group_first td {
+#rgvkolnkrh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wqkwlpgrvi .gt_row_group_first th {
+#rgvkolnkrh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wqkwlpgrvi .gt_summary_row {
+#rgvkolnkrh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -878,16 +880,16 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#wqkwlpgrvi .gt_first_summary_row {
+#rgvkolnkrh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wqkwlpgrvi .gt_first_summary_row.thick {
+#rgvkolnkrh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wqkwlpgrvi .gt_last_summary_row {
+#rgvkolnkrh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -897,7 +899,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-bottom-color: #D3D3D3;
 }
 
-#wqkwlpgrvi .gt_grand_summary_row {
+#rgvkolnkrh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -907,7 +909,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#wqkwlpgrvi .gt_first_grand_summary_row {
+#rgvkolnkrh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -917,7 +919,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-top-color: #D3D3D3;
 }
 
-#wqkwlpgrvi .gt_last_grand_summary_row_top {
+#rgvkolnkrh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -927,11 +929,11 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-bottom-color: #D3D3D3;
 }
 
-#wqkwlpgrvi .gt_striped {
+#rgvkolnkrh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wqkwlpgrvi .gt_table_body {
+#rgvkolnkrh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -940,7 +942,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-bottom-color: #D3D3D3;
 }
 
-#wqkwlpgrvi .gt_footnotes {
+#rgvkolnkrh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -954,7 +956,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-right-color: #D3D3D3;
 }
 
-#wqkwlpgrvi .gt_footnote {
+#rgvkolnkrh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -963,7 +965,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#wqkwlpgrvi .gt_sourcenotes {
+#rgvkolnkrh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -977,7 +979,7 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-right-color: #D3D3D3;
 }
 
-#wqkwlpgrvi .gt_sourcenote {
+#rgvkolnkrh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -985,63 +987,63 @@ Figure&nbsp;16.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#wqkwlpgrvi .gt_left {
+#rgvkolnkrh .gt_left {
   text-align: left;
 }
 
-#wqkwlpgrvi .gt_center {
+#rgvkolnkrh .gt_center {
   text-align: center;
 }
 
-#wqkwlpgrvi .gt_right {
+#rgvkolnkrh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wqkwlpgrvi .gt_font_normal {
+#rgvkolnkrh .gt_font_normal {
   font-weight: normal;
 }
 
-#wqkwlpgrvi .gt_font_bold {
+#rgvkolnkrh .gt_font_bold {
   font-weight: bold;
 }
 
-#wqkwlpgrvi .gt_font_italic {
+#rgvkolnkrh .gt_font_italic {
   font-style: italic;
 }
 
-#wqkwlpgrvi .gt_super {
+#rgvkolnkrh .gt_super {
   font-size: 65%;
 }
 
-#wqkwlpgrvi .gt_footnote_marks {
+#rgvkolnkrh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wqkwlpgrvi .gt_asterisk {
+#rgvkolnkrh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wqkwlpgrvi .gt_indent_1 {
+#rgvkolnkrh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wqkwlpgrvi .gt_indent_2 {
+#rgvkolnkrh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wqkwlpgrvi .gt_indent_3 {
+#rgvkolnkrh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wqkwlpgrvi .gt_indent_4 {
+#rgvkolnkrh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wqkwlpgrvi .gt_indent_5 {
+#rgvkolnkrh .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1192,27 +1194,24 @@ Table&nbsp;16.1: The MTCARS Dataset
 <p>You will only need to run these lines of code once and then you can render pdf documents easily.</p>
 <section id="html" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="html">HTML</h3>
-<div class="cell tbl-cap-location-bottom">
-<div class="sourceCode cell-code" id="cb20" data-cap-location="bottom"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>format: html</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>#| echo: true</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>format: html</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="pdf" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="pdf">PDF</h3>
-<div class="cell tbl-cap-location-bottom">
-<div class="sourceCode cell-code" id="cb21" data-cap-location="bottom"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>format: pdf</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>#| echo: true</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>format: pdf</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="word-document" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="word-document">Word Document</h3>
-<div class="cell tbl-cap-location-bottom">
-<div class="sourceCode cell-code" id="cb22" data-cap-location="bottom"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>format: docx</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>#| echo: true</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>format: docx</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="resources-and-tips" class="level2" data-number="16.7">
@@ -1686,8 +1685,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./presentations.html" class="pagination-link" aria-label="<span class='chapter-number'>17</span>&nbsp; <span class='chapter-title'>Quarto Presentations in R</span>">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Quarto Presentations in R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./presentations.html" class="pagination-link" aria-label="<span class='chapter-number'>17</span>&nbsp; <span class='chapter-title'>Quarto Presentations with R</span>">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Quarto Presentations with R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

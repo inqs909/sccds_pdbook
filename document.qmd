@@ -53,7 +53,7 @@ R chunks have options that will alter how the code or the output is rendered. Th
 
 To set global chunks options, add the two lines to YAML header:
 
-```{default}
+``` default
 #| echo: true
 ---
 knitr:
@@ -63,7 +63,7 @@ knitr:
 
 Followed by the chunks and R options you want to set:
 
-```{default}
+``` default
 #| echo: true
 ---
 knitr:
@@ -171,7 +171,7 @@ Instead of evaluating code in a chunk, code can evaluated in the text instead. F
 
 Qmd files allows a table to be constructed in 2 ways, manually or using a package such as the `gt` package. Below is the example code of @tbl-greektable:
 
-```{default}
+``` default
 | Letter     |   Lowercase   |      Code     |  Uppercase |    Code    |
 |:-----------|:-------------:|:-------------:|:----------:|:----------:|
 | alpha      |    $\alpha$   |    `\alpha`   |     --     |     --     |
@@ -259,7 +259,7 @@ You will only need to run these lines of code once and then you can render pdf d
 
 ### HTML {.unnumbered}
 
-```{default}
+``` default
 #| echo: true
 ---
 format: html
@@ -268,7 +268,7 @@ format: html
 
 ### PDF {.unnumbered}
 
-```{default}
+``` default
 #| echo: true
 ---
 format: pdf
@@ -277,7 +277,7 @@ format: pdf
 
 ### Word Document {.unnumbered}
 
-```{default}
+``` default
 #| echo: true
 ---
 format: docx

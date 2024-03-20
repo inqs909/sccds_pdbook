@@ -268,7 +268,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./reporting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Scientific Documentation</span></a>
+ <span class="menu-text">Scientific Documentation and Communication</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -289,7 +289,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./presentations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Quarto Presentations in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Quarto Presentations with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./website.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Creating a Quarto Website</span></span></a>
   </div>
 </li>
       </ul>
@@ -354,26 +360,26 @@ ul.task-list li input[type="checkbox"] {
 <p>On start-up, RStudio will look like very similar to the image below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="An image of the RStudio IDE. There are 3 panes displayed with the console, environment, and plots showing. Majority of the panes are empty except for the console which contains the R startup message."></p>
 </figure>
 </div>
 <p>You can see that there are 3 parts in RStudio, these are known as panes.</p>
 <p>Additionally, we can add a fourth pane to RStudio for writing code in a text file. Choosing the white plus sign with a green border followed by a white document on the upper-right hand side:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A zoomed portion of Rstudio showing add buttons for new files or RStudio Projects."></p>
 </figure>
 </div>
 <p>This will open up a menu of text files that a user can choose to code in:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The drop-down menu when the add new file is chosen. The different types of files are displayed that can be chosen."></p>
 </figure>
 </div>
 <p>The “R Script” Button will open a standard R text file with the extension as “.R”. This is the text file that most R programmers used to save and execute code. This will make RStudio to look like this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="An image of the RStudio IDE. There are 4 panes displayed with the script (source) console, environment, and plots showing. Majority of the panes are empty except for the console which contains the R startup message."></p>
 </figure>
 </div>
 <p>Notice a new pane is created on the top-left that allows you to write R code in a script. This script is also connected to the R console below which will allow you to send lines of code from the script to the console to be executed (also known as <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>).</p>
@@ -383,7 +389,7 @@ ul.task-list li input[type="checkbox"] {
 <p>In this section, here are some recommended “Global Options” for users to set in RStudio. To begin, click on <em>Tools</em> ➜ <em>Global Options</em> from the top-menu. The following window should open:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The global options of RStudio are displayed. The &quot;R General&quot; options are displayed."></p>
 </figure>
 </div>
 <p>The window allows you to make several changes in RStudio that will make your experience better. Here is a list of items that are recommended for users to change:</p>
@@ -396,7 +402,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_6.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_6.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The global options of RStudio are displayed. The &quot;Code&quot; options are displayed."></p>
 </figure>
 </div>
 <ol start="2" type="1">
@@ -407,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_8.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_8.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The global options of RStudio are displayed. The &quot;Appearance&quot; options are displayed with code colors are changed."></p>
 </figure>
 </div>
 <ol start="3" type="1">
@@ -418,7 +424,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_7.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_7.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The global options of RStudio are displayed. The &quot;Pane Layout&quot; options are displayed to control how the panes are organized in RStudio."></p>
 </figure>
 </div>
 <ol start="4" type="1">
@@ -432,13 +438,13 @@ ul.task-list li input[type="checkbox"] {
 <p>RStudio will look more like this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_9.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_9.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The RStudio IDE is displayed with 4 panes: source, history, console, and environment."></p>
 </figure>
 </div>
 <p>With the expanded script:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_10.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_10.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The RStudio IDE is displayed with 3 panes: source, console, and environment. The source pane is expanded to cover half the image."></p>
 </figure>
 </div>
 </section>
@@ -447,43 +453,43 @@ ul.task-list li input[type="checkbox"] {
 <p>The source pane allows you to write an R script for analysis. Below <code>x &lt;- mtcars</code> is written (top-left) and executed to R (top-right). Afterwards the “Environment” Tab in the lower right pane now how <code>x</code>. The “Environment” tab displays which R objects were created and available to use for further analysis.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_11.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_11.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The RStudio IDE is displayed with 3 panes: source, console, and environment. The source pane is expanded to cover half the image. The source pane contains written code, the console shows executed code, and environment shows objects created."></p>
 </figure>
 </div>
 <p>Since <code>x</code> is a data frame, clicking on <code>x</code> from the “Environment” tab will open a new tab in the Source pane containing the data set:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_12.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_12.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The RStudio IDE is displayed with 3 panes: source, console, and environment. The source pane is expanded to cover half the image. The source pane displays a data set."></p>
 </figure>
 </div>
 <p>If we create an object that is a vector ( <code>y &lt;- 4</code> as pictured below), the “Environment” tab now shows a new object as a value.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_13.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_13.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The RStudio IDE is displayed with 3 panes: source, console, and environment. The source pane is expanded to cover half the image. The source pane contains written code, the console shows executed code, and environment shows objects created."></p>
 </figure>
 </div>
 <p>If a plot is created (<code>plot(mtcars$mpg)</code>), a plot will be displayed in the “Plots” tab in the lower-right pane.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_17.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_17.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The RStudio IDE is displayed with 3 panes: source, console, and plot. The source pane is expanded to cover half the image. The source pane contains written code, the console shows executed code, and plot pane shows a dot plot on mtcars data set mpg.."></p>
 </figure>
 </div>
 <p>The lower right-pane also contains other useful features such as access to your computer’s file directory:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_14.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_14.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The RStudio IDE is displayed with 3 panes: source, console, and files on computer. The source pane is expanded to cover half the image."></p>
 </figure>
 </div>
 <p>Access to installed packages:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_16.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_16.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The RStudio IDE is displayed with 3 panes: source, console, and R packages installed on computer. The source pane is expanded to cover half the image."></p>
 </figure>
 </div>
 <p>And access to help documentation:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/rstudio_15.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="img/rstudio_15.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The RStudio IDE is displayed with 3 panes: source, console, and help documentation on the mean function. The source pane is expanded to cover half the image."></p>
 </figure>
 </div>
 
