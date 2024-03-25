@@ -24,6 +24,9 @@ book:
         - python_basics.qmd
         - python_ds.qmd
         - python_teaching.qmd
+    - part: data.qmd
+      chapters: 
+        - tidytuesday.qmd
     - part: oc.qmd
       chapters: 
         - notebooks.qmd

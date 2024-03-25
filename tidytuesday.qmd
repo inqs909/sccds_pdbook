@@ -1,0 +1,40 @@
+# Tidy Tuesday Data
+
+The R for Data Science Community releases data that can be used to practice data science skills.
+
+If you do decide to use any of these data set, we kindly ask to fill the R4DS Survey to indicate that the data set are being used in class.
+
+## Taylor Swift Data
+
+The `taylor` package provides the `taylor_all_songs` and `taylor_album_songs` data sets that contain information on all of Taylor Swift's songs. Each data set contains basic information of songs (song release date, album releaser, ...) and Spotify API level data (danceability score, energy score, ...). You can install the `taylor` package with the following code:
+
+```{r}
+#| echo: true
+#| eval: false
+install.packages("taylor")
+
+```
+
+Access the data with:
+
+```{r}
+#| echo: true
+#| eval: false
+
+taylor::taylor_album_songs
+
+## OR
+
+library(taylor)
+taylor::taylor_album_songs
+```
+
+The help documentation can be found here:
+
+### Use Case
+
+The Spotify API data
+
+## Anime
+
+## 
