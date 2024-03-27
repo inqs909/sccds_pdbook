@@ -73,7 +73,6 @@ knitr:
     R.options:
       digits: 2
 ---
-
 ```
 
 A couple of recommended chunk options set globally are `eval: false`, and `tidy: styler`. These options make rendering the document easier.
@@ -200,7 +199,6 @@ Qmd files allows a table to be constructed in 2 ways, manually or using a packag
 | varepsilon | $\varepsilon$ | `\varepsilon` |     --     |     --     |
 
 : LaTeX syntax for greek letters. {#tbl-greektable}
-
 ```
 
 The last line will adds a caption to the table and `{#tbl-greektable}` creates a label to reference the table in the text using `@tbl-greektable`.
@@ -225,7 +223,7 @@ Table @tbl-mtcarsdata is referenced by using the label created in the chunk and 
 install.packages("gt")
 ```
 
-## Citations and Referneces
+## Citations and References
 
 Qmd documents contains capabilities to add citations and a bibliography. For example, to cite this textbook [@mendenhallSecondCourseStatistics2012], use the `@` symbol followed by a citation identifier from the `.bib` file surrounded by square brackets, `[@mendenhallSecondCourseStatistics2012]`. To cite your textbook again [-@mendenhallSecondCourseStatistics2012] without the authors names, use a `-` sign in front of the `@` symbol, `[-@mendenhallSecondCourseStatistics2012]`. To cite multiple books [@casellaStatisticalInference1990; @rohatgiIntroductionProbabilityStatistics2015; @resnickProbabilityPath2014; @lehmannTheoryPointEstimation1998; @lehmannTestingStatisticalHypotheses2005], add each citation inside the square brackets with the `@` symbol and separate them with semicolons, `[@casellaStatisticalInference1990; @rohatgiIntroductionProbabilityStatistics2015; @resnickProbabilityPath2014; @lehmannTheoryPointEstimation1998; @lehmannTestingStatisticalHypotheses2005]`.
 
@@ -302,6 +300,10 @@ format: docx
 -   [UCLA Resource](https://stats.oarc.ucla.edu/stat/data/rmarkdown/rmarkdown_seminar_flat.html#yaml-header)
 -   [Reproducible Research](https://monashdatafluency.github.io/r-rep-res/yaml-header.html)
 -   [RMarkdown Crash Course](https://zsmith27.github.io/rmarkdown_crash-course/lesson-4-yaml-headers.html)
+
+### Images
+
+-   [Alternative Text Guidelines](https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81)
 
 ### Tips {.unnumbered}
 

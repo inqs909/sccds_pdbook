@@ -33,16 +33,17 @@ book:
         - google.qmd
         - jupyterhub.qmd
         - lms.qmd
-    - part: vc.qmd
-      chapters: 
-        - vc_github.qmd
-        - vc_git.qmd
     - part: reporting.qmd
       chapters:
         - markdown.qmd
         - document.qmd
         - presentations.qmd
+    - part: vc.qmd
+      chapters: 
+        - vc_github.qmd
+        - vc_git.qmd
         - website.qmd
+
   sidebar:
     style: docked
     background: light

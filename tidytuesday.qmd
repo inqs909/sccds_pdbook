@@ -29,12 +29,58 @@ library(taylor)
 taylor::taylor_album_songs
 ```
 
-The help documentation can be found here:
+The help documentation can be found here: <https://taylor.wjakethompson.com/>
 
-### Use Case
+### Data
 
-The Spotify API data
+One hundred randomly selected songs are displayed below:
+
+```{r}
+#| echo: false
+
+taylor::taylor_album_songs |> 
+  dplyr::slice_sample(n = 100) |> 
+  DT::datatable(options = list(dom = "tp", pageLength = 5))
+
+```
 
 ## Anime
 
-## 
+The `anime` data set from MyAnimeList contains information on rankings and popularity scores of different anime episodes. More information can be found [here.](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-04-23) The data set contains 77,911 observation and 28 variables. **Warning: This data set will take over 30 MB to load up in R.**
+
+```{r}
+#| message: false
+anime <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-04-23/tidy_anime.csv")
+```
+
+### Data
+
+Here is a sample of the data set, with the `synopsis` variable removed to display the table better.
+
+```{r}
+#| echo: false
+anime |> 
+  dplyr::slice_sample(n=100) |> 
+  dplyr::select(-synopsis) |> 
+  DT::datatable(options = list(dom = "tp", pageLength = 3))
+
+```
+
+## Starbucks
+
+```{r}
+#| message: false
+
+starbucks <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-12-21/starbucks.csv')
+
+```
+
+### Data
+
+A random sample of 100 products are shown.
+
+```{r}
+starbucks |> 
+  dplyr::slice_sample(n=100) |> 
+  DT::datatable(options = list(dom = "tp", pageLength = 5))
+```
