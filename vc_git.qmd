@@ -1,1 +1,11 @@
 # Git Basics
+
+## Installation
+
+### Windows
+
+[Git for Windows](https://gitforwindows.org/)
+
+### MacOS
+
+[Install Here](https://git-scm.com/downloads)

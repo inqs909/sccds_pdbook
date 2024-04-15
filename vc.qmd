@@ -1,13 +1,23 @@
 # Version Control
 
-How many times when you are working finalizing a document and you save it as `final_15.docx` or something like `true_final_5.docx` or `FINAL_FINAL_3.docx` or `ONLY_LOOK_AT_THIS_ONE_FINAL_2.docx`. This is a common trait all of do to ensure that we save our updates so we can look at the differences between versions. This is where version control can help organize and track your changes between different versions of a file.
+How many times when you are working finalizing a document and you save it as `final_15.docx` or something like `true_final_5.docx` or `FINAL_FINAL_3.docx` or `ONLY_LOOK_AT_THIS_ONE_FINAL_2.docx`. This is a common trait all of us do to ensure that we save our updates so we can look at the differences between versions. This is where version control can help organize and track your changes between different versions of a file.
 
 In this part of the book, we will demonstrate the basics of version control with the use of git and GitHub.
+
+## Git 
+
+Git is the system on a computer that will track changes of all the files in a specialized directory (folder) on your computer.
+
+## Github
+
+Github is an online platform the programmers used to store their code. Users can create repositories (a centralized back-ups) that can be updated and shared to other individuals. Imagine the Google Drive of programming.
+
+## Resources
 
 If you want a more in depth version of using git and GitHub, take a look at the following resource table:
 
 | Website                                                              | Description                                                                       |
-|----------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+|---------------------------------|---------------------------------------|
 | [Happy Git](https://happygitwithr.com/)                              | Provide an overview of git and GitHub while using RStudio.                        |
 | [Pro Git](https://git-scm.com/book/en/v2)                            | A highly recommended book for those who want to gain a deep understanding of git. |
 | [Oh S\*\*\*, Git!?!](https://ohshitgit.com/)                         | Provides troubleshooting techniques when the inevitable mistakes occur.           |
