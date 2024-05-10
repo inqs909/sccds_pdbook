@@ -4,7 +4,7 @@ How many times when you are working finalizing a document and you save it as `fi
 
 In this part of the book, we will demonstrate the basics of version control with the use of git and GitHub.
 
-## Git 
+## Git
 
 Git is the system on a computer that will track changes of all the files in a specialized directory (folder) on your computer.
 
@@ -17,7 +17,7 @@ Github is an online platform the programmers used to store their code. Users can
 If you want a more in depth version of using git and GitHub, take a look at the following resource table:
 
 | Website                                                              | Description                                                                       |
-|---------------------------------|---------------------------------------|
+|----------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | [Happy Git](https://happygitwithr.com/)                              | Provide an overview of git and GitHub while using RStudio.                        |
 | [Pro Git](https://git-scm.com/book/en/v2)                            | A highly recommended book for those who want to gain a deep understanding of git. |
 | [Oh S\*\*\*, Git!?!](https://ohshitgit.com/)                         | Provides troubleshooting techniques when the inevitable mistakes occur.           |

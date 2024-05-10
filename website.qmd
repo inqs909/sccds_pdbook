@@ -40,9 +40,9 @@ The SSH key can be thought of as a key that will unlock your computer to transfe
 
 To generate an SSH key, go to the menu bar and select "Tools", then "Global Options". A menu will pop-up, select "Git/SVN" from the side menu. Click on the button "Create SSH key ...". A window will pop-up, then enter a password. Then click "Create". Another window will pop-up showing your lock and key, you can close the window immediately.
 
-In a different tab, go to your github account. On the top-right corner, click on your profile and select "Settings". This will redirect you to a different page. In the left menu, click on "SSH and GPG Keys". In the "SSH keys" section, click on the "New SSH key" green button. A new page will pop-up that will allow you to add a key. In the "Title" section, add any title[^2].
+In a different tab, go to your github account. On the top-right corner, click on your profile and select "Settings". This will redirect you to a different page. In the left menu, click on "SSH and GPG Keys". In the "SSH keys" section, click on the "New SSH key" green button. A new page will pop-up that will allow you to add a key. In the "Title" section, add any title[^website-1].
 
-[^2]: I usually give different names of galaxies for a title.
+[^website-1]: I usually give different names of galaxies for a title.
 
 Back at RStudio Cloud, click on the "View public key" link. Copy the highlighted text. Go back to Github and paste it in the "Key" section. Lastly, click on the "Add SSH Key" green button.
 
@@ -58,9 +58,9 @@ In GitHub, navigate to your repository. On the top-right hand corner, click on t
 git@github.com:USERNAME/USERNAME.github.io.git 
 ```
 
-In your RStudio Cloud Project, select the terminal tab in your console pane, usually on the left-side of the IDE. Paste the following text in the terminal tab[^3]:
+In your RStudio Cloud Project, select the terminal tab in your console pane, usually on the left-side of the IDE. Paste the following text in the terminal tab[^website-2]:
 
-[^3]: You may need to use a special keyboard shortcut to paste text. For me, it is ctrl-shift-v. Right-clicking should work as well.
+[^website-2]: You may need to use a special keyboard shortcut to paste text. For me, it is ctrl-shift-v. Right-clicking should work as well.
 
 ``` default
 git clone git@github.com:USERNAME/USERNAME.github.io.git
@@ -156,5 +156,3 @@ website:
 ```
 
 The render your website and push it to GitHub.
-
-  

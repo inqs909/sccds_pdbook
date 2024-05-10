@@ -84,3 +84,96 @@ starbucks |>
   dplyr::slice_sample(n=100) |> 
   DT::datatable(options = list(dom = "tp", pageLength = 5))
 ```
+
+## Mr. Trash Wheel
+
+Mr. Trash Wheel is a machine designed to collect trash in the Baltimore Harbor.
+
+```{r}
+#| message: false
+
+trash <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-03-05/trashwheel.csv')
+
+```
+
+### Data
+
+A random sample of the data:
+
+```{r}
+trash |> 
+  dplyr::slice_sample(n=100) |> 
+  DT::datatable(options = list(dom = "tp", pageLength = 5))
+```
+
+### Sample Plot
+
+#### Cleaning Data
+
+```{r}
+#| label: ex_clean
+#| echo: false
+#| eval: true
+#| fig-align: center
+#| message: false
+
+
+library(dtrackr)
+library(tidyverse)
+
+trash |> track(.messages = c("Start with the trash data set",
+                              "Remove Variable that have high missing values")) |> 
+  select(-SportsBalls, -GlassBottles, -Wrappers, -HomesPowered) |>
+  comment(.messages = c("Remove Gwynnda Trash Wheel due to several missing values")) |> 
+  filter(Name != "Gwynnda Trash Wheel") |> 
+  comment(.messages = c("Remove all missing data",
+                        "There are currently {.count} observations in the data set.")) |> 
+  drop_na() |> 
+  comment(.messages = c("Convert the Date character variable to a POSIX with mdy()")) |> 
+  mutate(Date = mdy(Date)) |> 
+  pivot_longer(PlasticBottles:PlasticBags, names_to = "Trash", values_to = "Value") |> 
+  comment(.messages = c("Change the Data from wide to long by the trash variable using pivot_longer()",
+                        "There are now {.count} observations in the data set.")) |> 
+  flowchart()
+
+
+```
+
+```{r}
+#| echo: true
+#| eval: true
+
+library(tidyverse)
+
+df <- trash |> select(-SportsBalls, -GlassBottles, -Wrappers, -HomesPowered) |> 
+  filter(Name != "Gwynnda Trash Wheel") |> drop_na() |> 
+  mutate(Date = mdy(Date)) |> 
+  pivot_longer(PlasticBottles:PlasticBags, names_to = "Trash", values_to = "Value")
+
+```
+
+#### Plot
+
+```{r}
+#| label: ex1
+#| code-fold: true
+#| eval: true
+#| fig-alt: |
+#|    The plot shows two separate word clouds demonstrating the words that most 
+#|    common words in project titles in both Fall and Spring funding sessions. 
+#|    The most common word in both Fall and Spring was data. Other common words 
+#|    in Fall are dbi, api, and development. The most common word in Spring are 
+#|    package, interactive and infrastructure.
+
+
+df |> ggplot(aes(x = Date, y = log(Value), color = Trash)) +
+  geom_line() +
+  facet_wrap(~Name, nrow = 3) +
+  theme_bw() +
+  ylab("Number of Items (log-scale)") +
+  ggtitle("Trash Collection over the Years") +
+  scale_color_discrete(labels = c("Cigarette Butts", "Plastic Bags", "Plastic Bottles", "Polystyrene")) +
+  theme(legend.title = element_blank(),
+        legend.position = "bottom",
+        axis.title.x = element_blank())
+```
