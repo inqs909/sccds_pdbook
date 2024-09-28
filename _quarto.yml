@@ -5,6 +5,7 @@ project:
 
 book:
   title: "SCCDS Professional Development Handbook"
+  reader-mode: true
   author:   
   - name: Isaac Quintanilla Salinas
     url: https://www.inqs.info
@@ -49,10 +50,6 @@ book:
         - vc_github.qmd
         - vc_git.qmd
         - website.qmd
-
-  sidebar:
-    style: docked
-    background: light
   repo-url: https://github.com/inqs909/sccds_pdbook/
   downloads: [pdf, epub]
 
@@ -60,6 +57,7 @@ book:
 format:
   html:
     theme: cosmo
+    toc: false
 
 editor: source
 

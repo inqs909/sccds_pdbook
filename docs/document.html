@@ -126,7 +126,7 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar floating fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -147,11 +147,11 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">SCCDS Professional Development Handbook</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/inqs909/sccds_pdbook/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
@@ -170,6 +170,11 @@ div.csl-indent {
           </li>
       </ul>
     </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
     </div>
       </div>
@@ -412,42 +417,7 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">19.1</span> Introduction</a></li>
-  <li><a href="#anatomy-of-a-quarto-document" id="toc-anatomy-of-a-quarto-document" class="nav-link" data-scroll-target="#anatomy-of-a-quarto-document"><span class="header-section-number">19.2</span> Anatomy of a Quarto Document</a></li>
-  <li><a href="#chunk-options" id="toc-chunk-options" class="nav-link" data-scroll-target="#chunk-options"><span class="header-section-number">19.3</span> Chunk Options</a>
-  <ul class="collapse">
-  <li><a href="#global-chunk-options" id="toc-global-chunk-options" class="nav-link" data-scroll-target="#global-chunk-options"><span class="header-section-number">19.3.1</span> Global Chunk Options</a></li>
-  <li><a href="#local-chunk-options" id="toc-local-chunk-options" class="nav-link" data-scroll-target="#local-chunk-options"><span class="header-section-number">19.3.2</span> Local Chunk Options</a></li>
-  <li><a href="#inline-code" id="toc-inline-code" class="nav-link" data-scroll-target="#inline-code"><span class="header-section-number">19.3.3</span> Inline Code</a></li>
-  </ul></li>
-  <li><a href="#formatting" id="toc-formatting" class="nav-link" data-scroll-target="#formatting"><span class="header-section-number">19.4</span> Formatting</a></li>
-  <li><a href="#citations-and-references" id="toc-citations-and-references" class="nav-link" data-scroll-target="#citations-and-references"><span class="header-section-number">19.5</span> Citations and References</a>
-  <ul class="collapse">
-  <li><a href="#bib-file" id="toc-bib-file" class="nav-link" data-scroll-target="#bib-file"><span class="header-section-number">19.5.1</span> <code>.bib</code> File</a></li>
-  </ul></li>
-  <li><a href="#rendering-a-document" id="toc-rendering-a-document" class="nav-link" data-scroll-target="#rendering-a-document"><span class="header-section-number">19.6</span> Rendering a Document</a>
-  <ul class="collapse">
-  <li><a href="#html" id="toc-html" class="nav-link" data-scroll-target="#html">HTML</a></li>
-  <li><a href="#pdf" id="toc-pdf" class="nav-link" data-scroll-target="#pdf">PDF</a></li>
-  <li><a href="#word-document" id="toc-word-document" class="nav-link" data-scroll-target="#word-document">Word Document</a></li>
-  </ul></li>
-  <li><a href="#resources-and-tips" id="toc-resources-and-tips" class="nav-link" data-scroll-target="#resources-and-tips"><span class="header-section-number">19.7</span> Resources and Tips</a>
-  <ul class="collapse">
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
-  <li><a href="#rmarkdown" id="toc-rmarkdown" class="nav-link" data-scroll-target="#rmarkdown">RMarkdown</a></li>
-  <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml">YAML</a></li>
-  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images"><span class="header-section-number">19.7.1</span> Images</a></li>
-  <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">Tips</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">19.8</span> References</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -595,7 +565,7 @@ div.csl-indent {
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="in">plot(mtcars$mpg, mtcars$drat)</span></span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-mtcars" class="quarto-float quarto-figure quarto-figure-center anchored" data-cap-location="bottom" data-fig-align="center">
+<div id="fig-mtcars" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-cap-location="bottom">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mtcars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="document_files/figure-html/fig-mtcars-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="336">
@@ -661,23 +631,23 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-mtcarsdata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="mzbbdqqvrj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#mzbbdqqvrj table {
+<div id="sshebsdnqk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sshebsdnqk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mzbbdqqvrj thead, #mzbbdqqvrj tbody, #mzbbdqqvrj tfoot, #mzbbdqqvrj tr, #mzbbdqqvrj td, #mzbbdqqvrj th {
+#sshebsdnqk thead, #sshebsdnqk tbody, #sshebsdnqk tfoot, #sshebsdnqk tr, #sshebsdnqk td, #sshebsdnqk th {
   border-style: none;
 }
 
-#mzbbdqqvrj p {
+#sshebsdnqk p {
   margin: 0;
   padding: 0;
 }
 
-#mzbbdqqvrj .gt_table {
+#sshebsdnqk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -703,12 +673,12 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-left-color: #D3D3D3;
 }
 
-#mzbbdqqvrj .gt_caption {
+#sshebsdnqk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mzbbdqqvrj .gt_title {
+#sshebsdnqk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -720,7 +690,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-bottom-width: 0;
 }
 
-#mzbbdqqvrj .gt_subtitle {
+#sshebsdnqk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -732,7 +702,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-top-width: 0;
 }
 
-#mzbbdqqvrj .gt_heading {
+#sshebsdnqk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -744,13 +714,13 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-right-color: #D3D3D3;
 }
 
-#mzbbdqqvrj .gt_bottom_border {
+#sshebsdnqk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mzbbdqqvrj .gt_col_headings {
+#sshebsdnqk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -765,7 +735,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-right-color: #D3D3D3;
 }
 
-#mzbbdqqvrj .gt_col_heading {
+#sshebsdnqk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -785,7 +755,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   overflow-x: hidden;
 }
 
-#mzbbdqqvrj .gt_column_spanner_outer {
+#sshebsdnqk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -797,15 +767,15 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 4px;
 }
 
-#mzbbdqqvrj .gt_column_spanner_outer:first-child {
+#sshebsdnqk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mzbbdqqvrj .gt_column_spanner_outer:last-child {
+#sshebsdnqk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mzbbdqqvrj .gt_column_spanner {
+#sshebsdnqk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -817,11 +787,11 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   width: 100%;
 }
 
-#mzbbdqqvrj .gt_spanner_row {
+#sshebsdnqk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mzbbdqqvrj .gt_group_heading {
+#sshebsdnqk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -847,7 +817,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   text-align: left;
 }
 
-#mzbbdqqvrj .gt_empty_group_heading {
+#sshebsdnqk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -862,15 +832,15 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   vertical-align: middle;
 }
 
-#mzbbdqqvrj .gt_from_md > :first-child {
+#sshebsdnqk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mzbbdqqvrj .gt_from_md > :last-child {
+#sshebsdnqk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mzbbdqqvrj .gt_row {
+#sshebsdnqk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -889,7 +859,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   overflow-x: hidden;
 }
 
-#mzbbdqqvrj .gt_stub {
+#sshebsdnqk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -902,7 +872,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#mzbbdqqvrj .gt_stub_row_group {
+#sshebsdnqk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -916,15 +886,15 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   vertical-align: top;
 }
 
-#mzbbdqqvrj .gt_row_group_first td {
+#sshebsdnqk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mzbbdqqvrj .gt_row_group_first th {
+#sshebsdnqk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mzbbdqqvrj .gt_summary_row {
+#sshebsdnqk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -934,16 +904,16 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#mzbbdqqvrj .gt_first_summary_row {
+#sshebsdnqk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mzbbdqqvrj .gt_first_summary_row.thick {
+#sshebsdnqk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mzbbdqqvrj .gt_last_summary_row {
+#sshebsdnqk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -953,7 +923,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-bottom-color: #D3D3D3;
 }
 
-#mzbbdqqvrj .gt_grand_summary_row {
+#sshebsdnqk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -963,7 +933,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#mzbbdqqvrj .gt_first_grand_summary_row {
+#sshebsdnqk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -973,7 +943,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-top-color: #D3D3D3;
 }
 
-#mzbbdqqvrj .gt_last_grand_summary_row_top {
+#sshebsdnqk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -983,11 +953,11 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-bottom-color: #D3D3D3;
 }
 
-#mzbbdqqvrj .gt_striped {
+#sshebsdnqk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mzbbdqqvrj .gt_table_body {
+#sshebsdnqk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -996,7 +966,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-bottom-color: #D3D3D3;
 }
 
-#mzbbdqqvrj .gt_footnotes {
+#sshebsdnqk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1010,7 +980,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-right-color: #D3D3D3;
 }
 
-#mzbbdqqvrj .gt_footnote {
+#sshebsdnqk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1019,7 +989,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#mzbbdqqvrj .gt_sourcenotes {
+#sshebsdnqk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1033,7 +1003,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-right-color: #D3D3D3;
 }
 
-#mzbbdqqvrj .gt_sourcenote {
+#sshebsdnqk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1041,63 +1011,63 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#mzbbdqqvrj .gt_left {
+#sshebsdnqk .gt_left {
   text-align: left;
 }
 
-#mzbbdqqvrj .gt_center {
+#sshebsdnqk .gt_center {
   text-align: center;
 }
 
-#mzbbdqqvrj .gt_right {
+#sshebsdnqk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mzbbdqqvrj .gt_font_normal {
+#sshebsdnqk .gt_font_normal {
   font-weight: normal;
 }
 
-#mzbbdqqvrj .gt_font_bold {
+#sshebsdnqk .gt_font_bold {
   font-weight: bold;
 }
 
-#mzbbdqqvrj .gt_font_italic {
+#sshebsdnqk .gt_font_italic {
   font-style: italic;
 }
 
-#mzbbdqqvrj .gt_super {
+#sshebsdnqk .gt_super {
   font-size: 65%;
 }
 
-#mzbbdqqvrj .gt_footnote_marks {
+#sshebsdnqk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mzbbdqqvrj .gt_asterisk {
+#sshebsdnqk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mzbbdqqvrj .gt_indent_1 {
+#sshebsdnqk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mzbbdqqvrj .gt_indent_2 {
+#sshebsdnqk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mzbbdqqvrj .gt_indent_3 {
+#sshebsdnqk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mzbbdqqvrj .gt_indent_4 {
+#sshebsdnqk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mzbbdqqvrj .gt_indent_5 {
+#sshebsdnqk .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
