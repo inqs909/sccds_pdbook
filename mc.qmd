@@ -1,0 +1,18 @@
+# Monte Carlo Methods
+
+Monte Carlo methods are used to generate the random variables from 
+
+## Random Number Generation
+
+In order to simulated random variables, we need to have access to a large set of random numbers. Generating these random numbers can be 
+
+## Probability Inverse Transformation
+
+## Composition Method
+
+## Accept-Reject Method
+
+## Box-Muller Methods
+
+## Simulate Random Variables in R
+

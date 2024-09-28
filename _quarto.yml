@@ -24,6 +24,12 @@ book:
         - python_basics.qmd
         - python_ds.qmd
         - python_teaching.qmd
+    - part: statistics.qmd
+      chapters: 
+        - estimators.qmd
+        - bootstrapping.qmd
+        - permutations.qmd
+        - mc.qmd
     - part: data.qmd
       chapters: 
         - tidytuesday.qmd
@@ -55,5 +61,5 @@ format:
   html:
     theme: cosmo
 
-editor: visual
+editor: source
 

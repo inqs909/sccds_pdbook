@@ -30,11 +30,642 @@
     ]
   },
   {
+    "objectID": "rstudio.html",
+    "href": "rstudio.html",
+    "title": "1  RStudio",
+    "section": "",
+    "text": "1.1 Installing\nYou can download and install the open-source (free) version of RStudio here.",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "rstudio.html#installing",
+    "href": "rstudio.html#installing",
+    "title": "1  RStudio",
+    "section": "",
+    "text": "1.1.1 Installing on Windows\n\n\n1.1.2 Installing on Mac",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "rstudio.html#start-up",
+    "href": "rstudio.html#start-up",
+    "title": "1  RStudio",
+    "section": "1.2 Start-up",
+    "text": "1.2 Start-up\nOn start-up, RStudio will look like very similar to the image below:\n\n\n\n\n\nYou can see that there are 3 parts in RStudio, these are known as panes.\nAdditionally, we can add a fourth pane to RStudio for writing code in a text file. Choosing the white plus sign with a green border followed by a white document on the upper-right hand side:\n\n\n\n\n\nThis will open up a menu of text files that a user can choose to code in:\n\n\n\n\n\nThe “R Script” Button will open a standard R text file with the extension as “.R”. This is the text file that most R programmers used to save and execute code. This will make RStudio to look like this:\n\n\n\n\n\nNotice a new pane is created on the top-left that allows you to write R code in a script. This script is also connected to the R console below which will allow you to send lines of code from the script to the console to be executed (also known as REPL).",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "rstudio.html#global-options",
+    "href": "rstudio.html#global-options",
+    "title": "1  RStudio",
+    "section": "1.3 Global Options",
+    "text": "1.3 Global Options\nIn this section, here are some recommended “Global Options” for users to set in RStudio. To begin, click on Tools ➜ Global Options from the top-menu. The following window should open:\n\n\n\n\n\nThe window allows you to make several changes in RStudio that will make your experience better. Here is a list of items that are recommended for users to change:\n\nR General\n\nMake sure “Restore .RData into workspace at startup:” is unchecked (Highly Recommended1)\nSet “Save workspce to .RData on exit:” to “Never” (Highly Recommended)\n\n\n\n\n\n\n\n\nCode\n\n“Use native pipe operator |&gt;” is recommended2 (Optional)\n\n\n\n\n\n\n\n\nAppearance\n\nIn the “Editor theme:” box, choose a setting that you will prefer to work in (Optional)\n\n\n\n\n\n\n\n\nPane Layout (Optional)\n\nChange the pane layout to have the “Console” on the top-right corner\nAdd all components (checkmark) to the lower-right corner except for “History” and “Connections”\n\n\nThis will allow for you to expand the “Source” (script) to be expanded for the entire left hand side. It will allow you to view more code at one time.\nRStudio will look more like this:\n\n\n\n\n\nWith the expanded script:",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "rstudio.html#source-console-and-plots",
+    "href": "rstudio.html#source-console-and-plots",
+    "title": "1  RStudio",
+    "section": "1.4 Source, Console and Plots",
+    "text": "1.4 Source, Console and Plots\nThe source pane allows you to write an R script for analysis. Below x &lt;- mtcars is written (top-left) and executed to R (top-right). Afterwards the “Environment” Tab in the lower right pane now how x. The “Environment” tab displays which R objects were created and available to use for further analysis.\n\n\n\n\n\nSince x is a data frame, clicking on x from the “Environment” tab will open a new tab in the Source pane containing the data set:\n\n\n\n\n\nIf we create an object that is a vector ( y &lt;- 4 as pictured below), the “Environment” tab now shows a new object as a value.\n\n\n\n\n\nIf a plot is created (plot(mtcars$mpg)), a plot will be displayed in the “Plots” tab in the lower-right pane.\n\n\n\n\n\nThe lower right-pane also contains other useful features such as access to your computer’s file directory:\n\n\n\n\n\nAccess to installed packages:\n\n\n\n\n\nAnd access to help documentation:",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "rstudio.html#footnotes",
+    "href": "rstudio.html#footnotes",
+    "title": "1  RStudio",
+    "section": "",
+    "text": "This will ensure that your environment is always recreated from the code you write and not from anything else. It increases reproducibility.↩︎\nThe native pipe does not require to have any packages installed. Additionally, it executes code slightly faster than %&gt;%.↩︎",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "r_basics.html",
+    "href": "r_basics.html",
+    "title": "2  Basic R Programming",
+    "section": "",
+    "text": "2.1 Basic Calculations\nThis section focuses on the basic calculation that can be done in R. This is done by using different operators in R. The table below provides some of the basic operators R can use:",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
+    ]
+  },
+  {
+    "objectID": "r_basics.html#basic-calculations",
+    "href": "r_basics.html#basic-calculations",
+    "title": "2  Basic R Programming",
+    "section": "",
+    "text": "Operator\nDescription\n\n\n\n\n+\nAddition\n\n\n-\nSubtraction\n\n\n*\nMultiplication\n\n\n/\nDivides\n\n\n^ or **\nExponent\n\n\n?\nHelp Documentation\n\n\n\n\n2.1.1 Calculator\n\n2.1.1.1 Addition\nTo add numbers in R, all you need to use the + operator. For example \\(2 + 2 = 4\\). When you type it in R you have:\n\n2 + 2\n\n[1] 4\n\n\nWhen you ask R to perform a task, it prints out the result of the task. As we can see above, R prints out the number 4.\nTo add more than 2 numbers, you can simply just type it in.\n\n2 + 2 + 2\n\n[1] 6\n\n\nThis provides the number 6.\n\n\n2.1.1.2 Subtraction\nTo subtract numbers, you need to use the - operator. Try 4 - 2:\n\n4 - 2\n\n[1] 2\n\n\nTry 4 - 6 - 4\n\n4 - 6 - 4\n\n[1] -6\n\n\nNotice that you get a negative number.\nNow try 4 + 4 - 2 + 8:\n\n4 + 4 - 2 + 8\n\n[1] 14\n\n\n\n\n2.1.1.3 Multiplication\nTo multiply numbers, you will need to use the * operator. Try 4 * 4:\n\n4 * 4\n\n[1] 16\n\n\n\n\n2.1.1.4 Division\nTo divide numbers, you can use the / operator. Try 9 / 3:\n\n9 / 3\n\n[1] 3\n\n\n\n\n2.1.1.5 Exponents\nTo exponentiate a number to the power of another number, you can use the ^ operator. Try 2^5:\n\n2^5\n\n[1] 32\n\n\nIf you want to find \\(e^2\\), you will use the exp() function. Try exp(2):\n\nexp(2)\n\n[1] 7.389056\n\n\n\n\n2.1.1.6 Roots\nTo take the n-th root of a value, use the ^ operator with the / operator to take the n-th root. For example, to take \\(\\sqrt[5]{35}\\), type 32^(1/5):\n\n32^(1/5)\n\n[1] 2\n\n\n\n\n2.1.1.7 Logarithms\nTo take the natural logarithm of a value, you will use the log() function. Try log(5):\n\nlog(5)\n\n[1] 1.609438\n\n\nIf you want to take the logarithm of a different base, you will use the log() function with base argument. We will discuss this more in Section 2.3.\n\n\n\n2.1.2 Comparing Numbers\nAnother important part of R is comparing numbers. When you compare two numbers, R will tell if the statement is TRUE or FALSE. Below are the different comparisons you can make:\n\n\n\nOperator\nDescription\n\n\n\n\n&gt;\nGreater Than\n\n\n&lt;\nLess Than\n\n\n&gt;=\nGreater than or equal\n\n\n&lt;=\nLess than or equal\n\n\n==\nEquals\n\n\n!=\nNot Equals\n\n\n\n\n2.1.2.1 Less than/Greater than\nTo check if one number is less than or greater than another number, you will use the &gt; or &lt; operators. Try 5 &gt; 4:\n\n5 &gt; 4\n\n[1] TRUE\n\n\nNotice that R states it’s true. It evaluates the expression and tells you if it’s true or not. Try 5 &lt; 4:\n\n5 &lt; 4\n\n[1] FALSE\n\n\nNotice that R tells you it is false.\n\n\n2.1.2.2 Less than or equal to/Greater than or equal to\nTo check if one number is less than or equal to/greater than or equal to another number, you will use the &gt;= or &lt;= operators. Try 5 &gt;= 5:\n\n5 &gt;= 5\n\n[1] TRUE\n\n\nTry 5 &gt;= 4:\n\n5 &gt;= 4\n\n[1] TRUE\n\n\nTry 5 &lt;= 4\n\n5 &lt;= 4\n\n[1] FALSE\n\n\n\n\n2.1.2.3 Equals and Not Equals\nTo check if 2 numbers are equal to each other, you can use the == operator. Try 3 == 3:\n\n3 == 3\n\n[1] TRUE\n\n\nTry 4 == 3\n\n3 == 4\n\n[1] FALSE\n\n\nAnother way to see if 2 numbers are not equal to each other, you can use the !=. Try 3 != 4:\n\n3 != 4\n\n[1] TRUE\n\n\nTry 3 != 3:\n\n3 != 3\n\n[1] FALSE\n\n\nYou may be asking why use != instead of ==. They both provides similar results. Well the reason is that you may need the TRUE output for analysis. One is only true when they are equal, while the other is true when they are not equal.\nIn general, the ! operator means not or opposite. It can be used to change an TRUE to a FALSE and vice-versa.\n\n\n\n2.1.3 Help\nThe last operator we will discuss is the help operator ?. If you want to know more about anything we talked about you can type ? in front of a function and a help page will pop-up in your browser or in RStudio’s ‘Help’ tab. For example you can type ?Arithmetic or ?Comparison, to review what we talked about. For other operators we didn’t talk about use ?assignOps and ?Logic.",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
+    ]
+  },
+  {
+    "objectID": "r_basics.html#types-of-data",
+    "href": "r_basics.html#types-of-data",
+    "title": "2  Basic R Programming",
+    "section": "2.2 Types of Data",
+    "text": "2.2 Types of Data\nIn R, the type of data, also known as class, we are using dictates how the programming works. For the most part, users will use numeric, logical, POSIX and character data types. Other types of data you may encounter are complex and raw. To obtain more information on them, use the ? operator.\n\n2.2.1 Numeric\nThe numeric class is the data that are numbers. Almost every analysis that you use will be based on the numeric class. To check if you have a numeric class, you just need to use the is.numeric() function. For example, try is.numeric(5):\n\nis.numeric(5)\n\n[1] TRUE\n\n\nNumeric classes are essentially double and integer types of data. For example a double data is essentially a number with decimal value. An integer data are whole numbers. Try is.numeric(5.63), is.double(5.63) and is.integer(5.63):\n\nis.numeric(5.63)\n\n[1] TRUE\n\nis.double(5.63)\n\n[1] TRUE\n\nis.integer(5.63)\n\n[1] FALSE\n\n\nNotice how the value \\(5.63\\) is a numeric and double but not integer. Now let’s try is.numeric(7), is.double(7) and is.integer(7):\n\nis.numeric(7)\n\n[1] TRUE\n\nis.double(7)\n\n[1] TRUE\n\nis.integer(7)\n\n[1] FALSE\n\n\nNotice how the value \\(7\\) is also considered a numeric and double but not integer. This is because typing a whole number will be stored as a double. However, if we need to store an integer, we will need to type the letter “L” after the number. Try is.numeric(7L), is.double(7L), and is.integer(7L):\n\nis.numeric(7L)\n\n[1] TRUE\n\nis.double(7L)\n\n[1] FALSE\n\nis.integer(7L)\n\n[1] TRUE\n\n\n\n\n2.2.2 Logical\nA logical class are data where the only value is TRUE or FALSE. Sometimes the data is coded as 1 for TRUE and 0 for FALSE. The data may also be coded as T or F. To check if data belongs in the logical class, you will need the is.logical() function. Try is.logical(3 &lt; 4):\n\nis.logical(3 &lt; 4)\n\n[1] TRUE\n\n\nThis is same comparison from Section 2.1.2. The output was TRUE. Now R is checking whether the output is of a logical class. Since it it, R returns TRUE. Now try is.logical(3 &gt; 4):\n\nis.logical(3 &gt; 4)\n\n[1] TRUE\n\n\nThe output is TRUE as well even though the condition 3 &gt; 4 is FALSE. Since the output is a logical data type, it is a logical variable.\n\n\n2.2.3 POSIX\nThe POSIX class are date-time data. Where the data value is a time component. The POSIX class can be very complex in how it is formatted. IF you would like to learn more try ?POSIXct or ?POSIClt. First, lets run Sys.time() to check what is today’s data and time:\n\nSys.time()\n\n[1] \"2024-09-28 10:54:56 PDT\"\n\n\nNow lets check if its of POSIX class, you can use the class() function to figure out which class is it. Try class(Sys.time()):\n\nclass(Sys.time())\n\n[1] \"POSIXct\" \"POSIXt\" \n\n\n\n\n2.2.4 Character\nA character value is where the data values follow a string format. Examples of character values are letters, words and even numbers. A character value is any value surrounded by quotation marks. For example, the phrase “Hello World!” is considered as one character value. Another example is if your data is coded with the actual words “yes” or “no”. To check if you have character data, use the is.character() function. Try is.character(\"Hello World!\"):\n\nis.character(\"Hello World!\")\n\n[1] TRUE\n\n\nNotice that the output says TRUE. Character values can be created with single quotations. Try is.character('Hello World!'):\n\nis.character('Hello World!')\n\n[1] TRUE\n\n\n\n\n2.2.5 Complex Numbers\nComplex numbers are data values where there is a real component and an imaginary component. The imaginary component is a number multiplied by \\(i=\\sqrt{-1}\\). To create a complex number, use the complex() function. To check if a number is complex, use the is.complex() function. Try the following to create a complex number complex(1, 4, 5):\n\ncomplex(1, 4, 5)\n\n[1] 4+5i\n\n\nNow try is.complex(complex(1, 4, 5)):\n\nis.complex(complex(1, 4, 5))\n\n[1] TRUE\n\n\n\n\n2.2.6 Raw\nYou will probably never use raw data. I have never used raw data in R. To create a raw value, use the raw() or charToRaw() functions. Try charToRaw('Hello World!'):\n\ncharToRaw('Hello World!')\n\n [1] 48 65 6c 6c 6f 20 57 6f 72 6c 64 21\n\n\nTo check if you have raw data, use the is.raw() function. Try is.raw(charToRaw('Hello World!')):\n\nis.raw(charToRaw('Hello World!'))\n\n[1] TRUE\n\n\n\n\n2.2.7 Missing\nThe last data class in R is missing data. The table below provides a brief introduction of the different types of missing data\n\n\n\n\n\n\n\n\nValue\nDescription\nFunctions\n\n\n\n\nNULL\nThese are values indicating an object is empty. Often used for functions with values that are undefined.\nis.null()\n\n\nNA\nStands for “Not Available”, used to indicate that the value is missing in the data.\nis.na()\n\n\nNaN\nStands for “Not an Number”. Used to indicate a missing number.\nis.nan()\n\n\nInf and -Inf\nIndicating an extremely large value or a value divided by 0.\nis.infinite()",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
+    ]
+  },
+  {
+    "objectID": "r_basics.html#sec-r-functions",
+    "href": "r_basics.html#sec-r-functions",
+    "title": "2  Basic R Programming",
+    "section": "2.3 R Functions",
+    "text": "2.3 R Functions\nAn R function is the procedure that R will execute to certain data. For example, the log(x) is an R function. It takes the value x and provides you the natural logarithm. Here x is known as an argument which needs to be specified to us the log() function. Find the log(x = 5)\n\nlog(x = 5)\n\n[1] 1.609438\n\n\nAnother argument for the log() function is the base argument. With the previous code, we did not specify the base argument, so R makes the base argument equal to the number \\(e\\). If you want to use the common log with base 10, you will need to set the base argument equal to 10.\nTry log(x = 5, base = 10)\n\nlog(x = 5, base = 10)\n\n[1] 0.69897\n\n\nNow try log(5,10)\n\nlog(5,10)\n\n[1] 0.69897\n\n\nNotice that it provides the same value. This is because R can set arguments based on the values position in the function, regardless if the arguments are specified. For log(5,10), R thinks that 5 corresponds to the first argument x and 10 is the second argument base.\nTo learn more about a functions, use the ? operator on the function: ?log.",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
+    ]
+  },
+  {
+    "objectID": "r_basics.html#sec-r-objects",
+    "href": "r_basics.html#sec-r-objects",
+    "title": "2  Basic R Programming",
+    "section": "2.4 R Objects",
+    "text": "2.4 R Objects\nR objects are where most of your data will be stored. An R object can be thought of as a container of data. Each object will share some sort of characteristics that will make the unique for different types of analysis.\n\n2.4.1 Assigning objects\nTo create an R object, all we need to do is assign data to a variable. The variable is the name of the R object. it can be called anything, but you can only use alphanumeric values, underscore, and periods. To assign a value to a variable, use the &lt;- operator. This is known a left assignment. Kinda like an arrow pointing left. Try assigning 9 to ‘x’ (x &lt;- 9):\n\nx &lt;- 9\n\nTo see if x contains 9, type x in the console:\n\nx\n\n[1] 9\n\n\nNow x can be treated as data and we can perform data analysis on it. For example, try squaring it:\n\nx^2\n\n[1] 81\n\n\nYou can use any mathematical operation from the previous sections. Try some other operations and see what happens.\nThe output R prints out can be stored in a variable using the asign operator, &lt;-. Try storing x^3 in a variable called x_cubed:\n\nx_cubed &lt;- x^3\n\nTo see what is stored in x_cubed you can either type x_cubed in the console or use the print() function with x_cubed inside the parenthesis.\n\nx_cubed\n\n[1] 729\n\nprint(x_cubed)\n\n[1] 729\n\n\n\n\n2.4.2 Vectors\nA vector is a set data values of a certain length. The R object x is considered as a numerical vector (because it contains a number) with the length 1. To check, try is.numeric(x) and is.vector(x):\n\nis.numeric(x)\n\n[1] TRUE\n\nis.vector(x)\n\n[1] TRUE\n\n\nNow let’s create a logical vector that contains 4 elements (have it follow this sequence: T, F, T, F) and assign it to y. To create a vector use the c()1 function and type all the values and separating them with columns. Type y &lt;- c(T, F, T, F):\n\ny &lt;- c(T, F, T, F)\n\nNow, lets see how y looks like. Type y:\n\ny\n\n[1]  TRUE FALSE  TRUE FALSE\n\n\nNow lets see if it’s a logical vector:\n\nis.logical(y)\n\n[1] TRUE\n\nis.vector(y)\n\n[1] TRUE\n\n\nFortunately, this vector is really small to count how many elements it has, but what if the vector is really large? To find out how many elements a vector has, use the length() function. Try length(y):\n\nlength(y)\n\n[1] 4\n\n\n\n\n2.4.3 Matrices\nA matrix can be thought as a square or rectangular grid of data values. This grid can be constructed can be any size. Similar to vectors they must contain the same data type. The size of a matrix is usually denoted as \\(n\\times k\\), where \\(n\\) represents the number of rows and \\(k\\) represents the number of columns. To get a rough idea of how a matrix may look like, type matrix(rep(1,12), nrow = 4, ncol = 3)2:\n\nmatrix(rep(1, 12), nrow = 4, ncol = 3)\n\n     [,1] [,2] [,3]\n[1,]    1    1    1\n[2,]    1    1    1\n[3,]    1    1    1\n[4,]    1    1    1\n\n\nNotice that this is a \\(4\\times 3\\) matrix. Each element in the matrix has the value 1. Now try this matrix(rbinom(12,1.5), nrow = 4, ncol = 3)3:\n\nmatrix(rbinom(12, 1, .5), nrow = 4, ncol = 3)\n\n     [,1] [,2] [,3]\n[1,]    1    1    1\n[2,]    1    1    0\n[3,]    1    0    0\n[4,]    1    1    0\n\n\nYour matrix may look different, but that is to be expected. Notice that some elements in a matrix are 0’s and some are 1’s. Each element in a matrix can hold any value.\nAn alternate approach to creating matrices is with the use of rbind() and cbind() functions. Using 2 vectors, and matrices, of the same length, the rbind() will append the vectors together by each row. Similarly, the cbind() function will append vectors, and matrices, of the same length by columns.\n\nx &lt;- 1:4\ny &lt;- 5:8\nz &lt;- 9:12\ncbind(x, y, z)\n\n     x y  z\n[1,] 1 5  9\n[2,] 2 6 10\n[3,] 3 7 11\n[4,] 4 8 12\n\nrbind(x, y, z)\n\n  [,1] [,2] [,3] [,4]\nx    1    2    3    4\ny    5    6    7    8\nz    9   10   11   12\n\n\nIf you want to create a matrix of a specific size without any data, you can use the matrix() function and only specify the nrow and ncol arguments. Here we are creating a \\(5\\times 11\\) empty matrix:\n\nmatrix(nrow = 5, ncol = 11)\n\n     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11]\n[1,]   NA   NA   NA   NA   NA   NA   NA   NA   NA    NA    NA\n[2,]   NA   NA   NA   NA   NA   NA   NA   NA   NA    NA    NA\n[3,]   NA   NA   NA   NA   NA   NA   NA   NA   NA    NA    NA\n[4,]   NA   NA   NA   NA   NA   NA   NA   NA   NA    NA    NA\n[5,]   NA   NA   NA   NA   NA   NA   NA   NA   NA    NA    NA\n\n\nLastly, if you need to find out the dimensions of a matrix, you can use dim() function on a matrix:\n\ndim(matrix(nrow = 5, ncol = 11))\n\n[1]  5 11\n\n\nThis will return a vector of length 2 with the first element being the number of rows and the second element being the number of columns.\n\n\n2.4.4 Arrays\nMatrices can be considered as a 2-dimensional block of numbers. An array is an n-dimensional block of numbers. While you may never need to use an array for data analysis. It may come in handy when programming by hand. To create an array, use the array() function. Below is an example of a \\(3 \\times 3 \\times 3\\) with the numbers 1, 2, and 3 representing the 3rd dimension stored in an R object called first_array4.\n\n(first_array &lt;- array(c(rep(1, 9), rep(2, 9), rep(3, 9)),\n                      dim=c(3,3,3)))\n\n, , 1\n\n     [,1] [,2] [,3]\n[1,]    1    1    1\n[2,]    1    1    1\n[3,]    1    1    1\n\n, , 2\n\n     [,1] [,2] [,3]\n[1,]    2    2    2\n[2,]    2    2    2\n[3,]    2    2    2\n\n, , 3\n\n     [,1] [,2] [,3]\n[1,]    3    3    3\n[2,]    3    3    3\n[3,]    3    3    3\n\n\n\n\n2.4.5 Data Frames\nData frames are similar to data set that you may encounter in an excel file. However, there are a couple of differences. First, each row represents an observation, and each column represents a characteristic of the observation. Additionally, each column in a data frame will be the same data type. To get an idea of what a data frame looks like, try head(iris) 5:\n\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\nIn the data frame, the rows indicate a specific observation and the columns are the values of a variable. In terms of the iris data set, we can see that row 1 is a specific flower that has a sepal length of 5.1. We can also see that flower 1 has other characteristics such as sepal width and petal length. Lastly, there are results for the other flowers.\nNow try tail(iris):\n\ntail(iris)\n\n    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species\n145          6.7         3.3          5.7         2.5 virginica\n146          6.7         3.0          5.2         2.3 virginica\n147          6.3         2.5          5.0         1.9 virginica\n148          6.5         3.0          5.2         2.0 virginica\n149          6.2         3.4          5.4         2.3 virginica\n150          5.9         3.0          5.1         1.8 virginica\n\n\nThe tail() function provides the last 6 rows of the data frame.\nLastly, if you are interested in viewing a specific variable (column) from a data frame, you can use the $ operator to specify which variable from a specific data frame. For example, if we are interested in observing the Sepal.Length variable from the iris data frame, we will type iris$Sepal.Length:\n\niris$Sepal.Length\n\n  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9\n [54] 5.5 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6\n[107] 4.9 7.3 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9\n\n\n\n\n2.4.6 Lists\nTo me a list is just a container that you can store practically anything. It is compiled of elements, where each element contains an R object. For example, the first element of a list may contain a data frame, the second element may contain a vector, and the third element may contain another list. It is just a way to store things.\nTo create a list, use the list() function. Create a list compiled of first element with the mtcars data set, second element with a vector of zeros of size 4, and a matrix \\(3 \\times 3\\) identity matrix6. Store the list in an object called list_one:\n\nlist_one &lt;- list(mtcars, rep(0, 4),\n                 diag(rep(1, 3)))\n\nType list_one to see what pops out:\n\nlist_one\n\n[[1]]\n                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nMazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2\nValiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1\nDuster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4\nMerc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2\nMerc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2\nMerc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4\nMerc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4\nMerc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3\nMerc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3\nMerc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3\nCadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4\nLincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4\nChrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4\nFiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nToyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1\nDodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2\nAMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2\nCamaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4\nPontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2\nFiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\nFord Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4\nFerrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6\nMaserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8\nVolvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2\n\n[[2]]\n[1] 0 0 0 0\n\n[[3]]\n     [,1] [,2] [,3]\n[1,]    1    0    0\n[2,]    0    1    0\n[3,]    0    0    1\n\n\nEach element in the list is labeled as a number. It is more useful to have the elements named. An element is named by typing the name in quotes followed by the = symbol before your object in the list() function (mtcars=mtcars).\n\nlist_one &lt;- list(mtcars = mtcars,\n                 vector = rep(0, 4),\n                 identity = diag(rep(1, 3)))\n\nHere I am creating an object called list_one, where the first element is mtcars labeled mtcars, the second element is a vector of zeros labeled vector and the last element is the identity matrix labeled identity.’\nNow create a new list called list_two and store list_one labeled as list_one and first_array labeled as array.\n\n(list_two &lt;- list(list_one = list_one,\n                  array = first_array))\n\n$list_one\n$list_one$mtcars\n                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nMazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2\nValiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1\nDuster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4\nMerc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2\nMerc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2\nMerc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4\nMerc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4\nMerc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3\nMerc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3\nMerc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3\nCadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4\nLincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4\nChrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4\nFiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nToyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1\nDodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2\nAMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2\nCamaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4\nPontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2\nFiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\nFord Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4\nFerrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6\nMaserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8\nVolvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2\n\n$list_one$vector\n[1] 0 0 0 0\n\n$list_one$identity\n     [,1] [,2] [,3]\n[1,]    1    0    0\n[2,]    0    1    0\n[3,]    0    0    1\n\n\n$array\n, , 1\n\n     [,1] [,2] [,3]\n[1,]    1    1    1\n[2,]    1    1    1\n[3,]    1    1    1\n\n, , 2\n\n     [,1] [,2] [,3]\n[1,]    2    2    2\n[2,]    2    2    2\n[3,]    2    2    2\n\n, , 3\n\n     [,1] [,2] [,3]\n[1,]    3    3    3\n[2,]    3    3    3\n[3,]    3    3    3",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
+    ]
+  },
+  {
+    "objectID": "r_basics.html#r-packages",
+    "href": "r_basics.html#r-packages",
+    "title": "2  Basic R Programming",
+    "section": "2.5 R Packages",
+    "text": "2.5 R Packages\nAs stated before, R’s functionality can be extended to do more things by installing R packages. An R package can be thought as extra software. This allows you to do more with R. To install an R package, you will need to use the install.packages(\"NAME_OF_PACKAGE\") function. Once you install it, you do not need to install it again. To use the R package, use library(\"NAME_OF_PACKAGE\"). This allows you to load the package in R. You will need to load the package every time you start R. For more information, please watch the video:\n\ninstall Packages from RStudio, Inc. on Vimeo.",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
+    ]
+  },
+  {
+    "objectID": "r_basics.html#load-data",
+    "href": "r_basics.html#load-data",
+    "title": "2  Basic R Programming",
+    "section": "2.6 Load Data",
+    "text": "2.6 Load Data\nIn order to analyze data in R, we must load it into the R environment. This can be done in 2 ways, using the “Import Dataset” button in the “Environment” tab in RStudio or use R code.\n\n2.6.1 Importing Data Via RStudio\nThis is the most recommended way to import data in RStudio because it can provide R code that you can copy and paste in an R Script.\nTo begin choose the “Import Dataset” from the “Environment” tab in RStudio:\n\n\n\n\n\nAfterwards, select the type of file that you may need to import. If you select the “From Text (readr)…” option, a popup window will appear:\n\n\n\n\n\nYou can now navigate to the file that you may want to import with the “Browse…” button and modify it the process as needed with the options. Afterwards, you can copy the code in the lower-right hand corner and save it in an R script",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
+    ]
+  },
+  {
+    "objectID": "r_basics.html#footnotes",
+    "href": "r_basics.html#footnotes",
+    "title": "2  Basic R Programming",
+    "section": "",
+    "text": "The c() function allows you to put any data type and as many values as you wish. The only condition of a vector is that it must be the same data type.↩︎\nThe function rep() creates a vector by repeating a value for a certain length. rep(1,12) creates a vector of length 12 with each element being 1. We use the nrow and ncol arguments in the function to specify the number of rows and columns, respectfully.↩︎\nThe rbinom() function generates binomial random variables and stores them in a vector. rbinom(12,1,5) This creates 12 random binomial numbers with parameter \\(n=1\\) and \\(p=0.5\\).↩︎\nNotice the code is surrounded by parenthesis. This tells R to store the array and print out the results. You can surround code with parenthesis every time you create an object to also print what is stored.↩︎\nThe head() function just tells R to only print the top few components of the data frame.↩︎\nAn identity matrix is a matrix where the diagonal elements are 1 and the non-diagonal elements are 0↩︎",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
+    ]
+  },
+  {
+    "objectID": "r_tidyverse.html",
+    "href": "r_tidyverse.html",
+    "title": "4  Tidyverse",
+    "section": "",
+    "text": "4.1 tidyr",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "r_tidyverse.html#dplyr",
+    "href": "r_tidyverse.html#dplyr",
+    "title": "4  Tidyverse",
+    "section": "4.2 dplyr",
+    "text": "4.2 dplyr",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "r_tidyverse.html#ggplot2",
+    "href": "r_tidyverse.html#ggplot2",
+    "title": "4  Tidyverse",
+    "section": "4.3 ggplot2",
+    "text": "4.3 ggplot2",
+    "crumbs": [
+      "R Programming",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "estimators.html",
+    "href": "estimators.html",
+    "title": "9  Statistical Estimators",
+    "section": "",
+    "text": "9.1 R Packages Loaded\nlibrary(ggplot2)",
+    "crumbs": [
+      "Statistics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Statistical Estimators</span>"
+    ]
+  },
+  {
+    "objectID": "estimators.html#random-sample",
+    "href": "estimators.html#random-sample",
+    "title": "9  Statistical Estimators",
+    "section": "9.2 Random Sample",
+    "text": "9.2 Random Sample\nWhen collecting a random sample, it is believed that the data being collected comes from a probability distribution denoted as \\(F(\\boldsymbol \\theta)\\), where \\(\\boldsymbol \\theta = (\\theta_1, \\theta_2, \\ldots, \\theta_p)^{\\mathrm T}\\) is a vector or parameters that describe the distribution. It is assumed that the random sample is a collection of random variables, denoted as \\(X_1, \\cdots, X_n\\), that are considered iid (identical and independently distributed1). Using this random sample, one infer the value of the parameters \\(\\boldsymbol \\theta\\) by functions (statistics) on the random sample.",
+    "crumbs": [
+      "Statistics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Statistical Estimators</span>"
+    ]
+  },
+  {
+    "objectID": "estimators.html#statistical-estimators",
+    "href": "estimators.html#statistical-estimators",
+    "title": "9  Statistical Estimators",
+    "section": "9.3 Statistical Estimators",
+    "text": "9.3 Statistical Estimators\nA statistical estimator is said to be a function designed to provide a point estimate, or interval estimate, of an unknown parameter in \\(\\boldsymbol \\theta\\). Common statistical estimators can be the mean, \\(\\bar X = \\frac{1}{n}\\sum^n_{i=1} X_i\\), or standard deviation, \\(S^2 = \\frac{1}{n-1}\\sum^{n}_{i=1}(X_i - \\bar X)^2\\). Other estimators can be obtained by applying a procedure such as the maximum likelihood estimation, method of moments or a Bayes Estimator.",
+    "crumbs": [
+      "Statistics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Statistical Estimators</span>"
+    ]
+  },
+  {
+    "objectID": "estimators.html#sampling-distributions",
+    "href": "estimators.html#sampling-distributions",
+    "title": "9  Statistical Estimators",
+    "section": "9.4 Sampling Distributions",
+    "text": "9.4 Sampling Distributions\nA sampling distribution can be thought as the distribution of an estimator (statistic). The reason is because the estimator is a function of random variables; therefore, the estimator itself is also a random variable. This means that the estimator will vary based on what was randomly drawn for the sample. For example, \\(\\bar X = \\frac{1}{n}\\sum^n_{i=1}X_i\\) will have a distribution depending on the distribution that generated \\(X_1, \\ldots, X_n\\).\n\n9.4.1 Normal Distribution Example\nAssume that \\(X_1, \\ldots, X_{25}\\overset{iid}{\\sim}N(8, 3)\\), normal distribution with mean 8 and variance 3. Depending on the sample, the value of \\(\\bar X\\) will change due to the randomness being generated. Therefore, a different sample will yield a different value of \\(\\bar X\\). The R code below will demonstrate the potential distribution \\(\\bar X\\) by simulating numerous samples from distribution above and generating the histogram of \\(\\bar X\\).\n\n9.4.1.1 \nTo simulate a random sample of 25 that follows a normal distribution, we can use the rnorm function. Afterwards, we will compute the mean of the sample.\n\nx1 &lt;- rnorm(25, 8, sqrt(3))\nmean(x1)\n\n#&gt; [1] 8.119344\n\n\nNotice that the value is close to 8. If we generate two different samples, notice how all means calculated are different from each other.\n\nx2 &lt;- rnorm(25, 8, sqrt(3))\nmean(x2)\n\n#&gt; [1] 7.848644\n\n\n\nx3 &lt;- rnorm(25, 8, sqrt(3))\nmean(x3)\n\n#&gt; [1] 7.538749\n\n\nNow to visualize see the distribution of \\(\\bar X\\), we will simulate 10,000 samples, compute the mean of each sample, and construct the a histogram of the computed means.\n\n# Generate 10,000 samples of size 25 \nx_samples &lt;- replicate(10000, rnorm(25, 8, sqrt(3)))\n# Obtain the mean for all the samples\nx_means &lt;- colMeans(x_samples)\n# Plot a histogram of the sample means\ndata.frame(xbar = x_means) |&gt; \n  ggplot(aes(xbar)) +\n  geom_histogram() +\n  theme_bw()\n\n\n\n\n\n\n\n\nNotice that the values of \\(\\bar X\\) are bell shaped centered around the value 8. This makes us think that the sampling distribution for \\(\\bar X\\) may follow a normal distribution. In fact, if a random is said to be generated from a normal distribution, then the distribution will also be normally distributed. For this example, the distribution of \\(\\bar X\\) is \\(N(8, 3/25)\\). We can plot the probability density function on the histogram and they will closely align.\n\n# Plotting the histogram of the sample means\n# And imposing the density function of a normal distribution\n\ndata.frame(xbar = x_means, y = dnorm(x_means, 8, sqrt(3/25))) |&gt; \n  ggplot(aes(xbar, y = after_stat(density))) +\n  geom_histogram() +\n  geom_line(aes(xbar, y), col = \"red\", lwd = 1) +\n  theme_bw()",
+    "crumbs": [
+      "Statistics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Statistical Estimators</span>"
+    ]
+  },
+  {
+    "objectID": "estimators.html#central-limit-theorem",
+    "href": "estimators.html#central-limit-theorem",
+    "title": "9  Statistical Estimators",
+    "section": "9.5 Central Limit Theorem",
+    "text": "9.5 Central Limit Theorem\nThe central limit theorem is the framework for several of hypothesis tests that are based on probability models.\n\n\n\n\n\n\nCentral Limit Theorem\n\n\n\nIf random variables \\(X_1, X_2, \\cdots, X_n\\) are independent come from the same distribution (\\(iid\\)), \\(E(X_i) = \\mu &lt;\\infty\\) (finite), \\(Var(X_i) = \\sigma^2&lt;\\infty\\) (finite), then\n\\[\n\\frac{\\bar X - \\mu}{\\sigma/\\sqrt n} \\overset{\\circ}{\\sim} N(0,1)\n\\]\nas \\(n\\rightarrow \\infty\\), which implies:\n\\[\n\\bar X \\overset{\\circ}{\\sim}  N(\\mu, \\sigma^2/n)\n\\]\n\n\nThe central limit theorem allows us to assume the distribution of \\(\\bar X\\) regardless of the distribution of the sample \\(X_1, X_2, \\cdots, X_n\\). The only condition is that the expected value and variance exist.\n\n9.5.1 \\(\\chi^2\\) Example\nAssume that \\(X_1, \\ldots, X_{25}\\overset{iid}{\\sim}\\chi^2(4)\\), Chi-Square distribution with 4 degrees of freedom. According to the central limit theorem, as \\(n\\rightarrow \\infty\\), the distribution for \\(\\bar X\\) will approximately be normal with a mean of \\(4\\) and variance \\(8/n\\). The following examples show how the distribution begin to follow a normal distribution (red line) as \\(n\\) increases 15, 30, 50, 100, 1000.\n\n9.5.1.1 \\(n = 15\\)\n\n# Generate 10,000 samples of size 15 \n# Obtain the mean for all the samples\nx_samples &lt;- replicate(10000, rchisq(15, 4))\nx_means &lt;- colMeans(x_samples)\n\n# Plotting the histogram of the sample means\n# And imposing the density function of a normal distribution\ndata.frame(xbar = x_means, y = dnorm(x_means, 4, sqrt(8/15))) |&gt; \n  ggplot(aes(xbar, y = after_stat(density))) +\n  geom_histogram() +\n  geom_line(aes(xbar, y), col = \"red\", lwd = 1) +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n9.5.1.2 \\(n = 30\\)\n\n# Generate 10,000 samples of size 30\n# Obtain the mean for all the samples\nx_samples &lt;- replicate(10000, rchisq(30, 4))\nx_means &lt;- colMeans(x_samples)\n\n# Plotting the histogram of the sample means\n# And imposing the density function of a normal distribution\n\ndata.frame(xbar = x_means, y = dnorm(x_means, 4, sqrt(8/30))) |&gt; \n  ggplot(aes(xbar, y = after_stat(density))) +\n  geom_histogram() +\n  geom_line(aes(xbar, y), col = \"red\", lwd = 1) +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n9.5.1.3 \\(n = 50\\)\n\n# Generate 10,000 samples of size 50\n# Obtain the mean for all the samples\nx_samples &lt;- replicate(10000, rchisq(50, 4))\nx_means &lt;- colMeans(x_samples)\n\n# Plotting the histogram of the sample means\n# And imposing the density function of a normal distribution\ndata.frame(xbar = x_means, y = dnorm(x_means, 4, sqrt(8/50))) |&gt; \n  ggplot(aes(xbar, y = after_stat(density))) +\n  geom_histogram() +\n  geom_line(aes(xbar, y), col = \"red\", lwd = 1) +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n9.5.1.4 \\(n = 100\\)\n\n# Generate 10,000 samples of size 100\n# Obtain the mean for all the samples\nx_samples &lt;- replicate(10000, rchisq(100, 4))\nx_means &lt;- colMeans(x_samples)\n\n# Plotting the histogram of the sample means\n# And imposing the density function of a normal distribution\ndata.frame(xbar = x_means, y = dnorm(x_means, 4, sqrt(8/100))) |&gt; \n  ggplot(aes(xbar, y = after_stat(density))) +\n  geom_histogram() +\n  geom_line(aes(xbar, y), col = \"red\", lwd = 1) +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n9.5.1.5 \\(n = 1000\\)\n\n# Generate 10,000 samples of size 1000 \n# Obtain the mean for all the samples\nx_samples &lt;- replicate(10000, rchisq(1000, 4))\nx_means &lt;- colMeans(x_samples)\n\n# Plotting the histogram of the sample means\n# And imposing the density function of a normal distribution\ndata.frame(xbar = x_means, y = dnorm(x_means, 4, sqrt(8/1000))) |&gt; \n  ggplot(aes(xbar, y = after_stat(density))) +\n  geom_histogram() +\n  geom_line(aes(xbar, y), col = \"red\", lwd = 1) +\n  theme_bw()",
+    "crumbs": [
+      "Statistics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Statistical Estimators</span>"
+    ]
+  },
+  {
+    "objectID": "estimators.html#footnotes",
+    "href": "estimators.html#footnotes",
+    "title": "9  Statistical Estimators",
+    "section": "",
+    "text": "This means that the random variables \\(X_1, \\ldots, X_n\\), come from the same distribution and the value for one random variable will not influence the value of a different random variable. See here for more information.↩︎",
+    "crumbs": [
+      "Statistics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Statistical Estimators</span>"
+    ]
+  },
+  {
+    "objectID": "mc.html",
+    "href": "mc.html",
+    "title": "12  Monte Carlo Methods",
+    "section": "",
+    "text": "12.1 Random Number Generation\nIn order to simulated random variables, we need to have access to a large set of random numbers. Generating these random numbers can be",
+    "crumbs": [
+      "Statistics",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Monte Carlo Methods</span>"
+    ]
+  },
+  {
+    "objectID": "mc.html#probability-inverse-transformation",
+    "href": "mc.html#probability-inverse-transformation",
+    "title": "12  Monte Carlo Methods",
+    "section": "12.2 Probability Inverse Transformation",
+    "text": "12.2 Probability Inverse Transformation",
+    "crumbs": [
+      "Statistics",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Monte Carlo Methods</span>"
+    ]
+  },
+  {
+    "objectID": "mc.html#composition-method",
+    "href": "mc.html#composition-method",
+    "title": "12  Monte Carlo Methods",
+    "section": "12.3 Composition Method",
+    "text": "12.3 Composition Method",
+    "crumbs": [
+      "Statistics",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Monte Carlo Methods</span>"
+    ]
+  },
+  {
+    "objectID": "mc.html#accept-reject-method",
+    "href": "mc.html#accept-reject-method",
+    "title": "12  Monte Carlo Methods",
+    "section": "12.4 Accept-Reject Method",
+    "text": "12.4 Accept-Reject Method",
+    "crumbs": [
+      "Statistics",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Monte Carlo Methods</span>"
+    ]
+  },
+  {
+    "objectID": "mc.html#box-muller-methods",
+    "href": "mc.html#box-muller-methods",
+    "title": "12  Monte Carlo Methods",
+    "section": "12.5 Box-Muller Methods",
+    "text": "12.5 Box-Muller Methods",
+    "crumbs": [
+      "Statistics",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Monte Carlo Methods</span>"
+    ]
+  },
+  {
+    "objectID": "mc.html#simulate-random-variables-in-r",
+    "href": "mc.html#simulate-random-variables-in-r",
+    "title": "12  Monte Carlo Methods",
+    "section": "12.6 Simulate Random Variables in R",
+    "text": "12.6 Simulate Random Variables in R",
+    "crumbs": [
+      "Statistics",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Monte Carlo Methods</span>"
+    ]
+  },
+  {
+    "objectID": "tidytuesday.html",
+    "href": "tidytuesday.html",
+    "title": "13  Tidy Tuesday Data",
+    "section": "",
+    "text": "13.1 Taylor Swift Data\nThe taylor package provides the taylor_all_songs and taylor_album_songs data sets that contain information on all of Taylor Swift’s songs. Each data set contains basic information of songs (song release date, album releaser, …) and Spotify API level data (danceability score, energy score, …). You can install the taylor package with the following code:\ninstall.packages(\"taylor\")\nAccess the data with:\ntaylor::taylor_album_songs\n\n## OR\n\nlibrary(taylor)\ntaylor::taylor_album_songs\nThe help documentation can be found here: https://taylor.wjakethompson.com/",
+    "crumbs": [
+      "Data",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Tidy Tuesday Data</span>"
+    ]
+  },
+  {
+    "objectID": "tidytuesday.html#taylor-swift-data",
+    "href": "tidytuesday.html#taylor-swift-data",
+    "title": "13  Tidy Tuesday Data",
+    "section": "",
+    "text": "13.1.1 Data\nOne hundred randomly selected songs are displayed below:",
+    "crumbs": [
+      "Data",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Tidy Tuesday Data</span>"
+    ]
+  },
+  {
+    "objectID": "tidytuesday.html#anime",
+    "href": "tidytuesday.html#anime",
+    "title": "13  Tidy Tuesday Data",
+    "section": "13.2 Anime",
+    "text": "13.2 Anime\nThe anime data set from MyAnimeList contains information on rankings and popularity scores of different anime episodes. More information can be found here. The data set contains 77,911 observation and 28 variables. Warning: This data set will take over 30 MB to load up in R.\n\nanime &lt;- readr::read_csv(\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-04-23/tidy_anime.csv\")\n\n\n13.2.1 Data\nHere is a sample of the data set, with the synopsis variable removed to display the table better.",
+    "crumbs": [
+      "Data",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Tidy Tuesday Data</span>"
+    ]
+  },
+  {
+    "objectID": "tidytuesday.html#starbucks",
+    "href": "tidytuesday.html#starbucks",
+    "title": "13  Tidy Tuesday Data",
+    "section": "13.3 Starbucks",
+    "text": "13.3 Starbucks\n\nstarbucks &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-12-21/starbucks.csv')\n\n\n13.3.1 Data\nA random sample of 100 products are shown.\n\nstarbucks |&gt; \n  dplyr::slice_sample(n=100) |&gt; \n  DT::datatable(options = list(dom = \"tp\", pageLength = 5))",
+    "crumbs": [
+      "Data",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Tidy Tuesday Data</span>"
+    ]
+  },
+  {
+    "objectID": "tidytuesday.html#mr.-trash-wheel",
+    "href": "tidytuesday.html#mr.-trash-wheel",
+    "title": "13  Tidy Tuesday Data",
+    "section": "13.4 Mr. Trash Wheel",
+    "text": "13.4 Mr. Trash Wheel\nMr. Trash Wheel is a machine designed to collect trash in the Baltimore Harbor.\n\ntrash &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-03-05/trashwheel.csv')\n\n\n13.4.1 Data\nA random sample of the data:\n\ntrash |&gt; \n  dplyr::slice_sample(n=100) |&gt; \n  DT::datatable(options = list(dom = \"tp\", pageLength = 5))\n\n\n\n\n\n\n\n13.4.2 Sample Plot\n\n13.4.2.1 Cleaning Data\n\n\n\n\n\n\n\n\n%0\n\n\n\n5:s-&gt;6\n\n\n\n\n\n4:s-&gt;5\n\n\n\n\n\n2:s-&gt;4\n\n\n\n\n\n2:e-&gt;3\n\n\n\n\n\n1:s-&gt;2\n\n\n\n\n\n6\n\nChange the Data from wide to long by the trash variable using pivot_longer()\nThere are now 3088 observations in the data set.\n\n\n\n5\n\nConvert the Date character variable to a POSIX with mdy()\n\n\n\n4\n\nRemove all missing data\nThere are currently 773 observations in the data set.\n\n\n\n2\n\nRemove Gwynnda Trash Wheel due to several missing values\n\n\n\n3\n\nexcluded 220 items\n\n\n\n1\n\nStart with the trash data set\nRemove Variable that have high missing values\n\n\n\n\n\n\n\nlibrary(tidyverse)\n\ndf &lt;- trash |&gt; select(-SportsBalls, -GlassBottles, -Wrappers, -HomesPowered) |&gt; \n  filter(Name != \"Gwynnda Trash Wheel\") |&gt; drop_na() |&gt; \n  mutate(Date = mdy(Date)) |&gt; \n  pivot_longer(PlasticBottles:PlasticBags, names_to = \"Trash\", values_to = \"Value\")\n\n\n\n13.4.2.2 Plot\n\n\nCode\ndf |&gt; ggplot(aes(x = Date, y = log(Value), color = Trash)) +\n  geom_line() +\n  facet_wrap(~Name, nrow = 3) +\n  theme_bw() +\n  ylab(\"Number of Items (log-scale)\") +\n  ggtitle(\"Trash Collection over the Years\") +\n  scale_color_discrete(labels = c(\"Cigarette Butts\", \"Plastic Bags\", \"Plastic Bottles\", \"Polystyrene\")) +\n  theme(legend.title = element_blank(),\n        legend.position = \"bottom\",\n        axis.title.x = element_blank())",
+    "crumbs": [
+      "Data",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Tidy Tuesday Data</span>"
+    ]
+  },
+  {
+    "objectID": "markdown.html",
+    "href": "markdown.html",
+    "title": "18  Markdown Basics",
+    "section": "",
+    "text": "18.1 Math\nQuarto is capable of writing mathematical formulas using LaTeX code. A mathematical symbol can be written inline using single $ signs. For example, $\\alpha$ is viewed as \\(\\alpha\\) in a document. To write mathematical formulas on its own line use $$. For example, $$Y=mX+b$$ is viewed as \\[Y=mX+b.\\]",
+    "crumbs": [
+      "Scientific Documentation and Communication",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Markdown Basics</span>"
+    ]
+  },
+  {
+    "objectID": "markdown.html#math",
+    "href": "markdown.html#math",
+    "title": "18  Markdown Basics",
+    "section": "",
+    "text": "18.1.1 Mathematical Notation\n\n\n\nTable 18.1: LaTeX syntax for common examples.\n\n\n\n\n\nNotation\ncode\n\n\n\n\n\\(x=y\\)\n$x=y$\n\n\n\\(x&gt;y\\)\n$x&gt;y$\n\n\n\\(x&lt;y\\)\n$x&lt;y$\n\n\n\\(x\\geq y\\)\n$x\\geq y$\n\n\n\\(x\\leq y\\)\n$x\\leq y$\n\n\n\\(x^{y}\\)\n$x^{y}$\n\n\n\\(x_{y}\\)\n$x_{y}$\n\n\n\\(\\bar x\\)\n$\\bar x$\n\n\n\\(\\hat x\\)\n$\\hat x$\n\n\n\\(\\tilde x\\)\n$\\tilde x$\n\n\n\\(\\frac{x}{y}\\)\n$\\frac{x}{y}$\n\n\n\\(\\frac{\\partial x}{\\partial y}\\)\n$\\frac{\\partial x}{\\partial y}$\n\n\n\\(x\\in A\\)\n$x\\in A$\n\n\n\\(x\\subset A\\)\n$x\\subset A$\n\n\n\\(x\\subseteq A\\)\n$x\\subseteq A$\n\n\n\\(x\\cup A\\)\n$x\\cup A$\n\n\n\\(x\\cap A\\)\n$x\\cap A$\n\n\n\\(\\{1,2,3\\}\\)\n$\\{1,2,3\\}$\n\n\n\\(\\int_a^bf(x)dx\\)\n$\\int_a^bf(x)dx$\n\n\n\\(\\left\\{\\int_a^bf(x)dx\\right\\}\\)\n$\\left\\{\\int_a^bf(x)dx\\right\\}$\n\n\n\\(\\sum^n_{i=1}x_i\\)\n$\\sum^n_{i=1}x_i$\n\n\n\\(\\prod^n_{i=1}x_i\\)\n$\\prod^n_{i=1}x_i$\n\n\n\\(\\lim_{x\\to0}f(x)\\)\n$\\lim_{x\\to0}f(x)$\n\n\n\\(X\\sim \\Gamma(\\alpha,\\beta)\\)\n$X\\sim \\Gamma(\\alpha,\\beta)$\n\n\n\n\n\n\n\n\n18.1.2 Greek Letters\n\n\n\nTable 18.2: LaTeX syntax for greek letters.\n\n\n\n\n\nLetter\nLowercase\nCode\nUppercase\nCode\n\n\n\n\nalpha\n\\(\\alpha\\)\n\\alpha\n–\n–\n\n\nbeta\n\\(\\beta\\)\n\\beta\n–\n–\n\n\ngamma\n\\(\\gamma\\)\n\\gamma\n\\(\\Gamma\\)\n\\Gamma\n\n\ndelta\n\\(\\delta\\)\n\\delta\n\\(\\Delta\\)\n\\Delta\n\n\nepsilon\n\\(\\epsilon\\)\n\\epsilon\n–\n–\n\n\nzeta\n\\(\\zeta\\)\n\\zeta\n–\n–\n\n\neta\n\\(\\eta\\)\n\\eta\n–\n–\n\n\ntheta\n\\(\\theta\\)\n\\theta\n\\(\\Theta\\)\n\\Theta\n\n\niota\n\\(\\iota\\)\n\\iota\n–\n–\n\n\nkappa\n\\(\\kappa\\)\n\\kappa\n–\n–\n\n\nlambda\n\\(\\lambda\\)\n\\lambda\n\\(\\Lambda\\)\n\\Lambda\n\n\nmu\n\\(\\mu\\)\n\\mu\n–\n–\n\n\nnu\n\\(\\nu\\)\n\\nu\n–\n–\n\n\nxi\n\\(\\xi\\)\n\\xi\n\\(\\Xi\\)\n\\Xi\n\n\npi\n\\(\\pi\\)\n\\pi\n\\(\\Pi\\)\n\\pi\n\n\nrho\n\\(\\rho\\)\n\\rho\n–\n–\n\n\nsigma\n\\(\\sigma\\)\n\\sigma\n\\(\\Sigma\\)\n\\Sigma\n\n\ntau\n\\(\\tau\\)\n\\tau\n–\n–\n\n\nupsilon\n\\(\\upsilon\\)\n\\upsilon\n\\(\\Upsilon\\)\n\\Upsilon\n\n\nphi\n\\(\\phi\\)\n\\phi\n\\(\\Phi\\)\n\\Phi\n\n\nchi\n\\(\\chi\\)\n\\chi\n–\n–\n\n\npsi\n\\(\\psi\\)\n\\psi\n\\(\\Psi\\)\n\\Psi\n\n\nomega\n\\(\\omega\\)\n\\omega\n\\(\\Omega\\)\n\\Omega\n\n\nvarepsilon\n\\(\\varepsilon\\)\n\\varepsilon\n–\n–",
+    "crumbs": [
+      "Scientific Documentation and Communication",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Markdown Basics</span>"
+    ]
+  },
+  {
+    "objectID": "document.html",
+    "href": "document.html",
+    "title": "19  Quarto Documents with R",
+    "section": "",
+    "text": "19.1 Introduction\nQuarto is a file type used to create technical reports while including both R code, or other programming languages, and output in a document. A qmd1 file is a fancy R Script containing extra capabilities. Additionally, qmd files allow for citations, footnotes, mathematical expressions, links, and much more. Once the document is finished, it can be rendered to a word file, pdf, html file, and much more. Quarto is the considered the next generation of RMarkdown.",
+    "crumbs": [
+      "Scientific Documentation and Communication",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Quarto Documents with R</span>"
+    ]
+  },
+  {
+    "objectID": "document.html#anatomy-of-a-quarto-document",
+    "href": "document.html#anatomy-of-a-quarto-document",
+    "title": "19  Quarto Documents with R",
+    "section": "19.2 Anatomy of a Quarto Document",
+    "text": "19.2 Anatomy of a Quarto Document\nThere are three main components in an qmd file: the YAML header, R code, and basic text.\nThe YAML header contains information on how to render the document. It is located at the beginning of the document surrounded by 3 dashes (---) above and below it. For starters, the YAML header will contain a ‘title’, ‘author’, ‘date’, and ‘output’ line.\nThe R code is located in a block known as chunks. A chunk tells RStudio to read the next lines as code. A chunk begins with three back ticks followed by {r} and ends with three back ticks. Everything in between the back ticks will be executed by R. In RStudio, a chunk can be inserted using the keyboard shortcut ctrl+alt+I or cmd+option+I.\nAn example of an R chunk is shown below:\n\n```{r}\nmean(mtcars$mpg)\n```\n\nThe R chunk will be rendered as below:\n\nmean(mtcars$mpg)\n\nNotice the chunk includes the code in a block followed by the output from the console.\nThe last component of an qmd document is the text. Write anywhere in the document, and it will be rendered as is.",
+    "crumbs": [
+      "Scientific Documentation and Communication",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Quarto Documents with R</span>"
+    ]
+  },
+  {
+    "objectID": "document.html#chunk-options",
+    "href": "document.html#chunk-options",
+    "title": "19  Quarto Documents with R",
+    "section": "19.3 Chunk Options",
+    "text": "19.3 Chunk Options\nR chunks have options that will alter how the code or the output is rendered. The chunk options can be set either globally to affect the entire qmd document or locally to affect only an individual chunk. For more information about chunk options, visit https://yihui.org/knitr/options/\n\n19.3.1 Global Chunk Options\nTo set global chunks options, add the two lines to YAML header:\n#| echo: true\n---\nknitr:\n  opts_chunk: \n---\nFollowed by the chunks and R options you want to set:\n#| echo: true\n---\nknitr:\n  opts_chunk:\n    eval: false\n    tidy: styler\n    R.options:\n      digits: 2\n---\nA couple of recommended chunk options set globally are eval: false, and tidy: styler. These options make rendering the document easier.\nOne chunk option is tidy: styler. This tells Quarto to prevent code from printing in a long line, possibly off the page. For example, look at the output of this chunk:\n\n## This comment is designed to show what happens when all your code is in 1 line. This is fine when you are coding, but when you are putting it in a report, it will run off the page.\n\nNotice the comment being printed off the page. Using the options tidy: styler, the chunk is rendered as\n\n## This comment is designed to show what happens when all\n## your code is in 1 line. This is fine when you are\n## coding, but when you are putting it in a report, it will\n## run off the page.\n\nThe last 2 lines control how R will compute and print output. R.Options: tells Quarto that the options R will be changed, and each line after alters options. digits: 2 indicates R to use 2 significant digits.\n\n\n19.3.2 Local Chunk Options\nLocal chunk options can be used to control an individual chunk will behave. To control a specific chunk, place the option below the {r} identifier and use the #| chunk option indicator. An example is povided below:\n\n```{r}\n#| eval: false\n#| tidy: false\n\nmean(mtcars$mpg)\n```\n\nThe chunk option eval set to false tells Quarto to not evaluate the code within the chunk. Notice how the output was not printed the R chunk above. When we set eval to true, the output is printed:\n\n```{r}\n#| eval: true\nmean(mtcars$mpg)\n```\n\n[1] 20.1\n\n\nThe echo option will control if the code within the chunk should be printed in the document. This next chunk contains #| echo: true:\n\nmean(mtcars$mpg)\n\n[1] 20.1\n\n\nNow the chunk contains #| echo: false:\n\n\n[1] 20.1\n\n\nThe R Code disappears.\nThere are chunk options for figures as well. A few options are fig-height, fig-width, fig-align, and fig-cap.\nThis chunk contains fig-height: 3.5; fig-width: 3.5; fig-align: left.\n\n```{r}\n#| eval: true\n#| fig-height: 3.5\n#| fig-width: 3.5\n#| fig-align: left\n\nplot(mtcars$mpg, mtcars$drat)\n```\n\n\n\n\n\n\n\n\nThe chunk options tells RStudio to create an image that is 3.5 inches in height and width, and align the image to the left.\nThe following chunk contains fig-height: 3.5; fig-width: 3.5; fig-align: left; fig-cap: \"This is a scatter plot of MTCARS' MPG and DRAT\"; label: fig-mtcars.\n\n```{r}\n#| eval: true\n#| fig-height: 3.5\n#| fig-width: 3.5\n#| fig-align: center\n#| fig-cap: \"This is a scatter plot of MTCARS' MPG and DRAT\"\n#| label: fig-mtcars\n\nplot(mtcars$mpg, mtcars$drat)\n```\n\n\n\n\n\n\n\nFigure 19.1: This is a scatter plot of MTCARS’ MPG and DRAT\n\n\n\n\n\nThe chunk adds a caption with fig-cap and reference label with label. The label of the plot can be referenced later in the document. Figure 19.1 can be referenced with @fig-mtcars.\n\n\n19.3.3 Inline Code\nInstead of evaluating code in a chunk, code can evaluated in the text instead. For example, if we want to write the mean mpg in mtcars is 20.090625, one can type 20.090625, surrounded by back ticks (`), instead of writing the entire number and risk of miscopying the results.",
+    "crumbs": [
+      "Scientific Documentation and Communication",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Quarto Documents with R</span>"
+    ]
+  },
+  {
+    "objectID": "document.html#formatting",
+    "href": "document.html#formatting",
+    "title": "19  Quarto Documents with R",
+    "section": "19.4 Formatting",
+    "text": "19.4 Formatting\nQmd files allows a table to be constructed in 2 ways, manually or using a package such as the gt package. Below is the example code of Table 18.2:\n| Letter     |   Lowercase   |      Code     |  Uppercase |    Code    |\n|:-----------|:-------------:|:-------------:|:----------:|:----------:|\n| alpha      |    $\\alpha$   |    `\\alpha`   |     --     |     --     |\n| beta       |    $\\beta$    |    `\\beta`    |     --     |     --     |\n| gamma      |    $\\gamma$   |    `\\gamma`   |  $\\Gamma$  |  `\\Gamma`  |\n| delta      |    $\\delta$   |    `\\delta`   |  $\\Delta$  |  `\\Delta`  |\n| epsilon    |   $\\epsilon$  |   `\\epsilon`  |     --     |     --     |\n| zeta       |    $\\zeta$    |    `\\zeta`    |     --     |     --     |\n| eta        |     $\\eta$    |     `\\eta`    |     --     |     --     |\n| theta      |    $\\theta$   |    `\\theta`   |  $\\Theta$  |  `\\Theta`  |\n| iota       |    $\\iota$    |    `\\iota`    |     --     |     --     |\n| kappa      |    $\\kappa$   |    `\\kappa`   |     --     |     --     |\n| lambda     |   $\\lambda$   |   `\\lambda`   |  $\\Lambda$ |  `\\Lambda` |\n| mu         |     $\\mu$     |     `\\mu`     |     --     |     --     |\n| nu         |     $\\nu$     |     `\\nu`     |     --     |     --     |\n| xi         |     $\\xi$     |     `\\xi`     |    $\\Xi$   |    `\\Xi`   |\n| pi         |     $\\pi$     |     `\\pi`     |    $\\Pi$   |    `\\pi`   |\n| rho        |     $\\rho$    |     `\\rho`    |     --     |     --     |\n| sigma      |    $\\sigma$   |    `\\sigma`   |  $\\Sigma$  |  `\\Sigma`  |\n| tau        |     $\\tau$    |     `\\tau`    |     --     |     --     |\n| upsilon    |   $\\upsilon$  |   `\\upsilon`  | $\\Upsilon$ | `\\Upsilon` |\n| phi        |     $\\phi$    |     `\\phi`    |   $\\Phi$   |   `\\Phi`   |\n| chi        |     $\\chi$    |     `\\chi`    |     --     |     --     |\n| psi        |     $\\psi$    |     `\\psi`    |   $\\Psi$   |   `\\Psi`   |\n| omega      |    $\\omega$   |    `\\omega`   |  $\\Omega$  |  `\\Omega`  |\n| varepsilon | $\\varepsilon$ | `\\varepsilon` |     --     |     --     |\n\n: LaTeX syntax for greek letters. {#tbl-greektable}\nThe last line will adds a caption to the table and {#tbl-greektable} creates a label to reference the table in the text using @tbl-greektable.\nThe gt function from the gt package creates a table from a data frame or R object. Here is an example code to create a table from the first 6 rows of the mtcars dataset:\n\n```{r}\n#| label: tbl-mtcarsdata\n#| eval: true\n\nmtcars |&gt;\n    head() |&gt;\n    gt::gt() |&gt;\n    gt::tab_caption(\"The MTCARS Dataset\")\n```\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n21.0\n6\n160\n110\n3.90\n2.62\n16.5\n0\n1\n4\n4\n\n\n21.0\n6\n160\n110\n3.90\n2.88\n17.0\n0\n1\n4\n4\n\n\n22.8\n4\n108\n93\n3.85\n2.32\n18.6\n1\n1\n4\n1\n\n\n21.4\n6\n258\n110\n3.08\n3.21\n19.4\n1\n0\n3\n1\n\n\n18.7\n8\n360\n175\n3.15\n3.44\n17.0\n0\n0\n3\n2\n\n\n18.1\n6\n225\n105\n2.76\n3.46\n20.2\n1\n0\n3\n1\n\n\n\n\n\n\n\n\nTable 19.1: The MTCARS Dataset\n\n\n\n\nNotice that Table 19.1 is easily produced using the gt() function with a caption\nTable Table 19.1 is referenced by using the label created in the chunk and the @tbl-mtcarsdata. To install gt run the following line in your console:\n\ninstall.packages(\"gt\")",
+    "crumbs": [
+      "Scientific Documentation and Communication",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Quarto Documents with R</span>"
+    ]
+  },
+  {
+    "objectID": "document.html#citations-and-references",
+    "href": "document.html#citations-and-references",
+    "title": "19  Quarto Documents with R",
+    "section": "19.5 Citations and References",
+    "text": "19.5 Citations and References\nQmd documents contains capabilities to add citations and a bibliography. For example, to cite this textbook (Mendenhall and Sincich 2012), use the @ symbol followed by a citation identifier from the .bib file surrounded by square brackets, [@mendenhallSecondCourseStatistics2012]. To cite your textbook again (2012) without the authors names, use a - sign in front of the @ symbol, [-@mendenhallSecondCourseStatistics2012]. To cite multiple books (Casella and Berger 1990; Rohatgi and Saleh 2015; Resnick 2014; Erich L. Lehmann and Casella 1998; E. L. Lehmann and Romano 2005), add each citation inside the square brackets with the @ symbol and separate them with semicolons, [@casellaStatisticalInference1990; @rohatgiIntroductionProbabilityStatistics2015; @resnickProbabilityPath2014; @lehmannTheoryPointEstimation1998; @lehmannTestingStatisticalHypotheses2005].\nThe references will be added automatically at the end of the document.\nIn order to use citations and references, the qmd file needs needs a .bib file containing all the information of the references. First, save the .bib file in the same folder (directory) as your qmd file. Then add the line bibliography: NAME.bib to the YAML header. Make any changes appropriately to the line, such as the name of the .bib file.\n\n19.5.1 .bib File\nThe .bib file is an ordinary text file containing “bib” entries with information about each reference. Below is an example bib entry about R:\n\n\n@Manual{,\n  title = {R: A Language and Environment for Statistical Computing},\n  author = {{R Core Team}},\n  organization = {R Foundation for Statistical Computing},\n  address = {Vienna, Austria},\n  year = {2024},\n  url = {https://www.R-project.org/},\n}\n\n\nCreating a .bib file is tedious; however, there are reference managers that can help. I recommend using Zotero, an open-source reference manager designed to import and manage citations. Once a citation is in Zotero, you can export your library as a .bib file. Make sure to check your references in Zotero for any mistakes.",
+    "crumbs": [
+      "Scientific Documentation and Communication",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Quarto Documents with R</span>"
+    ]
+  },
+  {
+    "objectID": "document.html#rendering-a-document",
+    "href": "document.html#rendering-a-document",
+    "title": "19  Quarto Documents with R",
+    "section": "19.6 Rendering a Document",
+    "text": "19.6 Rendering a Document\nA qmd file can be rendered into either an html file, pdf document or word document. Rendering the qmd file to an html file or word document can be easily done using the knit button above. However, rendering the qmd file to a pdf document requires LaTeX to be installed. There are two methods to install LaTeX: from the LaTeX website or from R. I recommend installing the full LaTeX distribution from the https://www.latex-project.org/get/. This provides you with everything you may need. You can also install it from R:\n\ninstall.packages(\"tinytex\")\ntinytex::install_tinytex()\n\nYou will only need to run these lines of code once and then you can render pdf documents easily.\n\nHTML\n#| echo: true\n---\nformat: html\n---\n\n\nPDF\n#| echo: true\n---\nformat: pdf\n---\n\n\nWord Document\n#| echo: true\n---\nformat: docx\n---",
+    "crumbs": [
+      "Scientific Documentation and Communication",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Quarto Documents with R</span>"
+    ]
+  },
+  {
+    "objectID": "document.html#resources-and-tips",
+    "href": "document.html#resources-and-tips",
+    "title": "19  Quarto Documents with R",
+    "section": "19.7 Resources and Tips",
+    "text": "19.7 Resources and Tips\n\nQuarto\n\nQuarto\nMarkdown Basics\nFormats\n\n\n\nRMarkdown\n\nRStudio\nBookdown\n\n\n\nYAML\n\nUCLA Resource\nReproducible Research\nRMarkdown Crash Course\n\n\n\n19.7.1 Images\n\nAlternative Text Guidelines\n\n\n\nTips\n\nRender your document often so it easier to identify problems with rendering\nThe Visual Mode in RStudio eases the process of creating a document and makes it more bearable.\nYAML is tricky with spacing. Make sure that spaces when indenting options. Also make sure that there are not extra spaces at the end of each line.",
+    "crumbs": [
+      "Scientific Documentation and Communication",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Quarto Documents with R</span>"
+    ]
+  },
+  {
+    "objectID": "document.html#references",
+    "href": "document.html#references",
+    "title": "19  Quarto Documents with R",
+    "section": "19.8 References",
+    "text": "19.8 References\n\n\n\n\nCasella, George, and Roger L. Berger. 1990. Statistical Inference. The Wadsworth & Brooks/Cole Statistics/Probability Series. Pacific Grove, Calif: Brooks/Cole PubCo.\n\n\nLehmann, E. L., and Joseph P. Romano. 2005. Testing Statistical Hypotheses. 3rd ed. Springer Texts in Statistics. New York: Springer.\n\n\nLehmann, Erich L., and George Casella. 1998. Theory of Point Estimation. Second Edition. Springer Texts in Statistics. New York, NY: Springer New York.\n\n\nMendenhall, William, and Terry Sincich. 2012. A Second Course in Statistics: Regression Analysis. Seventh edition. Boston: Prentice Hall.\n\n\nResnick, Sidney I. 2014. A Probability Path. Modern Birkhäuser Classics. New York: Birkhäuser.\n\n\nRohatgi, V. K., and A. K. Md Ehsanes Saleh. 2015. An Introduction to Probability and Statistics. Third edition. Wiley Series in Probability and Statistics. Hoboken, New Jersey: Wiley.",
+    "crumbs": [
+      "Scientific Documentation and Communication",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Quarto Documents with R</span>"
+    ]
+  },
+  {
+    "objectID": "document.html#footnotes",
+    "href": "document.html#footnotes",
+    "title": "19  Quarto Documents with R",
+    "section": "",
+    "text": "QMD is the file extension to use the Quarto engine. For this document Quarto and QMD are used interchangeably.↩︎",
+    "crumbs": [
+      "Scientific Documentation and Communication",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Quarto Documents with R</span>"
+    ]
+  },
+  {
+    "objectID": "vc_git.html",
+    "href": "vc_git.html",
+    "title": "22  Git Basics",
+    "section": "",
+    "text": "22.1 Installation",
+    "crumbs": [
+      "Version Control",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Git Basics</span>"
+    ]
+  },
+  {
+    "objectID": "vc_git.html#installation",
+    "href": "vc_git.html#installation",
+    "title": "22  Git Basics",
+    "section": "",
+    "text": "22.1.1 Windows\nGit for Windows\n\n\n22.1.2 MacOS\nInstall Here",
+    "crumbs": [
+      "Version Control",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Git Basics</span>"
+    ]
+  },
+  {
+    "objectID": "website.html",
+    "href": "website.html",
+    "title": "23  Creating a Quarto Website",
+    "section": "",
+    "text": "23.1 Creating a GitHub Account (Required)\nGitHub can be considered as the google drive of code. It has great features to track code, implement changes, and host websites. You can create a Github account here: https://github.com/.\nOnce you have your account create a new repository with the following naming scheme: USERNAME.github.io. Then, make sure that repository is public, and click to create a README document.",
+    "crumbs": [
+      "Version Control",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Creating a Quarto Website</span>"
+    ]
+  },
+  {
+    "objectID": "website.html#building-a-website-with-quarto",
+    "href": "website.html#building-a-website-with-quarto",
+    "title": "23  Creating a Quarto Website",
+    "section": "23.2 Building a Website with Quarto",
+    "text": "23.2 Building a Website with Quarto\nI highly recommend building your website using quarto, it is very simple platform where your text documents become webpages.\n\n23.2.1 Using Posit Cloud\nPosit Cloud (posit.cloud) is an excellent resource to create website. It has all the software that you will need to create a website. Before we begin, make sure to create repository as stated by in the Creating a GitHub Account (Required) section.\n\n23.2.1.1 Creating an Account\nWhen you load the website, create a free account using an email account or github account. Once you create an account, the dashboard should load with your workspace.\n\n\n23.2.1.2 Creating a Project\nOn the top-right corner, click on the “New Project” blue button, and select “New RStudio Project”. This will create a new project called “Untitled Project”. Now change the name “Untitled Project” to “Website”. This project will create the material you need to develop a website.\n\n\n23.2.1.3 Creating and Connecting an SSH Key\nIn you website project, you will need a way for the project to connect with GitHub. You can do this by generating an SSH key in RStudio Cloud and transferring it to GitHub.\nThe SSH key can be thought of as a key that will unlock your computer to transfer data. You will generate the lock and key in RStudio, and then give the key to GitHub. Afterwards, transferring files will occur securely.\nTo generate an SSH key, go to the menu bar and select “Tools”, then “Global Options”. A menu will pop-up, select “Git/SVN” from the side menu. Click on the button “Create SSH key …”. A window will pop-up, then enter a password. Then click “Create”. Another window will pop-up showing your lock and key, you can close the window immediately.\nIn a different tab, go to your github account. On the top-right corner, click on your profile and select “Settings”. This will redirect you to a different page. In the left menu, click on “SSH and GPG Keys”. In the “SSH keys” section, click on the “New SSH key” green button. A new page will pop-up that will allow you to add a key. In the “Title” section, add any title1.\nBack at RStudio Cloud, click on the “View public key” link. Copy the highlighted text. Go back to Github and paste it in the “Key” section. Lastly, click on the “Add SSH Key” green button.\nNow you can transfer file easily between RStudio and GitHub.\n\n\n23.2.1.4 Cloning a Repository\nCloning a repository is the process of downloading a repository from a remote server, in this case GitHub account. This will allow you to re-download your repository if it is ever deleted.\nIn GitHub, navigate to your repository. On the top-right hand corner, click on the green button labeled “Code”. Make sure the “SSH” tab is selected and copy, or click on the double squares button, the text they provide. You should copy something that look like this:\ngit@github.com:USERNAME/USERNAME.github.io.git \nIn your RStudio Cloud Project, select the terminal tab in your console pane, usually on the left-side of the IDE. Paste the following text in the terminal tab2:\ngit clone git@github.com:USERNAME/USERNAME.github.io.git\nIt will prompt you to accept the SSH connection, type “yes”. Afterwards, it will ask you for your SSH password. Type your password. Then, it will download your repository as a folder. In the “Files” tab, you should see the newly created folder.\n\n\n23.2.1.5 Making a Quarto Website\nFor this section, we will primarily be working in the “Terminal” Tab in RStudio. Click on the “Terminal” Tab in the “Console” Pane. The you will type the following:\ncd USERNAME.github.io\nMake sure to replace USERNAME with your user name for GitHub. The above command will change the working folder to “USERNAME.github.io”. Afterwards, you want to fill the folder with the necessary contents for making a Quarto Website. Type the following command in the terminal:\nquarto create-project . --type website\nThis will generate new files for your website. Next, you will need to create a “nojekyll” file that tells GitHub, not to use Jekyll. Type the following in the terminal:\ntouch .nojekyll\nNow, go to the “Files” Tab and open “_quarto.yml”. At the top of the document, you will need to add output-dir: docs under the project:, you should have something like this:\nproject:\n  type: website\n  output-dir: docs\nNow you are set to Render your website!\n\n\n23.2.1.6 Rendering and Publishing a Website\nWhenever you are finished updating your website files, you will need render your website so it will update all the new content. To begin, make sure you are working in the directory (folder) containing your website files:\ncd USERNAME.github.io\nNow, you can render your website using the following command:\nquarto render\nYour website will be rendered in the docs folder. Then you will need to commit the changes using git. First type\ngit add .\nThe commit your files using the following commands:\ngit commit -m \"Updates\"\nLastly, push your updates to GitHub:\ngit push\nIt will prompt your for your password related towards you SSH key. Then it will push all the updates. GitHub will then publish your website in a few minutes. Lastly, type “USERNAME.github.io” in any browser and your website should work.\n\n\n\n23.2.2 Using RStudio on Mac/Linux\nComing Soon …\n\n\n23.2.3 Using RStudio on Windows\nComing Soon …",
+    "crumbs": [
+      "Version Control",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Creating a Quarto Website</span>"
+    ]
+  },
+  {
+    "objectID": "website.html#creating-webpages",
+    "href": "website.html#creating-webpages",
+    "title": "23  Creating a Quarto Website",
+    "section": "23.3 Creating Webpages",
+    "text": "23.3 Creating Webpages\nTo create a webpage, you will simply open a new quarto document, edit the page, and save it in your website’s folder. To link the webpage in your menu bar, add the qmd file to the “_quarto.yml” file:\nwebsite:\n  title: \"inqs909.github.io\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: Home\n      - about.qmd\n      - NEWFILE.qmd\nThe render your website and push it to GitHub.",
+    "crumbs": [
+      "Version Control",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Creating a Quarto Website</span>"
+    ]
+  },
+  {
+    "objectID": "website.html#footnotes",
+    "href": "website.html#footnotes",
+    "title": "23  Creating a Quarto Website",
+    "section": "",
+    "text": "I usually give different names of galaxies for a title.↩︎\nYou may need to use a special keyboard shortcut to paste text. For me, it is ctrl-shift-v. Right-clicking should work as well.↩︎",
+    "crumbs": [
+      "Version Control",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Creating a Quarto Website</span>"
+    ]
+  },
+  {
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "Data",
+    "section": "",
+    "text": "Data in R",
+    "crumbs": [
+      "Data"
+    ]
+  },
+  {
+    "objectID": "data.html#data-in-python",
+    "href": "data.html#data-in-python",
+    "title": "Data",
+    "section": "Data in Python",
+    "text": "Data in Python",
+    "crumbs": [
+      "Data"
+    ]
+  },
+  {
+    "objectID": "reporting.html",
+    "href": "reporting.html",
+    "title": "Scientific Documentation and Communication",
+    "section": "",
+    "text": "\\[\nY=mX+b\n\\]",
+    "crumbs": [
+      "Scientific Documentation and Communication"
+    ]
+  },
+  {
+    "objectID": "vc.html",
+    "href": "vc.html",
+    "title": "Version Control",
+    "section": "",
+    "text": "Git\nGit is the system on a computer that will track changes of all the files in a specialized directory (folder) on your computer.",
+    "crumbs": [
+      "Version Control"
+    ]
+  },
+  {
+    "objectID": "vc.html#github",
+    "href": "vc.html#github",
+    "title": "Version Control",
+    "section": "Github",
+    "text": "Github\nGithub is an online platform the programmers used to store their code. Users can create repositories (a centralized back-ups) that can be updated and shared to other individuals. Imagine the Google Drive of programming.",
+    "crumbs": [
+      "Version Control"
+    ]
+  },
+  {
+    "objectID": "vc.html#resources",
+    "href": "vc.html#resources",
+    "title": "Version Control",
+    "section": "Resources",
+    "text": "Resources\nIf you want a more in depth version of using git and GitHub, take a look at the following resource table:\n\n\n\nWebsite\nDescription\n\n\n\n\nHappy Git\nProvide an overview of git and GitHub while using RStudio.\n\n\nPro Git\nA highly recommended book for those who want to gain a deep understanding of git.\n\n\nOh S***, Git!?!\nProvides troubleshooting techniques when the inevitable mistakes occur.\n\n\nGit in Simple Words\nProvides git basics in simplified words.",
+    "crumbs": [
+      "Version Control"
+    ]
+  },
+  {
+    "objectID": "r.html",
+    "href": "r.html",
+    "title": "R Programming",
+    "section": "",
+    "text": "Installing R\nYou can freely download and install R here.",
+    "crumbs": [
+      "R Programming"
+    ]
+  },
+  {
     "objectID": "r.html#installing-r",
     "href": "r.html#installing-r",
     "title": "R Programming",
-    "section": "Installing R",
-    "text": "Installing R\nYou can freely download and install R here.\n\nInstalling on Windows\n\n\nInstalling on Mac",
+    "section": "",
+    "text": "Installing on Windows\n\n\nInstalling on Mac",
     "crumbs": [
       "R Programming"
     ]
@@ -77,396 +708,6 @@
     "text": "Resources\n\n\n\nWebsite\nDescription\n\n\n\n\nR 4 Data Science Book\nA highly recommended book to learn more about R for data science with a tidyverse implementation.\n\n\nAdvanced R\nA book that provides an in depth tutorial of using more advanced R concepts such as control flow concepts and functional programming.\n\n\nEfficient R\nA book that provides tips to write more performative R code such as vectorization or compiling code.\n\n\nR 4 Data Science Community\nThis is an online learning community of R users that provides events and data for individuals to learn about data science and R.\n\n\nDeep R\nA book that provides advance programming concepts in terms of R.\n\n\nBig Book of R\nA website containing a list of resources for individuals to learn R.",
     "crumbs": [
       "R Programming"
-    ]
-  },
-  {
-    "objectID": "rstudio.html#installing",
-    "href": "rstudio.html#installing",
-    "title": "1  RStudio",
-    "section": "1.1 Installing",
-    "text": "1.1 Installing\nYou can download and install the open-source (free) version of RStudio here.\n\n1.1.1 Installing on Windows\n\n\n1.1.2 Installing on Mac",
-    "crumbs": [
-      "R Programming",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>RStudio</span>"
-    ]
-  },
-  {
-    "objectID": "rstudio.html#start-up",
-    "href": "rstudio.html#start-up",
-    "title": "1  RStudio",
-    "section": "1.2 Start-up",
-    "text": "1.2 Start-up\nOn start-up, RStudio will look like very similar to the image below:\n\n\n\n\n\nYou can see that there are 3 parts in RStudio, these are known as panes.\nAdditionally, we can add a fourth pane to RStudio for writing code in a text file. Choosing the white plus sign with a green border followed by a white document on the upper-right hand side:\n\n\n\n\n\nThis will open up a menu of text files that a user can choose to code in:\n\n\n\n\n\nThe “R Script” Button will open a standard R text file with the extension as “.R”. This is the text file that most R programmers used to save and execute code. This will make RStudio to look like this:\n\n\n\n\n\nNotice a new pane is created on the top-left that allows you to write R code in a script. This script is also connected to the R console below which will allow you to send lines of code from the script to the console to be executed (also known as REPL).",
-    "crumbs": [
-      "R Programming",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>RStudio</span>"
-    ]
-  },
-  {
-    "objectID": "rstudio.html#global-options",
-    "href": "rstudio.html#global-options",
-    "title": "1  RStudio",
-    "section": "1.3 Global Options",
-    "text": "1.3 Global Options\nIn this section, here are some recommended “Global Options” for users to set in RStudio. To begin, click on Tools ➜ Global Options from the top-menu. The following window should open:\n\n\n\n\n\nThe window allows you to make several changes in RStudio that will make your experience better. Here is a list of items that are recommended for users to change:\n\nR General\n\nMake sure “Restore .RData into workspace at startup:” is unchecked (Highly Recommended1)\nSet “Save workspce to .RData on exit:” to “Never” (Highly Recommended)\n\n\n\n\n\n\n\n\nCode\n\n“Use native pipe operator |&gt;” is recommended2 (Optional)\n\n\n\n\n\n\n\n\nAppearance\n\nIn the “Editor theme:” box, choose a setting that you will prefer to work in (Optional)\n\n\n\n\n\n\n\n\nPane Layout (Optional)\n\nChange the pane layout to have the “Console” on the top-right corner\nAdd all components (checkmark) to the lower-right corner except for “History” and “Connections”\n\n\nThis will allow for you to expand the “Source” (script) to be expanded for the entire left hand side. It will allow you to view more code at one time.\nRStudio will look more like this:\n\n\n\n\n\nWith the expanded script:",
-    "crumbs": [
-      "R Programming",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>RStudio</span>"
-    ]
-  },
-  {
-    "objectID": "rstudio.html#source-console-and-plots",
-    "href": "rstudio.html#source-console-and-plots",
-    "title": "1  RStudio",
-    "section": "1.4 Source, Console and Plots",
-    "text": "1.4 Source, Console and Plots\nThe source pane allows you to write an R script for analysis. Below x &lt;- mtcars is written (top-left) and executed to R (top-right). Afterwards the “Environment” Tab in the lower right pane now how x. The “Environment” tab displays which R objects were created and available to use for further analysis.\n\n\n\n\n\nSince x is a data frame, clicking on x from the “Environment” tab will open a new tab in the Source pane containing the data set:\n\n\n\n\n\nIf we create an object that is a vector ( y &lt;- 4 as pictured below), the “Environment” tab now shows a new object as a value.\n\n\n\n\n\nIf a plot is created (plot(mtcars$mpg)), a plot will be displayed in the “Plots” tab in the lower-right pane.\n\n\n\n\n\nThe lower right-pane also contains other useful features such as access to your computer’s file directory:\n\n\n\n\n\nAccess to installed packages:\n\n\n\n\n\nAnd access to help documentation:",
-    "crumbs": [
-      "R Programming",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>RStudio</span>"
-    ]
-  },
-  {
-    "objectID": "r_basics.html#basic-calculations",
-    "href": "r_basics.html#basic-calculations",
-    "title": "2  Basic R Programming",
-    "section": "2.1 Basic Calculations",
-    "text": "2.1 Basic Calculations\nThis section focuses on the basic calculation that can be done in R. This is done by using different operators in R. The table below provides some of the basic operators R can use:\n\n\n\nOperator\nDescription\n\n\n\n\n+\nAddition\n\n\n-\nSubtraction\n\n\n*\nMultiplication\n\n\n/\nDivides\n\n\n^ or **\nExponent\n\n\n?\nHelp Documentation\n\n\n\n\n2.1.1 Calculator\n\n2.1.1.1 Addition\nTo add numbers in R, all you need to use the + operator. For example \\(2 + 2 = 4\\). When you type it in R you have:\n\n2 + 2\n\n[1] 4\n\n\nWhen you ask R to perform a task, it prints out the result of the task. As we can see above, R prints out the number 4.\nTo add more than 2 numbers, you can simply just type it in.\n\n2 + 2 + 2\n\n[1] 6\n\n\nThis provides the number 6.\n\n\n2.1.1.2 Subtraction\nTo subtract numbers, you need to use the - operator. Try 4 - 2:\n\n4 - 2\n\n[1] 2\n\n\nTry 4 - 6 - 4\n\n4 - 6 - 4\n\n[1] -6\n\n\nNotice that you get a negative number.\nNow try 4 + 4 - 2 + 8:\n\n4 + 4 - 2 + 8\n\n[1] 14\n\n\n\n\n2.1.1.3 Multiplication\nTo multiply numbers, you will need to use the * operator. Try 4 * 4:\n\n4 * 4\n\n[1] 16\n\n\n\n\n2.1.1.4 Division\nTo divide numbers, you can use the / operator. Try 9 / 3:\n\n9 / 3\n\n[1] 3\n\n\n\n\n2.1.1.5 Exponents\nTo exponentiate a number to the power of another number, you can use the ^ operator. Try 2^5:\n\n2^5\n\n[1] 32\n\n\nIf you want to find \\(e^2\\), you will use the exp() function. Try exp(2):\n\nexp(2)\n\n[1] 7.389056\n\n\n\n\n2.1.1.6 Roots\nTo take the n-th root of a value, use the ^ operator with the / operator to take the n-th root. For example, to take \\(\\sqrt[5]{35}\\), type 32^(1/5):\n\n32^(1/5)\n\n[1] 2\n\n\n\n\n2.1.1.7 Logarithms\nTo take the natural logarithm of a value, you will use the log() function. Try log(5):\n\nlog(5)\n\n[1] 1.609438\n\n\nIf you want to take the logarithm of a different base, you will use the log() function with base argument. We will discuss this more in Section 2.3.\n\n\n\n2.1.2 Comparing Numbers\nAnother important part of R is comparing numbers. When you compare two numbers, R will tell if the statement is TRUE or FALSE. Below are the different comparisons you can make:\n\n\n\nOperator\nDescription\n\n\n\n\n&gt;\nGreater Than\n\n\n&lt;\nLess Than\n\n\n&gt;=\nGreater than or equal\n\n\n&lt;=\nLess than or equal\n\n\n==\nEquals\n\n\n!=\nNot Equals\n\n\n\n\n2.1.2.1 Less than/Greater than\nTo check if one number is less than or greater than another number, you will use the &gt; or &lt; operators. Try 5 &gt; 4:\n\n5 &gt; 4\n\n[1] TRUE\n\n\nNotice that R states it’s true. It evaluates the expression and tells you if it’s true or not. Try 5 &lt; 4:\n\n5 &lt; 4\n\n[1] FALSE\n\n\nNotice that R tells you it is false.\n\n\n2.1.2.2 Less than or equal to/Greater than or equal to\nTo check if one number is less than or equal to/greater than or equal to another number, you will use the &gt;= or &lt;= operators. Try 5 &gt;= 5:\n\n5 &gt;= 5\n\n[1] TRUE\n\n\nTry 5 &gt;= 4:\n\n5 &gt;= 4\n\n[1] TRUE\n\n\nTry 5 &lt;= 4\n\n5 &lt;= 4\n\n[1] FALSE\n\n\n\n\n2.1.2.3 Equals and Not Equals\nTo check if 2 numbers are equal to each other, you can use the == operator. Try 3 == 3:\n\n3 == 3\n\n[1] TRUE\n\n\nTry 4 == 3\n\n3 == 4\n\n[1] FALSE\n\n\nAnother way to see if 2 numbers are not equal to each other, you can use the !=. Try 3 != 4:\n\n3 != 4\n\n[1] TRUE\n\n\nTry 3 != 3:\n\n3 != 3\n\n[1] FALSE\n\n\nYou may be asking why use != instead of ==. They both provides similar results. Well the reason is that you may need the TRUE output for analysis. One is only true when they are equal, while the other is true when they are not equal.\nIn general, the ! operator means not or opposite. It can be used to change an TRUE to a FALSE and vice-versa.\n\n\n\n2.1.3 Help\nThe last operator we will discuss is the help operator ?. If you want to know more about anything we talked about you can type ? in front of a function and a help page will pop-up in your browser or in RStudio’s ‘Help’ tab. For example you can type ?Arithmetic or ?Comparison, to review what we talked about. For other operators we didn’t talk about use ?assignOps and ?Logic.",
-    "crumbs": [
-      "R Programming",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
-    ]
-  },
-  {
-    "objectID": "r_basics.html#types-of-data",
-    "href": "r_basics.html#types-of-data",
-    "title": "2  Basic R Programming",
-    "section": "2.2 Types of Data",
-    "text": "2.2 Types of Data\nIn R, the type of data, also known as class, we are using dictates how the programming works. For the most part, users will use numeric, logical, POSIX and character data types. Other types of data you may encounter are complex and raw. To obtain more information on them, use the ? operator.\n\n2.2.1 Numeric\nThe numeric class is the data that are numbers. Almost every analysis that you use will be based on the numeric class. To check if you have a numeric class, you just need to use the is.numeric() function. For example, try is.numeric(5):\n\nis.numeric(5)\n\n[1] TRUE\n\n\nNumeric classes are essentially double and integer types of data. For example a double data is essentially a number with decimal value. An integer data are whole numbers. Try is.numeric(5.63), is.double(5.63) and is.integer(5.63):\n\nis.numeric(5.63)\n\n[1] TRUE\n\nis.double(5.63)\n\n[1] TRUE\n\nis.integer(5.63)\n\n[1] FALSE\n\n\nNotice how the value \\(5.63\\) is a numeric and double but not integer. Now let’s try is.numeric(7), is.double(7) and is.integer(7):\n\nis.numeric(7)\n\n[1] TRUE\n\nis.double(7)\n\n[1] TRUE\n\nis.integer(7)\n\n[1] FALSE\n\n\nNotice how the value \\(7\\) is also considered a numeric and double but not integer. This is because typing a whole number will be stored as a double. However, if we need to store an integer, we will need to type the letter “L” after the number. Try is.numeric(7L), is.double(7L), and is.integer(7L):\n\nis.numeric(7L)\n\n[1] TRUE\n\nis.double(7L)\n\n[1] FALSE\n\nis.integer(7L)\n\n[1] TRUE\n\n\n\n\n2.2.2 Logical\nA logical class are data where the only value is TRUE or FALSE. Sometimes the data is coded as 1 for TRUE and 0 for FALSE. The data may also be coded as T or F. To check if data belongs in the logical class, you will need the is.logical() function. Try is.logical(3 &lt; 4):\n\nis.logical(3 &lt; 4)\n\n[1] TRUE\n\n\nThis is same comparison from Section 2.1.2. The output was TRUE. Now R is checking whether the output is of a logical class. Since it it, R returns TRUE. Now try is.logical(3 &gt; 4):\n\nis.logical(3 &gt; 4)\n\n[1] TRUE\n\n\nThe output is TRUE as well even though the condition 3 &gt; 4 is FALSE. Since the output is a logical data type, it is a logical variable.\n\n\n2.2.3 POSIX\nThe POSIX class are date-time data. Where the data value is a time component. The POSIX class can be very complex in how it is formatted. IF you would like to learn more try ?POSIXct or ?POSIClt. First, lets run Sys.time() to check what is today’s data and time:\n\nSys.time()\n\n[1] \"2024-05-10 14:06:05 PDT\"\n\n\nNow lets check if its of POSIX class, you can use the class() function to figure out which class is it. Try class(Sys.time()):\n\nclass(Sys.time())\n\n[1] \"POSIXct\" \"POSIXt\" \n\n\n\n\n2.2.4 Character\nA character value is where the data values follow a string format. Examples of character values are letters, words and even numbers. A character value is any value surrounded by quotation marks. For example, the phrase “Hello World!” is considered as one character value. Another example is if your data is coded with the actual words “yes” or “no”. To check if you have character data, use the is.character() function. Try is.character(\"Hello World!\"):\n\nis.character(\"Hello World!\")\n\n[1] TRUE\n\n\nNotice that the output says TRUE. Character values can be created with single quotations. Try is.character('Hello World!'):\n\nis.character('Hello World!')\n\n[1] TRUE\n\n\n\n\n2.2.5 Complex Numbers\nComplex numbers are data values where there is a real component and an imaginary component. The imaginary component is a number multiplied by \\(i=\\sqrt{-1}\\). To create a complex number, use the complex() function. To check if a number is complex, use the is.complex() function. Try the following to create a complex number complex(1, 4, 5):\n\ncomplex(1, 4, 5)\n\n[1] 4+5i\n\n\nNow try is.complex(complex(1, 4, 5)):\n\nis.complex(complex(1, 4, 5))\n\n[1] TRUE\n\n\n\n\n2.2.6 Raw\nYou will probably never use raw data. I have never used raw data in R. To create a raw value, use the raw() or charToRaw() functions. Try charToRaw('Hello World!'):\n\ncharToRaw('Hello World!')\n\n [1] 48 65 6c 6c 6f 20 57 6f 72 6c 64 21\n\n\nTo check if you have raw data, use the is.raw() function. Try is.raw(charToRaw('Hello World!')):\n\nis.raw(charToRaw('Hello World!'))\n\n[1] TRUE\n\n\n\n\n2.2.7 Missing\nThe last data class in R is missing data. The table below provides a brief introduction of the different types of missing data\n\n\n\n\n\n\n\n\nValue\nDescription\nFunctions\n\n\n\n\nNULL\nThese are values indicating an object is empty. Often used for functions with values that are undefined.\nis.null()\n\n\nNA\nStands for “Not Available”, used to indicate that the value is missing in the data.\nis.na()\n\n\nNaN\nStands for “Not an Number”. Used to indicate a missing number.\nis.nan()\n\n\nInf and -Inf\nIndicating an extremely large value or a value divided by 0.\nis.infinite()",
-    "crumbs": [
-      "R Programming",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
-    ]
-  },
-  {
-    "objectID": "r_basics.html#sec-r-functions",
-    "href": "r_basics.html#sec-r-functions",
-    "title": "2  Basic R Programming",
-    "section": "2.3 R Functions",
-    "text": "2.3 R Functions\nAn R function is the procedure that R will execute to certain data. For example, the log(x) is an R function. It takes the value x and provides you the natural logarithm. Here x is known as an argument which needs to be specified to us the log() function. Find the log(x = 5)\n\nlog(x = 5)\n\n[1] 1.609438\n\n\nAnother argument for the log() function is the base argument. With the previous code, we did not specify the base argument, so R makes the base argument equal to the number \\(e\\). If you want to use the common log with base 10, you will need to set the base argument equal to 10.\nTry log(x = 5, base = 10)\n\nlog(x = 5, base = 10)\n\n[1] 0.69897\n\n\nNow try log(5,10)\n\nlog(5,10)\n\n[1] 0.69897\n\n\nNotice that it provides the same value. This is because R can set arguments based on the values position in the function, regardless if the arguments are specified. For log(5,10), R thinks that 5 corresponds to the first argument x and 10 is the second argument base.\nTo learn more about a functions, use the ? operator on the function: ?log.",
-    "crumbs": [
-      "R Programming",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
-    ]
-  },
-  {
-    "objectID": "r_basics.html#sec-r-objects",
-    "href": "r_basics.html#sec-r-objects",
-    "title": "2  Basic R Programming",
-    "section": "2.4 R Objects",
-    "text": "2.4 R Objects\nR objects are where most of your data will be stored. An R object can be thought of as a container of data. Each object will share some sort of characteristics that will make the unique for different types of analysis.\n\n2.4.1 Assigning objects\nTo create an R object, all we need to do is assign data to a variable. The variable is the name of the R object. it can be called anything, but you can only use alphanumeric values, underscore, and periods. To assign a value to a variable, use the &lt;- operator. This is known a left assignment. Kinda like an arrow pointing left. Try assigning 9 to ‘x’ (x &lt;- 9):\n\nx &lt;- 9\n\nTo see if x contains 9, type x in the console:\n\nx\n\n[1] 9\n\n\nNow x can be treated as data and we can perform data analysis on it. For example, try squaring it:\n\nx^2\n\n[1] 81\n\n\nYou can use any mathematical operation from the previous sections. Try some other operations and see what happens.\nThe output R prints out can be stored in a variable using the asign operator, &lt;-. Try storing x^3 in a variable called x_cubed:\n\nx_cubed &lt;- x^3\n\nTo see what is stored in x_cubed you can either type x_cubed in the console or use the print() function with x_cubed inside the parenthesis.\n\nx_cubed\n\n[1] 729\n\nprint(x_cubed)\n\n[1] 729\n\n\n\n\n2.4.2 Vectors\nA vector is a set data values of a certain length. The R object x is considered as a numerical vector (because it contains a number) with the length 1. To check, try is.numeric(x) and is.vector(x):\n\nis.numeric(x)\n\n[1] TRUE\n\nis.vector(x)\n\n[1] TRUE\n\n\nNow let’s create a logical vector that contains 4 elements (have it follow this sequence: T, F, T, F) and assign it to y. To create a vector use the c()1 function and type all the values and separating them with columns. Type y &lt;- c(T, F, T, F):\n\ny &lt;- c(T, F, T, F)\n\nNow, lets see how y looks like. Type y:\n\ny\n\n[1]  TRUE FALSE  TRUE FALSE\n\n\nNow lets see if it’s a logical vector:\n\nis.logical(y)\n\n[1] TRUE\n\nis.vector(y)\n\n[1] TRUE\n\n\nFortunately, this vector is really small to count how many elements it has, but what if the vector is really large? To find out how many elements a vector has, use the length() function. Try length(y):\n\nlength(y)\n\n[1] 4\n\n\n\n\n2.4.3 Matrices\nA matrix can be thought as a square or rectangular grid of data values. This grid can be constructed can be any size. Similar to vectors they must contain the same data type. The size of a matrix is usually denoted as \\(n\\times k\\), where \\(n\\) represents the number of rows and \\(k\\) represents the number of columns. To get a rough idea of how a matrix may look like, type matrix(rep(1,12), nrow = 4, ncol = 3)2:\n\nmatrix(rep(1, 12), nrow = 4, ncol = 3)\n\n     [,1] [,2] [,3]\n[1,]    1    1    1\n[2,]    1    1    1\n[3,]    1    1    1\n[4,]    1    1    1\n\n\nNotice that this is a \\(4\\times 3\\) matrix. Each element in the matrix has the value 1. Now try this matrix(rbinom(12,1.5), nrow = 4, ncol = 3)3:\n\nmatrix(rbinom(12, 1, .5), nrow = 4, ncol = 3)\n\n     [,1] [,2] [,3]\n[1,]    1    1    0\n[2,]    1    1    1\n[3,]    1    0    0\n[4,]    0    0    0\n\n\nYour matrix may look different, but that is to be expected. Notice that some elements in a matrix are 0’s and some are 1’s. Each element in a matrix can hold any value.\nAn alternate approach to creating matrices is with the use of rbind() and cbind() functions. Using 2 vectors, and matrices, of the same length, the rbind() will append the vectors together by each row. Similarly, the cbind() function will append vectors, and matrices, of the same length by columns.\n\nx &lt;- 1:4\ny &lt;- 5:8\nz &lt;- 9:12\ncbind(x, y, z)\n\n     x y  z\n[1,] 1 5  9\n[2,] 2 6 10\n[3,] 3 7 11\n[4,] 4 8 12\n\nrbind(x, y, z)\n\n  [,1] [,2] [,3] [,4]\nx    1    2    3    4\ny    5    6    7    8\nz    9   10   11   12\n\n\nIf you want to create a matrix of a specific size without any data, you can use the matrix() function and only specify the nrow and ncol arguments. Here we are creating a \\(5\\times 11\\) empty matrix:\n\nmatrix(nrow = 5, ncol = 11)\n\n     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11]\n[1,]   NA   NA   NA   NA   NA   NA   NA   NA   NA    NA    NA\n[2,]   NA   NA   NA   NA   NA   NA   NA   NA   NA    NA    NA\n[3,]   NA   NA   NA   NA   NA   NA   NA   NA   NA    NA    NA\n[4,]   NA   NA   NA   NA   NA   NA   NA   NA   NA    NA    NA\n[5,]   NA   NA   NA   NA   NA   NA   NA   NA   NA    NA    NA\n\n\nLastly, if you need to find out the dimensions of a matrix, you can use dim() function on a matrix:\n\ndim(matrix(nrow = 5, ncol = 11))\n\n[1]  5 11\n\n\nThis will return a vector of length 2 with the first element being the number of rows and the second element being the number of columns.\n\n\n2.4.4 Arrays\nMatrices can be considered as a 2-dimensional block of numbers. An array is an n-dimensional block of numbers. While you may never need to use an array for data analysis. It may come in handy when programming by hand. To create an array, use the array() function. Below is an example of a \\(3 \\times 3 \\times 3\\) with the numbers 1, 2, and 3 representing the 3rd dimension stored in an R object called first_array4.\n\n(first_array &lt;- array(c(rep(1, 9), rep(2, 9), rep(3, 9)),\n                      dim=c(3,3,3)))\n\n, , 1\n\n     [,1] [,2] [,3]\n[1,]    1    1    1\n[2,]    1    1    1\n[3,]    1    1    1\n\n, , 2\n\n     [,1] [,2] [,3]\n[1,]    2    2    2\n[2,]    2    2    2\n[3,]    2    2    2\n\n, , 3\n\n     [,1] [,2] [,3]\n[1,]    3    3    3\n[2,]    3    3    3\n[3,]    3    3    3\n\n\n\n\n2.4.5 Data Frames\nData frames are similar to data set that you may encounter in an excel file. However, there are a couple of differences. First, each row represents an observation, and each column represents a characteristic of the observation. Additionally, each column in a data frame will be the same data type. To get an idea of what a data frame looks like, try head(iris) 5:\n\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\nIn the data frame, the rows indicate a specific observation and the columns are the values of a variable. In terms of the iris data set, we can see that row 1 is a specific flower that has a sepal length of 5.1. We can also see that flower 1 has other characteristics such as sepal width and petal length. Lastly, there are results for the other flowers.\nNow try tail(iris):\n\ntail(iris)\n\n    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species\n145          6.7         3.3          5.7         2.5 virginica\n146          6.7         3.0          5.2         2.3 virginica\n147          6.3         2.5          5.0         1.9 virginica\n148          6.5         3.0          5.2         2.0 virginica\n149          6.2         3.4          5.4         2.3 virginica\n150          5.9         3.0          5.1         1.8 virginica\n\n\nThe tail() function provides the last 6 rows of the data frame.\nLastly, if you are interested in viewing a specific variable (column) from a data frame, you can use the $ operator to specify which variable from a specific data frame. For example, if we are interested in observing the Sepal.Length variable from the iris data frame, we will type iris$Sepal.Length:\n\niris$Sepal.Length\n\n  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9\n [54] 5.5 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6\n[107] 4.9 7.3 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9\n\n\n\n\n2.4.6 Lists\nTo me a list is just a container that you can store practically anything. It is compiled of elements, where each element contains an R object. For example, the first element of a list may contain a data frame, the second element may contain a vector, and the third element may contain another list. It is just a way to store things.\nTo create a list, use the list() function. Create a list compiled of first element with the mtcars data set, second element with a vector of zeros of size 4, and a matrix \\(3 \\times 3\\) identity matrix6. Store the list in an object called list_one:\n\nlist_one &lt;- list(mtcars, rep(0, 4),\n                 diag(rep(1, 3)))\n\nType list_one to see what pops out:\n\nlist_one\n\n[[1]]\n                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nMazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2\nValiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1\nDuster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4\nMerc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2\nMerc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2\nMerc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4\nMerc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4\nMerc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3\nMerc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3\nMerc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3\nCadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4\nLincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4\nChrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4\nFiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nToyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1\nDodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2\nAMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2\nCamaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4\nPontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2\nFiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\nFord Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4\nFerrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6\nMaserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8\nVolvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2\n\n[[2]]\n[1] 0 0 0 0\n\n[[3]]\n     [,1] [,2] [,3]\n[1,]    1    0    0\n[2,]    0    1    0\n[3,]    0    0    1\n\n\nEach element in the list is labeled as a number. It is more useful to have the elements named. An element is named by typing the name in quotes followed by the = symbol before your object in the list() function (mtcars=mtcars).\n\nlist_one &lt;- list(mtcars = mtcars,\n                 vector = rep(0, 4),\n                 identity = diag(rep(1, 3)))\n\nHere I am creating an object called list_one, where the first element is mtcars labeled mtcars, the second element is a vector of zeros labeled vector and the last element is the identity matrix labeled identity.’\nNow create a new list called list_two and store list_one labeled as list_one and first_array labeled as array.\n\n(list_two &lt;- list(list_one = list_one,\n                  array = first_array))\n\n$list_one\n$list_one$mtcars\n                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nMazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2\nValiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1\nDuster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4\nMerc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2\nMerc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2\nMerc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4\nMerc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4\nMerc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3\nMerc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3\nMerc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3\nCadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4\nLincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4\nChrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4\nFiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nToyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1\nDodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2\nAMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2\nCamaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4\nPontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2\nFiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\nFord Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4\nFerrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6\nMaserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8\nVolvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2\n\n$list_one$vector\n[1] 0 0 0 0\n\n$list_one$identity\n     [,1] [,2] [,3]\n[1,]    1    0    0\n[2,]    0    1    0\n[3,]    0    0    1\n\n\n$array\n, , 1\n\n     [,1] [,2] [,3]\n[1,]    1    1    1\n[2,]    1    1    1\n[3,]    1    1    1\n\n, , 2\n\n     [,1] [,2] [,3]\n[1,]    2    2    2\n[2,]    2    2    2\n[3,]    2    2    2\n\n, , 3\n\n     [,1] [,2] [,3]\n[1,]    3    3    3\n[2,]    3    3    3\n[3,]    3    3    3",
-    "crumbs": [
-      "R Programming",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
-    ]
-  },
-  {
-    "objectID": "r_basics.html#r-packages",
-    "href": "r_basics.html#r-packages",
-    "title": "2  Basic R Programming",
-    "section": "2.5 R Packages",
-    "text": "2.5 R Packages\nAs stated before, R’s functionality can be extended to do more things by installing R packages. An R package can be thought as extra software. This allows you to do more with R. To install an R package, you will need to use the install.packages(\"NAME_OF_PACKAGE\") function. Once you install it, you do not need to install it again. To use the R package, use library(\"NAME_OF_PACKAGE\"). This allows you to load the package in R. You will need to load the package every time you start R. For more information, please watch the video:\n\ninstall Packages from RStudio, Inc. on Vimeo.",
-    "crumbs": [
-      "R Programming",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
-    ]
-  },
-  {
-    "objectID": "r_basics.html#load-data",
-    "href": "r_basics.html#load-data",
-    "title": "2  Basic R Programming",
-    "section": "2.6 Load Data",
-    "text": "2.6 Load Data\nIn order to analyze data in R, we must load it into the R environment. This can be done in 2 ways, using the “Import Dataset” button in the “Environment” tab in RStudio or use R code.\n\n2.6.1 Importing Data Via RStudio\nThis is the most recommended way to import data in RStudio because it can provide R code that you can copy and paste in an R Script.\nTo begin choose the “Import Dataset” from the “Environment” tab in RStudio:\n\n\n\n\n\nAfterwards, select the type of file that you may need to import. If you select the “From Text (readr)…” option, a popup window will appear:\n\n\n\n\n\nYou can now navigate to the file that you may want to import with the “Browse…” button and modify it the process as needed with the options. Afterwards, you can copy the code in the lower-right hand corner and save it in an R script",
-    "crumbs": [
-      "R Programming",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basic R Programming</span>"
-    ]
-  },
-  {
-    "objectID": "r_tidyverse.html#tidyr",
-    "href": "r_tidyverse.html#tidyr",
-    "title": "4  Tidyverse",
-    "section": "4.1 tidyr",
-    "text": "4.1 tidyr",
-    "crumbs": [
-      "R Programming",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tidyverse</span>"
-    ]
-  },
-  {
-    "objectID": "r_tidyverse.html#dplyr",
-    "href": "r_tidyverse.html#dplyr",
-    "title": "4  Tidyverse",
-    "section": "4.2 dplyr",
-    "text": "4.2 dplyr",
-    "crumbs": [
-      "R Programming",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tidyverse</span>"
-    ]
-  },
-  {
-    "objectID": "r_tidyverse.html#ggplot2",
-    "href": "r_tidyverse.html#ggplot2",
-    "title": "4  Tidyverse",
-    "section": "4.3 ggplot2",
-    "text": "4.3 ggplot2",
-    "crumbs": [
-      "R Programming",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tidyverse</span>"
-    ]
-  },
-  {
-    "objectID": "data.html#data-in-r",
-    "href": "data.html#data-in-r",
-    "title": "Data",
-    "section": "Data in R",
-    "text": "Data in R",
-    "crumbs": [
-      "Data"
-    ]
-  },
-  {
-    "objectID": "data.html#data-in-python",
-    "href": "data.html#data-in-python",
-    "title": "Data",
-    "section": "Data in Python",
-    "text": "Data in Python",
-    "crumbs": [
-      "Data"
-    ]
-  },
-  {
-    "objectID": "tidytuesday.html#taylor-swift-data",
-    "href": "tidytuesday.html#taylor-swift-data",
-    "title": "9  Tidy Tuesday Data",
-    "section": "9.1 Taylor Swift Data",
-    "text": "9.1 Taylor Swift Data\nThe taylor package provides the taylor_all_songs and taylor_album_songs data sets that contain information on all of Taylor Swift’s songs. Each data set contains basic information of songs (song release date, album releaser, …) and Spotify API level data (danceability score, energy score, …). You can install the taylor package with the following code:\n\ninstall.packages(\"taylor\")\n\nAccess the data with:\n\ntaylor::taylor_album_songs\n\n## OR\n\nlibrary(taylor)\ntaylor::taylor_album_songs\n\nThe help documentation can be found here: https://taylor.wjakethompson.com/\n\n9.1.1 Data\nOne hundred randomly selected songs are displayed below:",
-    "crumbs": [
-      "Data",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tidy Tuesday Data</span>"
-    ]
-  },
-  {
-    "objectID": "tidytuesday.html#anime",
-    "href": "tidytuesday.html#anime",
-    "title": "9  Tidy Tuesday Data",
-    "section": "9.2 Anime",
-    "text": "9.2 Anime\nThe anime data set from MyAnimeList contains information on rankings and popularity scores of different anime episodes. More information can be found here. The data set contains 77,911 observation and 28 variables. Warning: This data set will take over 30 MB to load up in R.\n\nanime &lt;- readr::read_csv(\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-04-23/tidy_anime.csv\")\n\n\n9.2.1 Data\nHere is a sample of the data set, with the synopsis variable removed to display the table better.",
-    "crumbs": [
-      "Data",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tidy Tuesday Data</span>"
-    ]
-  },
-  {
-    "objectID": "tidytuesday.html#starbucks",
-    "href": "tidytuesday.html#starbucks",
-    "title": "9  Tidy Tuesday Data",
-    "section": "9.3 Starbucks",
-    "text": "9.3 Starbucks\n\nstarbucks &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-12-21/starbucks.csv')\n\n\n9.3.1 Data\nA random sample of 100 products are shown.\n\nstarbucks |&gt; \n  dplyr::slice_sample(n=100) |&gt; \n  DT::datatable(options = list(dom = \"tp\", pageLength = 5))",
-    "crumbs": [
-      "Data",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tidy Tuesday Data</span>"
-    ]
-  },
-  {
-    "objectID": "tidytuesday.html#mr.-trash-wheel",
-    "href": "tidytuesday.html#mr.-trash-wheel",
-    "title": "9  Tidy Tuesday Data",
-    "section": "9.4 Mr. Trash Wheel",
-    "text": "9.4 Mr. Trash Wheel\nMr. Trash Wheel is a machine designed to collect trash in the Baltimore Harbor.\n\ntrash &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-03-05/trashwheel.csv')\n\n\n9.4.1 Data\nA random sample of the data:\n\ntrash |&gt; \n  dplyr::slice_sample(n=100) |&gt; \n  DT::datatable(options = list(dom = \"tp\", pageLength = 5))\n\n\n\n\n\n\n\n9.4.2 Sample Plot\n\n9.4.2.1 Cleaning Data\n\n\n\n\n\n\n\n\n%0\n\n\n\n5:s-&gt;6\n\n\n\n\n\n4:s-&gt;5\n\n\n\n\n\n2:s-&gt;4\n\n\n\n\n\n2:e-&gt;3\n\n\n\n\n\n1:s-&gt;2\n\n\n\n\n\n6\n\nChange the Data from wide to long by the trash variable using pivot_longer()\nThere are now 3088 observations in the data set.\n\n\n\n5\n\nConvert the Date character variable to a POSIX with mdy()\n\n\n\n4\n\nRemove all missing data\nThere are currently 773 observations in the data set.\n\n\n\n2\n\nRemove Gwynnda Trash Wheel due to several missing values\n\n\n\n3\n\nexcluded 220 items\n\n\n\n1\n\nStart with the trash data set\nRemove Variable that have high missing values\n\n\n\n\n\n\n\nlibrary(tidyverse)\n\ndf &lt;- trash |&gt; select(-SportsBalls, -GlassBottles, -Wrappers, -HomesPowered) |&gt; \n  filter(Name != \"Gwynnda Trash Wheel\") |&gt; drop_na() |&gt; \n  mutate(Date = mdy(Date)) |&gt; \n  pivot_longer(PlasticBottles:PlasticBags, names_to = \"Trash\", values_to = \"Value\")\n\n\n\n9.4.2.2 Plot\n\n\nCode\ndf |&gt; ggplot(aes(x = Date, y = log(Value), color = Trash)) +\n  geom_line() +\n  facet_wrap(~Name, nrow = 3) +\n  theme_bw() +\n  ylab(\"Number of Items (log-scale)\") +\n  ggtitle(\"Trash Collection over the Years\") +\n  scale_color_discrete(labels = c(\"Cigarette Butts\", \"Plastic Bags\", \"Plastic Bottles\", \"Polystyrene\")) +\n  theme(legend.title = element_blank(),\n        legend.position = \"bottom\",\n        axis.title.x = element_blank())",
-    "crumbs": [
-      "Data",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tidy Tuesday Data</span>"
-    ]
-  },
-  {
-    "objectID": "reporting.html",
-    "href": "reporting.html",
-    "title": "Scientific Documentation and Communication",
-    "section": "",
-    "text": "\\[\nY=mX+b\n\\]",
-    "crumbs": [
-      "Scientific Documentation and Communication"
-    ]
-  },
-  {
-    "objectID": "markdown.html#math",
-    "href": "markdown.html#math",
-    "title": "14  Markdown Basics",
-    "section": "14.1 Math",
-    "text": "14.1 Math\nQuarto is capable of writing mathematical formulas using LaTeX code. A mathematical symbol can be written inline using single $ signs. For example, $\\alpha$ is viewed as \\(\\alpha\\) in a document. To write mathematical formulas on its own line use $$. For example, $$Y=mX+b$$ is viewed as \\[Y=mX+b.\\]\n\n14.1.1 Mathematical Notation\n\n\n\nTable 14.1: LaTeX syntax for common examples.\n\n\n\n\n\nNotation\ncode\n\n\n\n\n\\(x=y\\)\n$x=y$\n\n\n\\(x&gt;y\\)\n$x&gt;y$\n\n\n\\(x&lt;y\\)\n$x&lt;y$\n\n\n\\(x\\geq y\\)\n$x\\geq y$\n\n\n\\(x\\leq y\\)\n$x\\leq y$\n\n\n\\(x^{y}\\)\n$x^{y}$\n\n\n\\(x_{y}\\)\n$x_{y}$\n\n\n\\(\\bar x\\)\n$\\bar x$\n\n\n\\(\\hat x\\)\n$\\hat x$\n\n\n\\(\\tilde x\\)\n$\\tilde x$\n\n\n\\(\\frac{x}{y}\\)\n$\\frac{x}{y}$\n\n\n\\(\\frac{\\partial x}{\\partial y}\\)\n$\\frac{\\partial x}{\\partial y}$\n\n\n\\(x\\in A\\)\n$x\\in A$\n\n\n\\(x\\subset A\\)\n$x\\subset A$\n\n\n\\(x\\subseteq A\\)\n$x\\subseteq A$\n\n\n\\(x\\cup A\\)\n$x\\cup A$\n\n\n\\(x\\cap A\\)\n$x\\cap A$\n\n\n\\(\\{1,2,3\\}\\)\n$\\{1,2,3\\}$\n\n\n\\(\\int_a^bf(x)dx\\)\n$\\int_a^bf(x)dx$\n\n\n\\(\\left\\{\\int_a^bf(x)dx\\right\\}\\)\n$\\left\\{\\int_a^bf(x)dx\\right\\}$\n\n\n\\(\\sum^n_{i=1}x_i\\)\n$\\sum^n_{i=1}x_i$\n\n\n\\(\\prod^n_{i=1}x_i\\)\n$\\prod^n_{i=1}x_i$\n\n\n\\(\\lim_{x\\to0}f(x)\\)\n$\\lim_{x\\to0}f(x)$\n\n\n\\(X\\sim \\Gamma(\\alpha,\\beta)\\)\n$X\\sim \\Gamma(\\alpha,\\beta)$\n\n\n\n\n\n\n\n\n14.1.2 Greek Letters\n\n\n\nTable 14.2: LaTeX syntax for greek letters.\n\n\n\n\n\nLetter\nLowercase\nCode\nUppercase\nCode\n\n\n\n\nalpha\n\\(\\alpha\\)\n\\alpha\n–\n–\n\n\nbeta\n\\(\\beta\\)\n\\beta\n–\n–\n\n\ngamma\n\\(\\gamma\\)\n\\gamma\n\\(\\Gamma\\)\n\\Gamma\n\n\ndelta\n\\(\\delta\\)\n\\delta\n\\(\\Delta\\)\n\\Delta\n\n\nepsilon\n\\(\\epsilon\\)\n\\epsilon\n–\n–\n\n\nzeta\n\\(\\zeta\\)\n\\zeta\n–\n–\n\n\neta\n\\(\\eta\\)\n\\eta\n–\n–\n\n\ntheta\n\\(\\theta\\)\n\\theta\n\\(\\Theta\\)\n\\Theta\n\n\niota\n\\(\\iota\\)\n\\iota\n–\n–\n\n\nkappa\n\\(\\kappa\\)\n\\kappa\n–\n–\n\n\nlambda\n\\(\\lambda\\)\n\\lambda\n\\(\\Lambda\\)\n\\Lambda\n\n\nmu\n\\(\\mu\\)\n\\mu\n–\n–\n\n\nnu\n\\(\\nu\\)\n\\nu\n–\n–\n\n\nxi\n\\(\\xi\\)\n\\xi\n\\(\\Xi\\)\n\\Xi\n\n\npi\n\\(\\pi\\)\n\\pi\n\\(\\Pi\\)\n\\pi\n\n\nrho\n\\(\\rho\\)\n\\rho\n–\n–\n\n\nsigma\n\\(\\sigma\\)\n\\sigma\n\\(\\Sigma\\)\n\\Sigma\n\n\ntau\n\\(\\tau\\)\n\\tau\n–\n–\n\n\nupsilon\n\\(\\upsilon\\)\n\\upsilon\n\\(\\Upsilon\\)\n\\Upsilon\n\n\nphi\n\\(\\phi\\)\n\\phi\n\\(\\Phi\\)\n\\Phi\n\n\nchi\n\\(\\chi\\)\n\\chi\n–\n–\n\n\npsi\n\\(\\psi\\)\n\\psi\n\\(\\Psi\\)\n\\Psi\n\n\nomega\n\\(\\omega\\)\n\\omega\n\\(\\Omega\\)\n\\Omega\n\n\nvarepsilon\n\\(\\varepsilon\\)\n\\varepsilon\n–\n–",
-    "crumbs": [
-      "Scientific Documentation and Communication",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Markdown Basics</span>"
-    ]
-  },
-  {
-    "objectID": "document.html#introduction",
-    "href": "document.html#introduction",
-    "title": "15  Quarto Documents with R",
-    "section": "15.1 Introduction",
-    "text": "15.1 Introduction\nQuarto is a file type used to create technical reports while including both R code, or other programming languages, and output in a document. A qmd1 file is a fancy R Script containing extra capabilities. Additionally, qmd files allow for citations, footnotes, mathematical expressions, links, and much more. Once the document is finished, it can be rendered to a word file, pdf, html file, and much more. Quarto is the considered the next generation of RMarkdown.",
-    "crumbs": [
-      "Scientific Documentation and Communication",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Quarto Documents with R</span>"
-    ]
-  },
-  {
-    "objectID": "document.html#anatomy-of-a-quarto-document",
-    "href": "document.html#anatomy-of-a-quarto-document",
-    "title": "15  Quarto Documents with R",
-    "section": "15.2 Anatomy of a Quarto Document",
-    "text": "15.2 Anatomy of a Quarto Document\nThere are three main components in an qmd file: the YAML header, R code, and basic text.\nThe YAML header contains information on how to render the document. It is located at the beginning of the document surrounded by 3 dashes (---) above and below it. For starters, the YAML header will contain a ‘title’, ‘author’, ‘date’, and ‘output’ line.\nThe R code is located in a block known as chunks. A chunk tells RStudio to read the next lines as code. A chunk begins with three back ticks followed by {r} and ends with three back ticks. Everything in between the back ticks will be executed by R. In RStudio, a chunk can be inserted using the keyboard shortcut ctrl+alt+I or cmd+option+I.\nAn example of an R chunk is shown below:\n\n```{r}\nmean(mtcars$mpg)\n```\n\nThe R chunk will be rendered as below:\n\nmean(mtcars$mpg)\n\nNotice the chunk includes the code in a block followed by the output from the console.\nThe last component of an qmd document is the text. Write anywhere in the document, and it will be rendered as is.",
-    "crumbs": [
-      "Scientific Documentation and Communication",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Quarto Documents with R</span>"
-    ]
-  },
-  {
-    "objectID": "document.html#chunk-options",
-    "href": "document.html#chunk-options",
-    "title": "15  Quarto Documents with R",
-    "section": "15.3 Chunk Options",
-    "text": "15.3 Chunk Options\nR chunks have options that will alter how the code or the output is rendered. The chunk options can be set either globally to affect the entire qmd document or locally to affect only an individual chunk. For more information about chunk options, visit https://yihui.org/knitr/options/\n\n15.3.1 Global Chunk Options\nTo set global chunks options, add the two lines to YAML header:\n#| echo: true\n---\nknitr:\n  opts_chunk: \n---\nFollowed by the chunks and R options you want to set:\n#| echo: true\n---\nknitr:\n  opts_chunk:\n    eval: false\n    tidy: styler\n    R.options:\n      digits: 2\n---\nA couple of recommended chunk options set globally are eval: false, and tidy: styler. These options make rendering the document easier.\nOne chunk option is tidy: styler. This tells Quarto to prevent code from printing in a long line, possibly off the page. For example, look at the output of this chunk:\n\n## This comment is designed to show what happens when all your code is in 1 line. This is fine when you are coding, but when you are putting it in a report, it will run off the page.\n\nNotice the comment being printed off the page. Using the options tidy: styler, the chunk is rendered as\n\n## This comment is designed to show what happens when all\n## your code is in 1 line. This is fine when you are\n## coding, but when you are putting it in a report, it will\n## run off the page.\n\nThe last 2 lines control how R will compute and print output. R.Options: tells Quarto that the options R will be changed, and each line after alters options. digits: 2 indicates R to use 2 significant digits.\n\n\n15.3.2 Local Chunk Options\nLocal chunk options can be used to control an individual chunk will behave. To control a specific chunk, place the option below the {r} identifier and use the #| chunk option indicator. An example is povided below:\n\n```{r}\n#| eval: false\n#| tidy: false\n\nmean(mtcars$mpg)\n```\n\nThe chunk option eval set to false tells Quarto to not evaluate the code within the chunk. Notice how the output was not printed the R chunk above. When we set eval to true, the output is printed:\n\n```{r}\n#| eval: true\nmean(mtcars$mpg)\n```\n\n[1] 20.1\n\n\nThe echo option will control if the code within the chunk should be printed in the document. This next chunk contains #| echo: true:\n\nmean(mtcars$mpg)\n\n[1] 20.1\n\n\nNow the chunk contains #| echo: false:\n\n\n[1] 20.1\n\n\nThe R Code disappears.\nThere are chunk options for figures as well. A few options are fig-height, fig-width, fig-align, and fig-cap.\nThis chunk contains fig-height: 3.5; fig-width: 3.5; fig-align: left.\n\n```{r}\n#| eval: true\n#| fig-height: 3.5\n#| fig-width: 3.5\n#| fig-align: left\n\nplot(mtcars$mpg, mtcars$drat)\n```\n\n\n\n\n\n\n\n\nThe chunk options tells RStudio to create an image that is 3.5 inches in height and width, and align the image to the left.\nThe following chunk contains fig-height: 3.5; fig-width: 3.5; fig-align: left; fig-cap: \"This is a scatter plot of MTCARS' MPG and DRAT\"; label: fig-mtcars.\n\n```{r}\n#| eval: true\n#| fig-height: 3.5\n#| fig-width: 3.5\n#| fig-align: center\n#| fig-cap: \"This is a scatter plot of MTCARS' MPG and DRAT\"\n#| label: fig-mtcars\n\nplot(mtcars$mpg, mtcars$drat)\n```\n\n\n\n\n\n\n\nFigure 15.1: This is a scatter plot of MTCARS’ MPG and DRAT\n\n\n\n\n\nThe chunk adds a caption with fig-cap and reference label with label. The label of the plot can be referenced later in the document. Figure 15.1 can be referenced with @fig-mtcars.\n\n\n15.3.3 Inline Code\nInstead of evaluating code in a chunk, code can evaluated in the text instead. For example, if we want to write the mean mpg in mtcars is 20.090625, one can type 20.090625, surrounded by back ticks (`), instead of writing the entire number and risk of miscopying the results.",
-    "crumbs": [
-      "Scientific Documentation and Communication",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Quarto Documents with R</span>"
-    ]
-  },
-  {
-    "objectID": "document.html#formatting",
-    "href": "document.html#formatting",
-    "title": "15  Quarto Documents with R",
-    "section": "15.4 Formatting",
-    "text": "15.4 Formatting\nQmd files allows a table to be constructed in 2 ways, manually or using a package such as the gt package. Below is the example code of Table 14.2:\n| Letter     |   Lowercase   |      Code     |  Uppercase |    Code    |\n|:-----------|:-------------:|:-------------:|:----------:|:----------:|\n| alpha      |    $\\alpha$   |    `\\alpha`   |     --     |     --     |\n| beta       |    $\\beta$    |    `\\beta`    |     --     |     --     |\n| gamma      |    $\\gamma$   |    `\\gamma`   |  $\\Gamma$  |  `\\Gamma`  |\n| delta      |    $\\delta$   |    `\\delta`   |  $\\Delta$  |  `\\Delta`  |\n| epsilon    |   $\\epsilon$  |   `\\epsilon`  |     --     |     --     |\n| zeta       |    $\\zeta$    |    `\\zeta`    |     --     |     --     |\n| eta        |     $\\eta$    |     `\\eta`    |     --     |     --     |\n| theta      |    $\\theta$   |    `\\theta`   |  $\\Theta$  |  `\\Theta`  |\n| iota       |    $\\iota$    |    `\\iota`    |     --     |     --     |\n| kappa      |    $\\kappa$   |    `\\kappa`   |     --     |     --     |\n| lambda     |   $\\lambda$   |   `\\lambda`   |  $\\Lambda$ |  `\\Lambda` |\n| mu         |     $\\mu$     |     `\\mu`     |     --     |     --     |\n| nu         |     $\\nu$     |     `\\nu`     |     --     |     --     |\n| xi         |     $\\xi$     |     `\\xi`     |    $\\Xi$   |    `\\Xi`   |\n| pi         |     $\\pi$     |     `\\pi`     |    $\\Pi$   |    `\\pi`   |\n| rho        |     $\\rho$    |     `\\rho`    |     --     |     --     |\n| sigma      |    $\\sigma$   |    `\\sigma`   |  $\\Sigma$  |  `\\Sigma`  |\n| tau        |     $\\tau$    |     `\\tau`    |     --     |     --     |\n| upsilon    |   $\\upsilon$  |   `\\upsilon`  | $\\Upsilon$ | `\\Upsilon` |\n| phi        |     $\\phi$    |     `\\phi`    |   $\\Phi$   |   `\\Phi`   |\n| chi        |     $\\chi$    |     `\\chi`    |     --     |     --     |\n| psi        |     $\\psi$    |     `\\psi`    |   $\\Psi$   |   `\\Psi`   |\n| omega      |    $\\omega$   |    `\\omega`   |  $\\Omega$  |  `\\Omega`  |\n| varepsilon | $\\varepsilon$ | `\\varepsilon` |     --     |     --     |\n\n: LaTeX syntax for greek letters. {#tbl-greektable}\nThe last line will adds a caption to the table and {#tbl-greektable} creates a label to reference the table in the text using @tbl-greektable.\nThe gt function from the gt package creates a table from a data frame or R object. Here is an example code to create a table from the first 6 rows of the mtcars dataset:\n\n```{r}\n#| label: tbl-mtcarsdata\n#| eval: true\n\nmtcars |&gt;\n    head() |&gt;\n    gt::gt() |&gt;\n    gt::tab_caption(\"The MTCARS Dataset\")\n```\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n21.0\n6\n160\n110\n3.90\n2.62\n16.5\n0\n1\n4\n4\n\n\n21.0\n6\n160\n110\n3.90\n2.88\n17.0\n0\n1\n4\n4\n\n\n22.8\n4\n108\n93\n3.85\n2.32\n18.6\n1\n1\n4\n1\n\n\n21.4\n6\n258\n110\n3.08\n3.21\n19.4\n1\n0\n3\n1\n\n\n18.7\n8\n360\n175\n3.15\n3.44\n17.0\n0\n0\n3\n2\n\n\n18.1\n6\n225\n105\n2.76\n3.46\n20.2\n1\n0\n3\n1\n\n\n\n\n\n\n\n\nTable 15.1: The MTCARS Dataset\n\n\n\n\nNotice that Table 15.1 is easily produced using the gt() function with a caption\nTable Table 15.1 is referenced by using the label created in the chunk and the @tbl-mtcarsdata. To install gt run the following line in your console:\n\ninstall.packages(\"gt\")",
-    "crumbs": [
-      "Scientific Documentation and Communication",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Quarto Documents with R</span>"
-    ]
-  },
-  {
-    "objectID": "document.html#citations-and-references",
-    "href": "document.html#citations-and-references",
-    "title": "15  Quarto Documents with R",
-    "section": "15.5 Citations and References",
-    "text": "15.5 Citations and References\nQmd documents contains capabilities to add citations and a bibliography. For example, to cite this textbook (Mendenhall and Sincich 2012), use the @ symbol followed by a citation identifier from the .bib file surrounded by square brackets, [@mendenhallSecondCourseStatistics2012]. To cite your textbook again (2012) without the authors names, use a - sign in front of the @ symbol, [-@mendenhallSecondCourseStatistics2012]. To cite multiple books (Casella and Berger 1990; Rohatgi and Saleh 2015; Resnick 2014; Erich L. Lehmann and Casella 1998; E. L. Lehmann and Romano 2005), add each citation inside the square brackets with the @ symbol and separate them with semicolons, [@casellaStatisticalInference1990; @rohatgiIntroductionProbabilityStatistics2015; @resnickProbabilityPath2014; @lehmannTheoryPointEstimation1998; @lehmannTestingStatisticalHypotheses2005].\nThe references will be added automatically at the end of the document.\nIn order to use citations and references, the qmd file needs needs a .bib file containing all the information of the references. First, save the .bib file in the same folder (directory) as your qmd file. Then add the line bibliography: NAME.bib to the YAML header. Make any changes appropriately to the line, such as the name of the .bib file.\n\n15.5.1 .bib File\nThe .bib file is an ordinary text file containing “bib” entries with information about each reference. Below is an example bib entry about R:\n\n\n@Manual{,\n  title = {R: A Language and Environment for Statistical Computing},\n  author = {{R Core Team}},\n  organization = {R Foundation for Statistical Computing},\n  address = {Vienna, Austria},\n  year = {2024},\n  url = {https://www.R-project.org/},\n}\n\n\nCreating a .bib file is tedious; however, there are reference managers that can help. I recommend using Zotero, an open-source reference manager designed to import and manage citations. Once a citation is in Zotero, you can export your library as a .bib file. Make sure to check your references in Zotero for any mistakes.",
-    "crumbs": [
-      "Scientific Documentation and Communication",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Quarto Documents with R</span>"
-    ]
-  },
-  {
-    "objectID": "document.html#rendering-a-document",
-    "href": "document.html#rendering-a-document",
-    "title": "15  Quarto Documents with R",
-    "section": "15.6 Rendering a Document",
-    "text": "15.6 Rendering a Document\nA qmd file can be rendered into either an html file, pdf document or word document. Rendering the qmd file to an html file or word document can be easily done using the knit button above. However, rendering the qmd file to a pdf document requires LaTeX to be installed. There are two methods to install LaTeX: from the LaTeX website or from R. I recommend installing the full LaTeX distribution from the https://www.latex-project.org/get/. This provides you with everything you may need. You can also install it from R:\n\ninstall.packages(\"tinytex\")\ntinytex::install_tinytex()\n\nYou will only need to run these lines of code once and then you can render pdf documents easily.\n\nHTML\n#| echo: true\n---\nformat: html\n---\n\n\nPDF\n#| echo: true\n---\nformat: pdf\n---\n\n\nWord Document\n#| echo: true\n---\nformat: docx\n---",
-    "crumbs": [
-      "Scientific Documentation and Communication",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Quarto Documents with R</span>"
-    ]
-  },
-  {
-    "objectID": "document.html#resources-and-tips",
-    "href": "document.html#resources-and-tips",
-    "title": "15  Quarto Documents with R",
-    "section": "15.7 Resources and Tips",
-    "text": "15.7 Resources and Tips\n\nQuarto\n\nQuarto\nMarkdown Basics\nFormats\n\n\n\nRMarkdown\n\nRStudio\nBookdown\n\n\n\nYAML\n\nUCLA Resource\nReproducible Research\nRMarkdown Crash Course\n\n\n\n15.7.1 Images\n\nAlternative Text Guidelines\n\n\n\nTips\n\nRender your document often so it easier to identify problems with rendering\nThe Visual Mode in RStudio eases the process of creating a document and makes it more bearable.\nYAML is tricky with spacing. Make sure that spaces when indenting options. Also make sure that there are not extra spaces at the end of each line.",
-    "crumbs": [
-      "Scientific Documentation and Communication",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Quarto Documents with R</span>"
-    ]
-  },
-  {
-    "objectID": "document.html#references",
-    "href": "document.html#references",
-    "title": "15  Quarto Documents with R",
-    "section": "15.8 References",
-    "text": "15.8 References\n\n\n\n\nCasella, George, and Roger L. Berger. 1990. Statistical Inference. The Wadsworth & Brooks/Cole Statistics/Probability Series. Pacific Grove, Calif: Brooks/Cole PubCo.\n\n\nLehmann, E. L., and Joseph P. Romano. 2005. Testing Statistical Hypotheses. 3rd ed. Springer Texts in Statistics. New York: Springer.\n\n\nLehmann, Erich L., and George Casella. 1998. Theory of Point Estimation. Second Edition. Springer Texts in Statistics. New York, NY: Springer New York.\n\n\nMendenhall, William, and Terry Sincich. 2012. A Second Course in Statistics: Regression Analysis. Seventh edition. Boston: Prentice Hall.\n\n\nResnick, Sidney I. 2014. A Probability Path. Modern Birkhäuser Classics. New York: Birkhäuser.\n\n\nRohatgi, V. K., and A. K. Md Ehsanes Saleh. 2015. An Introduction to Probability and Statistics. Third edition. Wiley Series in Probability and Statistics. Hoboken, New Jersey: Wiley.",
-    "crumbs": [
-      "Scientific Documentation and Communication",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Quarto Documents with R</span>"
-    ]
-  },
-  {
-    "objectID": "vc.html#git",
-    "href": "vc.html#git",
-    "title": "Version Control",
-    "section": "Git",
-    "text": "Git\nGit is the system on a computer that will track changes of all the files in a specialized directory (folder) on your computer.",
-    "crumbs": [
-      "Version Control"
-    ]
-  },
-  {
-    "objectID": "vc.html#github",
-    "href": "vc.html#github",
-    "title": "Version Control",
-    "section": "Github",
-    "text": "Github\nGithub is an online platform the programmers used to store their code. Users can create repositories (a centralized back-ups) that can be updated and shared to other individuals. Imagine the Google Drive of programming.",
-    "crumbs": [
-      "Version Control"
-    ]
-  },
-  {
-    "objectID": "vc.html#resources",
-    "href": "vc.html#resources",
-    "title": "Version Control",
-    "section": "Resources",
-    "text": "Resources\nIf you want a more in depth version of using git and GitHub, take a look at the following resource table:\n\n\n\nWebsite\nDescription\n\n\n\n\nHappy Git\nProvide an overview of git and GitHub while using RStudio.\n\n\nPro Git\nA highly recommended book for those who want to gain a deep understanding of git.\n\n\nOh S***, Git!?!\nProvides troubleshooting techniques when the inevitable mistakes occur.\n\n\nGit in Simple Words\nProvides git basics in simplified words.",
-    "crumbs": [
-      "Version Control"
-    ]
-  },
-  {
-    "objectID": "vc_git.html#installation",
-    "href": "vc_git.html#installation",
-    "title": "18  Git Basics",
-    "section": "18.1 Installation",
-    "text": "18.1 Installation\n\n18.1.1 Windows\nGit for Windows\n\n\n18.1.2 MacOS\nInstall Here",
-    "crumbs": [
-      "Version Control",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Git Basics</span>"
-    ]
-  },
-  {
-    "objectID": "website.html#GitHub",
-    "href": "website.html#GitHub",
-    "title": "19  Creating a Quarto Website",
-    "section": "19.1 Creating a GitHub Account (Required)",
-    "text": "19.1 Creating a GitHub Account (Required)\nGitHub can be considered as the google drive of code. It has great features to track code, implement changes, and host websites. You can create a Github account here: https://github.com/.\nOnce you have your account create a new repository with the following naming scheme: USERNAME.github.io. Then, make sure that repository is public, and click to create a README document.",
-    "crumbs": [
-      "Version Control",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Creating a Quarto Website</span>"
-    ]
-  },
-  {
-    "objectID": "website.html#building-a-website-with-quarto",
-    "href": "website.html#building-a-website-with-quarto",
-    "title": "19  Creating a Quarto Website",
-    "section": "19.2 Building a Website with Quarto",
-    "text": "19.2 Building a Website with Quarto\nI highly recommend building your website using quarto, it is very simple platform where your text documents become webpages.\n\n19.2.1 Using Posit Cloud\nPosit Cloud (posit.cloud) is an excellent resource to create website. It has all the software that you will need to create a website. Before we begin, make sure to create repository as stated by in the Creating a GitHub Account (Required) section.\n\n19.2.1.1 Creating an Account\nWhen you load the website, create a free account using an email account or github account. Once you create an account, the dashboard should load with your workspace.\n\n\n19.2.1.2 Creating a Project\nOn the top-right corner, click on the “New Project” blue button, and select “New RStudio Project”. This will create a new project called “Untitled Project”. Now change the name “Untitled Project” to “Website”. This project will create the material you need to develop a website.\n\n\n19.2.1.3 Creating and Connecting an SSH Key\nIn you website project, you will need a way for the project to connect with GitHub. You can do this by generating an SSH key in RStudio Cloud and transferring it to GitHub.\nThe SSH key can be thought of as a key that will unlock your computer to transfer data. You will generate the lock and key in RStudio, and then give the key to GitHub. Afterwards, transferring files will occur securely.\nTo generate an SSH key, go to the menu bar and select “Tools”, then “Global Options”. A menu will pop-up, select “Git/SVN” from the side menu. Click on the button “Create SSH key …”. A window will pop-up, then enter a password. Then click “Create”. Another window will pop-up showing your lock and key, you can close the window immediately.\nIn a different tab, go to your github account. On the top-right corner, click on your profile and select “Settings”. This will redirect you to a different page. In the left menu, click on “SSH and GPG Keys”. In the “SSH keys” section, click on the “New SSH key” green button. A new page will pop-up that will allow you to add a key. In the “Title” section, add any title1.\nBack at RStudio Cloud, click on the “View public key” link. Copy the highlighted text. Go back to Github and paste it in the “Key” section. Lastly, click on the “Add SSH Key” green button.\nNow you can transfer file easily between RStudio and GitHub.\n\n\n19.2.1.4 Cloning a Repository\nCloning a repository is the process of downloading a repository from a remote server, in this case GitHub account. This will allow you to re-download your repository if it is ever deleted.\nIn GitHub, navigate to your repository. On the top-right hand corner, click on the green button labeled “Code”. Make sure the “SSH” tab is selected and copy, or click on the double squares button, the text they provide. You should copy something that look like this:\ngit@github.com:USERNAME/USERNAME.github.io.git \nIn your RStudio Cloud Project, select the terminal tab in your console pane, usually on the left-side of the IDE. Paste the following text in the terminal tab2:\ngit clone git@github.com:USERNAME/USERNAME.github.io.git\nIt will prompt you to accept the SSH connection, type “yes”. Afterwards, it will ask you for your SSH password. Type your password. Then, it will download your repository as a folder. In the “Files” tab, you should see the newly created folder.\n\n\n19.2.1.5 Making a Quarto Website\nFor this section, we will primarily be working in the “Terminal” Tab in RStudio. Click on the “Terminal” Tab in the “Console” Pane. The you will type the following:\ncd USERNAME.github.io\nMake sure to replace USERNAME with your user name for GitHub. The above command will change the working folder to “USERNAME.github.io”. Afterwards, you want to fill the folder with the necessary contents for making a Quarto Website. Type the following command in the terminal:\nquarto create-project . --type website\nThis will generate new files for your website. Next, you will need to create a “nojekyll” file that tells GitHub, not to use Jekyll. Type the following in the terminal:\ntouch .nojekyll\nNow, go to the “Files” Tab and open “_quarto.yml”. At the top of the document, you will need to add output-dir: docs under the project:, you should have something like this:\nproject:\n  type: website\n  output-dir: docs\nNow you are set to Render your website!\n\n\n19.2.1.6 Rendering and Publishing a Website\nWhenever you are finished updating your website files, you will need render your website so it will update all the new content. To begin, make sure you are working in the directory (folder) containing your website files:\ncd USERNAME.github.io\nNow, you can render your website using the following command:\nquarto render\nYour website will be rendered in the docs folder. Then you will need to commit the changes using git. First type\ngit add .\nThe commit your files using the following commands:\ngit commit -m \"Updates\"\nLastly, push your updates to GitHub:\ngit push\nIt will prompt your for your password related towards you SSH key. Then it will push all the updates. GitHub will then publish your website in a few minutes. Lastly, type “USERNAME.github.io” in any browser and your website should work.\n\n\n\n19.2.2 Using RStudio on Mac/Linux\nComing Soon …\n\n\n19.2.3 Using RStudio on Windows\nComing Soon …",
-    "crumbs": [
-      "Version Control",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Creating a Quarto Website</span>"
-    ]
-  },
-  {
-    "objectID": "website.html#creating-webpages",
-    "href": "website.html#creating-webpages",
-    "title": "19  Creating a Quarto Website",
-    "section": "19.3 Creating Webpages",
-    "text": "19.3 Creating Webpages\nTo create a webpage, you will simply open a new quarto document, edit the page, and save it in your website’s folder. To link the webpage in your menu bar, add the qmd file to the “_quarto.yml” file:\nwebsite:\n  title: \"inqs909.github.io\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: Home\n      - about.qmd\n      - NEWFILE.qmd\nThe render your website and push it to GitHub.",
-    "crumbs": [
-      "Version Control",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Creating a Quarto Website</span>"
     ]
   }
 ]

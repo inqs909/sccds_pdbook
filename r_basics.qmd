@@ -311,7 +311,7 @@ is.raw(charToRaw('Hello World!'))
 The last data class in R is missing data. The table below provides a brief introduction of the different types of missing data
 
 | Value            | Description                                                                                              | Functions       |
-|------------------|-------------------------------------|------------------|
+|------------------|----------------------------------------------------------------------------------------------------------|-----------------|
 | `NULL`           | These are values indicating an object is empty. Often used for functions with values that are undefined. | `is.null()`     |
 | `NA`             | Stands for "Not Available", used to indicate that the value is missing in the data.                      | `is.na()`       |
 | `NaN`            | Stands for "Not an Number". Used to indicate a missing number.                                           | `is.nan()`      |
