@@ -62,8 +62,5 @@ format:
     theme: cosmo
     toc: false
 
-execute: 
-  cache: true
-
 editor: source
 
