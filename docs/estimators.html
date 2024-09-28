@@ -135,7 +135,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating fullcontent">
+<body class="nav-sidebar docked fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -156,7 +156,7 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">SCCDS Professional Development Handbook</a> 
@@ -476,7 +476,7 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="dv">8</span>, <span class="fu">sqrt</span>(<span class="dv">3</span>))</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 8.246749</code></pre>
+<pre><code>#&gt; [1] 8.128019</code></pre>
 </div>
 </div>
 <p>Notice that the value is close to 8. If we generate two different samples, notice how all means calculated are different from each other.</p>
@@ -484,14 +484,14 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="dv">8</span>, <span class="fu">sqrt</span>(<span class="dv">3</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 8.284814</code></pre>
+<pre><code>#&gt; [1] 7.622466</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="dv">8</span>, <span class="fu">sqrt</span>(<span class="dv">3</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 8.272655</code></pre>
+<pre><code>#&gt; [1] 7.632177</code></pre>
 </div>
 </div>
 <p>Now to visualize see the distribution of <span class="math inline">\(\bar X\)</span>, we will simulate 10,000 samples, compute the mean of each sample, and construct the a histogram of the computed means.</p>

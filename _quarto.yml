@@ -51,6 +51,9 @@ book:
         - vc_git.qmd
         - website.qmd
   repo-url: https://github.com/inqs909/sccds_pdbook/
+  sidebar:
+    style: docked
+    background: light
   downloads: [pdf, epub]
 
 
@@ -58,6 +61,9 @@ format:
   html:
     theme: cosmo
     toc: false
+
+execute: 
+  cache: true
 
 editor: source
 
