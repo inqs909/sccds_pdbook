@@ -57,10 +57,13 @@ book:
   downloads: [pdf, epub]
 
 
+
 format:
   html:
     theme: cosmo
     toc: false
+    number-depth: 2
+    toc-depth: 3
 
 editor: source
 

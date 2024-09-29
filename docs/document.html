@@ -285,13 +285,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bootstrapping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Bootstrapping</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Bootstrap Method</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./permutations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Randomizations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Permutation (Randomization) Tests</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -465,8 +465,8 @@ div.csl-indent {
 <section id="chunk-options" class="level2" data-number="19.3">
 <h2 data-number="19.3" class="anchored" data-anchor-id="chunk-options"><span class="header-section-number">19.3</span> Chunk Options</h2>
 <p>R chunks have options that will alter how the code or the output is rendered. The chunk options can be set either globally to affect the entire qmd document or locally to affect only an individual chunk. For more information about chunk options, visit <a href="https://yihui.org/knitr/options/" class="uri">https://yihui.org/knitr/options/</a></p>
-<section id="global-chunk-options" class="level3" data-number="19.3.1">
-<h3 data-number="19.3.1" class="anchored" data-anchor-id="global-chunk-options"><span class="header-section-number">19.3.1</span> Global Chunk Options</h3>
+<section id="global-chunk-options" class="level3">
+<h3 class="anchored" data-anchor-id="global-chunk-options">Global Chunk Options</h3>
 <p>To set global chunks options, add the two lines to YAML header:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>#| echo: true</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>---</span>
@@ -497,8 +497,8 @@ div.csl-indent {
 </div>
 <p>The last 2 lines control how R will compute and print output. <code>R.Options:</code> tells Quarto that the options R will be changed, and each line after alters options. <code>digits: 2</code> indicates R to use 2 <a href="https://en.wikipedia.org/wiki/Significant_figures">significant digits</a>.</p>
 </section>
-<section id="local-chunk-options" class="level3" data-number="19.3.2">
-<h3 data-number="19.3.2" class="anchored" data-anchor-id="local-chunk-options"><span class="header-section-number">19.3.2</span> Local Chunk Options</h3>
+<section id="local-chunk-options" class="level3">
+<h3 class="anchored" data-anchor-id="local-chunk-options">Local Chunk Options</h3>
 <p>Local chunk options can be used to control an individual chunk will behave. To control a specific chunk, place the option below the <code>{r}</code> identifier and use the <code>#|</code> chunk option indicator. An example is povided below:</p>
 <div class="cell tbl-cap-location-bottom">
 <div class="sourceCode cell-code" id="cb7" data-cap-location="bottom"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
@@ -565,7 +565,7 @@ div.csl-indent {
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="in">plot(mtcars$mpg, mtcars$drat)</span></span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-mtcars" class="quarto-float quarto-figure quarto-figure-center anchored" data-cap-location="bottom" data-fig-align="center">
+<div id="fig-mtcars" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-cap-location="bottom">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mtcars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="document_files/figure-html/fig-mtcars-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="336">
@@ -579,8 +579,8 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
 </div>
 <p>The chunk adds a caption with <code>fig-cap</code> and reference label with <code>label</code>. The label of the plot can be referenced later in the document. <a href="#fig-mtcars" class="quarto-xref">Figure&nbsp;<span>19.1</span></a> can be referenced with <code>@fig-mtcars</code>.</p>
 </section>
-<section id="inline-code" class="level3" data-number="19.3.3">
-<h3 data-number="19.3.3" class="anchored" data-anchor-id="inline-code"><span class="header-section-number">19.3.3</span> Inline Code</h3>
+<section id="inline-code" class="level3">
+<h3 class="anchored" data-anchor-id="inline-code">Inline Code</h3>
 <p>Instead of evaluating code in a chunk, code can evaluated in the text instead. For example, if we want to write the mean mpg in <code>mtcars</code> is 20.090625, one can type 20.090625, surrounded by back ticks (<code>`</code>), instead of writing the entire number and risk of miscopying the results.</p>
 </section>
 </section>
@@ -631,23 +631,23 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-mtcarsdata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="rjptzcppro" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rjptzcppro table {
+<div id="qebltdyhbm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qebltdyhbm table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rjptzcppro thead, #rjptzcppro tbody, #rjptzcppro tfoot, #rjptzcppro tr, #rjptzcppro td, #rjptzcppro th {
+#qebltdyhbm thead, #qebltdyhbm tbody, #qebltdyhbm tfoot, #qebltdyhbm tr, #qebltdyhbm td, #qebltdyhbm th {
   border-style: none;
 }
 
-#rjptzcppro p {
+#qebltdyhbm p {
   margin: 0;
   padding: 0;
 }
 
-#rjptzcppro .gt_table {
+#qebltdyhbm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -673,12 +673,12 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-left-color: #D3D3D3;
 }
 
-#rjptzcppro .gt_caption {
+#qebltdyhbm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rjptzcppro .gt_title {
+#qebltdyhbm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -690,7 +690,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-bottom-width: 0;
 }
 
-#rjptzcppro .gt_subtitle {
+#qebltdyhbm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -702,7 +702,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-top-width: 0;
 }
 
-#rjptzcppro .gt_heading {
+#qebltdyhbm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -714,13 +714,13 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-right-color: #D3D3D3;
 }
 
-#rjptzcppro .gt_bottom_border {
+#qebltdyhbm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rjptzcppro .gt_col_headings {
+#qebltdyhbm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -735,7 +735,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-right-color: #D3D3D3;
 }
 
-#rjptzcppro .gt_col_heading {
+#qebltdyhbm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -755,7 +755,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   overflow-x: hidden;
 }
 
-#rjptzcppro .gt_column_spanner_outer {
+#qebltdyhbm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -767,15 +767,15 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 4px;
 }
 
-#rjptzcppro .gt_column_spanner_outer:first-child {
+#qebltdyhbm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rjptzcppro .gt_column_spanner_outer:last-child {
+#qebltdyhbm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rjptzcppro .gt_column_spanner {
+#qebltdyhbm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -787,11 +787,11 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   width: 100%;
 }
 
-#rjptzcppro .gt_spanner_row {
+#qebltdyhbm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rjptzcppro .gt_group_heading {
+#qebltdyhbm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -817,7 +817,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   text-align: left;
 }
 
-#rjptzcppro .gt_empty_group_heading {
+#qebltdyhbm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -832,15 +832,15 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   vertical-align: middle;
 }
 
-#rjptzcppro .gt_from_md > :first-child {
+#qebltdyhbm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rjptzcppro .gt_from_md > :last-child {
+#qebltdyhbm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rjptzcppro .gt_row {
+#qebltdyhbm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -859,7 +859,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   overflow-x: hidden;
 }
 
-#rjptzcppro .gt_stub {
+#qebltdyhbm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -872,7 +872,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#rjptzcppro .gt_stub_row_group {
+#qebltdyhbm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -886,15 +886,15 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   vertical-align: top;
 }
 
-#rjptzcppro .gt_row_group_first td {
+#qebltdyhbm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rjptzcppro .gt_row_group_first th {
+#qebltdyhbm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rjptzcppro .gt_summary_row {
+#qebltdyhbm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -904,16 +904,16 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#rjptzcppro .gt_first_summary_row {
+#qebltdyhbm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rjptzcppro .gt_first_summary_row.thick {
+#qebltdyhbm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rjptzcppro .gt_last_summary_row {
+#qebltdyhbm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -923,7 +923,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-bottom-color: #D3D3D3;
 }
 
-#rjptzcppro .gt_grand_summary_row {
+#qebltdyhbm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -933,7 +933,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#rjptzcppro .gt_first_grand_summary_row {
+#qebltdyhbm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -943,7 +943,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-top-color: #D3D3D3;
 }
 
-#rjptzcppro .gt_last_grand_summary_row_top {
+#qebltdyhbm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -953,11 +953,11 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-bottom-color: #D3D3D3;
 }
 
-#rjptzcppro .gt_striped {
+#qebltdyhbm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rjptzcppro .gt_table_body {
+#qebltdyhbm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -966,7 +966,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-bottom-color: #D3D3D3;
 }
 
-#rjptzcppro .gt_footnotes {
+#qebltdyhbm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -980,7 +980,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-right-color: #D3D3D3;
 }
 
-#rjptzcppro .gt_footnote {
+#qebltdyhbm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -989,7 +989,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#rjptzcppro .gt_sourcenotes {
+#qebltdyhbm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1003,7 +1003,7 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   border-right-color: #D3D3D3;
 }
 
-#rjptzcppro .gt_sourcenote {
+#qebltdyhbm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1011,63 +1011,63 @@ Figure&nbsp;19.1: This is a scatter plot of MTCARS’ MPG and DRAT
   padding-right: 5px;
 }
 
-#rjptzcppro .gt_left {
+#qebltdyhbm .gt_left {
   text-align: left;
 }
 
-#rjptzcppro .gt_center {
+#qebltdyhbm .gt_center {
   text-align: center;
 }
 
-#rjptzcppro .gt_right {
+#qebltdyhbm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rjptzcppro .gt_font_normal {
+#qebltdyhbm .gt_font_normal {
   font-weight: normal;
 }
 
-#rjptzcppro .gt_font_bold {
+#qebltdyhbm .gt_font_bold {
   font-weight: bold;
 }
 
-#rjptzcppro .gt_font_italic {
+#qebltdyhbm .gt_font_italic {
   font-style: italic;
 }
 
-#rjptzcppro .gt_super {
+#qebltdyhbm .gt_super {
   font-size: 65%;
 }
 
-#rjptzcppro .gt_footnote_marks {
+#qebltdyhbm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rjptzcppro .gt_asterisk {
+#qebltdyhbm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rjptzcppro .gt_indent_1 {
+#qebltdyhbm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rjptzcppro .gt_indent_2 {
+#qebltdyhbm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rjptzcppro .gt_indent_3 {
+#qebltdyhbm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rjptzcppro .gt_indent_4 {
+#qebltdyhbm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rjptzcppro .gt_indent_5 {
+#qebltdyhbm .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1190,8 +1190,8 @@ Table&nbsp;19.1: The MTCARS Dataset
 <p>Qmd documents contains capabilities to add citations and a bibliography. For example, to cite this textbook <span class="citation" data-cites="mendenhallSecondCourseStatistics2012">(<a href="#ref-mendenhallSecondCourseStatistics2012" role="doc-biblioref">Mendenhall and Sincich 2012</a>)</span>, use the <code>@</code> symbol followed by a citation identifier from the <code>.bib</code> file surrounded by square brackets, <code>[@mendenhallSecondCourseStatistics2012]</code>. To cite your textbook again <span class="citation" data-cites="mendenhallSecondCourseStatistics2012">(<a href="#ref-mendenhallSecondCourseStatistics2012" role="doc-biblioref">2012</a>)</span> without the authors names, use a <code>-</code> sign in front of the <code>@</code> symbol, <code>[-@mendenhallSecondCourseStatistics2012]</code>. To cite multiple books <span class="citation" data-cites="casellaStatisticalInference1990 rohatgiIntroductionProbabilityStatistics2015 resnickProbabilityPath2014 lehmannTheoryPointEstimation1998 lehmannTestingStatisticalHypotheses2005">(<a href="#ref-casellaStatisticalInference1990" role="doc-biblioref">Casella and Berger 1990</a>; <a href="#ref-rohatgiIntroductionProbabilityStatistics2015" role="doc-biblioref">Rohatgi and Saleh 2015</a>; <a href="#ref-resnickProbabilityPath2014" role="doc-biblioref">Resnick 2014</a>; <a href="#ref-lehmannTheoryPointEstimation1998" role="doc-biblioref">Erich L. Lehmann and Casella 1998</a>; <a href="#ref-lehmannTestingStatisticalHypotheses2005" role="doc-biblioref">E. L. Lehmann and Romano 2005</a>)</span>, add each citation inside the square brackets with the <code>@</code> symbol and separate them with semicolons, <code>[@casellaStatisticalInference1990; @rohatgiIntroductionProbabilityStatistics2015; @resnickProbabilityPath2014; @lehmannTheoryPointEstimation1998; @lehmannTestingStatisticalHypotheses2005]</code>.</p>
 <p>The references will be added automatically at the end of the document.</p>
 <p>In order to use citations and references, the qmd file needs needs a <code>.bib</code> file containing all the information of the references. First, save the <code>.bib</code> file in the same folder (directory) as your <code>qmd</code> file. Then add the line <code>bibliography: NAME.bib</code> to the YAML header. Make any changes appropriately to the line, such as the name of the <code>.bib</code> file.</p>
-<section id="bib-file" class="level3" data-number="19.5.1">
-<h3 data-number="19.5.1" class="anchored" data-anchor-id="bib-file"><span class="header-section-number">19.5.1</span> <code>.bib</code> File</h3>
+<section id="bib-file" class="level3">
+<h3 class="anchored" data-anchor-id="bib-file"><code>.bib</code> File</h3>
 <p>The <code>.bib</code> file is an ordinary text file containing “bib” entries with information about each reference. Below is an example bib entry about R:</p>
 <div class="cell tbl-cap-location-bottom">
 <div class="cell-output cell-output-stdout">
@@ -1263,8 +1263,8 @@ Table&nbsp;19.1: The MTCARS Dataset
 <li><a href="https://zsmith27.github.io/rmarkdown_crash-course/lesson-4-yaml-headers.html">RMarkdown Crash Course</a></li>
 </ul>
 </section>
-<section id="images" class="level3" data-number="19.7.1">
-<h3 data-number="19.7.1" class="anchored" data-anchor-id="images"><span class="header-section-number">19.7.1</span> Images</h3>
+<section id="images" class="level3">
+<h3 class="anchored" data-anchor-id="images">Images</h3>
 <ul>
 <li><a href="https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81">Alternative Text Guidelines</a></li>
 </ul>

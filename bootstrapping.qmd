@@ -1,3 +1,138 @@
 ---
-title: "Bootstrapping"
+title: "The Bootstrap Method"
 ---
+
+
+```{r}
+#| code-fold: false
+
+library(tidyverse)
+library(palmerpenguins)
+
+theme_set(theme_bw())
+theme_update(axis.title = element_text(size = 24))
+
+shuffle <- function(x){
+  n <- length(x)
+  return(sample(x, n))
+}
+
+penguins <- penguins |> drop_na() 
+
+
+```
+
+
+## Empirical Distribution Function
+
+The empirical distribution function is designed to estimate a random variable's distribution function. For an observed sample $\{x_i\}^n_{i=1}$, the empirical distribution function is
+
+$$
+F_n(x) \left\{\begin{array}{cc}
+0, & x < x_{(1)} \\
+\frac{i}{n},& x_{(i)} \leq x <x_{(i+1)},\ i = 1,\ldots,n-1\\
+1,& x_{(n)}\leq x
+\end{array}
+\right.
+$$
+
+where $x_{(1)}, \ldots, x_{(n)}$ are the ordered sample.
+
+### Sampling an unknown $F$
+
+The idea behind bootstrapping is that the data comes from a distribution $F$ with unknown parameters.
+
+Using the sample, we can get parameters that explain a parameteric distribution or the emperical distribution for a nonparameteric approach. 
+
+## The Bootstrap Method
+
+The Bootstrap Method utilizes the sample to describe the target distribution function to construct a sampling mechanism of the target distribution.
+
+This method will allow us to construct a new sample that targets the distribution.
+
+We can then construct the sampling distribution of a statistic based on the data.
+
+### Standard Error
+
+The bootstrap-based standard error of a test statistic is shown to provide an unbiased estimate of the true standard error. 
+
+### Limitation to Boostrap Methods
+
+The assumption is that the data provides a good estimate of the distribution function.
+
+If the data set is small, it may not contain enough information to accurately describe the distribution.
+
+
+## Parameteric Bootstrap
+
+Parametric bootstrap methods are statistical techniques used to estimate the sampling distribution of an estimator or test statistic by resampling with a model-based approach. This method assumes that the data follow a known probability distribution, and utilizes the estimated statistics as the parameters for the distribution function to construct the sampling distribution.
+
+### Parameteric Bootstrap Algorithm
+
+1. Estimate the Parameters: Fit a parametric model to the observed data and estimate the parameters of the model. 
+
+2. Generate Bootstrap Samples: Using the estimated parameters, generate a large number of new data sets (bootstrap samples) from the fitted model. These samples are simulated data sets that mimic the original data but are generated from the parametric model.
+
+3. Compute the Statistic of Interest: For each bootstrap sample, calculate the statistic of interest (e.g., the mean, variance, regression coefficients, etc.).
+
+4. Construct the Sampling Distribution: Use the calculated statistics from all the bootstrap samples to construct an empirical sampling distribution. 
+
+5. Estimate Confidence Intervals: Use the empirical sampling distribution to estimate confidence intervals.
+
+### Example
+
+Use a parameteric bootstrap model to determine the standard errors of the mean body mass of each penguin species.
+
+```{r}
+penguins |> group_by(species) |> 
+  summarise(mean = mean(body_mass_g),
+            se = sd(body_mass_g) / sqrt(n()))
+```
+
+Answer:
+
+```{r}
+means <- penguins$body_mass_g |> tapply(penguins$species, mean)
+nns <- penguins$body_mass_g |> tapply(penguins$species, length)
+sds <- penguins$body_mass_g |> tapply(penguins$species, sd)
+Ameans <- numeric(10000)
+Cmeans <- numeric(10000)
+Gmeans <- numeric(10000)
+for (i in 1:10000){
+  Ameans[i] <- rnorm(nns[1], mean = means[1], sd = sds[1]) |> mean()
+  Cmeans[i] <- rnorm(nns[2], mean = means[2], sd = sds[2]) |> mean()
+  Gmeans[i] <- rnorm(nns[3], mean = means[3], sd = sds[3]) |> mean()
+}
+
+
+```
+
+## Nonparameteric Bootsrap
+
+The nonparameteric approach assumes that distribution function of the data does not follow a common distribution function. Therefore, the data itself will be contain all the information needed to construct the sampling distribution.
+
+This requires sampling with replacement.
+
+### Nonparameteric Bootstrap Algorithm
+
+1.  Draw a sample $X*$ of size $n$ with replacement from the original data $X$.
+    1.  $n$ is the size of the data
+2.  Compute the bootstrap replicate statistic $T* = g(X*)$, where $g(\cdot)$ is the function that computes the statistic of interest.
+3.  Repeat steps 1-2 $B$ times to obtain $B$ bootstrap replicates ${T*_1, T*_2, ..., T*_B}$.
+4.  The computed statistics from $B$ samples are the empirical bootstrap distribution of the statistic, $g(X)$.
+5.  Calculate the bootstrap standard error of the statistic, $se_b(g(X))$, as the standard deviation of the bootstrap replicates.
+6.  Calculate the bootstrap confidence interval for the statistic, $CI(g(X))$, with the $\alpha$ and $(1-\alpha)%$ percentiles of the bootstrap replicates, where $\alpha$ is the desired level of significance.
+
+### Example
+
+Fitting the following model:
+
+```{r}
+library(palmerpenguins)
+library(tidyverse)
+penguins <- penguins |> drop_na()
+penguins |> lm(body_mass_g ~ flipper_length_mm + bill_length_mm + bill_depth_mm,
+               data = _)
+```
+
+Obtain the Bootstrap-based Standard Errors for the regression coefficients. Use $B=1000$ bootstrap samples.

@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -69,6 +103,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -231,13 +294,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bootstrapping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Bootstrapping</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Bootstrap Method</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./permutations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Randomizations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Permutation (Randomization) Tests</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -386,27 +449,1118 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Monte Carlo methods are used to generate the random variables from</p>
-<section id="random-number-generation" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="random-number-generation"><span class="header-section-number">12.1</span> Random Number Generation</h2>
-<p>In order to simulated random variables, we need to have access to a large set of random numbers. Generating these random numbers can be</p>
+<section id="r-setup" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="r-setup"><span class="header-section-number">12.1</span> R Setup</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="probability-inverse-transformation" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="probability-inverse-transformation"><span class="header-section-number">12.2</span> Probability Inverse Transformation</h2>
+<section id="distributions-in-r" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="distributions-in-r"><span class="header-section-number">12.2</span> Distributions in R</h2>
+<p>Several common distributions can be utilized in R with the 4 common functions:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Letter</th>
+<th style="text-align: left;">Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>d</code></td>
+<td style="text-align: left;">returns the height of the probability density/mass function</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>p</code></td>
+<td style="text-align: left;">returns the cumulative density function value</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>q</code></td>
+<td style="text-align: left;">returns the inverse cumulative density function (percentiles)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>r</code></td>
+<td style="text-align: left;">returns a randomly generated number</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="composition-method" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="composition-method"><span class="header-section-number">12.3</span> Composition Method</h2>
+<section id="random-number-generator" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="random-number-generator"><span class="header-section-number">12.3</span> Random Number Generator</h2>
 </section>
-<section id="accept-reject-method" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="accept-reject-method"><span class="header-section-number">12.4</span> Accept-Reject Method</h2>
+<section id="generating-random-numbers" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="generating-random-numbers"><span class="header-section-number">12.4</span> Generating Random Numbers</h2>
+<p>A number is an outcome from a random experiment.</p>
+<p>Random experiment is an experiment where the outcome is not predicted. The outcomes have a probability of being observed, whether equal or not.</p>
+<section id="psuedo-random-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="psuedo-random-numbers">Psuedo Random Numbers</h3>
+<p>These methods are considered time-consuming when a large number values are necessary.</p>
+<p>With the advent of computers, random number can be generated with the use deterministic algorithms, where a mechanism is used to make it random, such as time. Computer-generated random numbers are considered psuedo random numbers because an algorithm is used to generate them given an initial single value, known as a seed.</p>
+<p>Supplying a seed to a random number generator will ensure that the same numbers are produced every time.</p>
 </section>
-<section id="box-muller-methods" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="box-muller-methods"><span class="header-section-number">12.5</span> Box-Muller Methods</h2>
+<section id="mersenne-twister" class="level3">
+<h3 class="anchored" data-anchor-id="mersenne-twister">Mersenne Twister</h3>
+<p>The Mersenne Twister is a widely used pseudorandom number generator (PRNG) known for its high quality and efficiency. It was developed by Makoto Matsumoto and Takuji Nishimura in 1997.</p>
+<p>The default random number generator in R.</p>
 </section>
-<section id="simulate-random-variables-in-r" class="level2" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="simulate-random-variables-in-r"><span class="header-section-number">12.6</span> Simulate Random Variables in R</h2>
+</section>
+<section id="uniform-distribution-r" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="uniform-distribution-r"><span class="header-section-number">12.5</span> Uniform Distribution R</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Description</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>The <code>runif</code> function in R will generate a value the come from a uniform distribution.</p>
+<p><code>runif</code> arguments:</p>
+<ul>
+<li><code>n</code>: number of values to generate</li>
+<li><code>min</code>: the smallest possible value to generate</li>
+<li><code>max</code>: the largest possible value to generate</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6819171</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="random-variable-generations" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="random-variable-generations"><span class="header-section-number">12.6</span> Random Variable Generations</h2>
+<section id="random-variable-generation" class="level3">
+<h3 class="anchored" data-anchor-id="random-variable-generation">Random Variable Generation</h3>
+<p>Several distribution, common and uncommon, can be generated using a uniform random variables.</p>
+<p>More complex distributions may require the use of common distributions.</p>
+</section>
+<section id="inverse-transform-method" class="level3">
+<h3 class="anchored" data-anchor-id="inverse-transform-method">Inverse-Transform Method</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">20</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(a, b, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(x, <span class="sc">-</span><span class="dv">8</span>, <span class="fu">sqrt</span>(<span class="dv">10</span>)) <span class="sc">|&gt;</span> <span class="fu">tibble</span>(<span class="at">x =</span> x, <span class="at">y =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(x,y)) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggtitle</span>(<span class="st">"CDF"</span>) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ylab</span>(<span class="fu">paste0</span>(<span class="st">"P(X"</span>,<span class="st">"\u2264"</span>,<span class="st">" x)"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="inverse-transformation-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="inverse-transformation-algorithm">Inverse-Transformation Algorithm</h3>
+<ol type="1">
+<li>Generate a random value <span class="math inline">\(U\)</span> that follows a <span class="math inline">\(U(0,1)\)</span></li>
+<li>Using the CDF (<span class="math inline">\(F(X)\)</span>) for random variable <span class="math inline">\(X\)</span>, compute:</li>
+</ol>
+<p><span class="math display">\[
+X = F^{-1}(U)
+\]</span></p>
+</section>
+<section id="exponential-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="exponential-distribution">Exponential Distribution</h3>
+<p>An exponential random variable is characterized by the exponential distribution, used to model waiting times or the time until an event occurs a certain number of times.</p>
+<p>The exponential distribution is a gamma random variable with <span class="math inline">\(\alpha = 1\)</span>.</p>
+</section>
+<section id="exponential-distribution-1" class="level3">
+<h3 class="anchored" data-anchor-id="exponential-distribution-1">Exponential Distribution</h3>
+<p><span class="math display">\[
+f(x) = \frac{1}{\lambda} \exp\left\{-\frac{x}{\lambda}\right\}
+\]</span></p>
+<p><span class="math display">\[
+F(x) = 1-\exp\left\{-\frac{x}{\lambda}\right\}
+\]</span></p>
+<p><span class="math display">\[
+F^{-1}(x) = -\lambda \log(1-x)
+\]</span></p>
+</section>
+<section id="simulating-an-exponential-rv" class="level3">
+<h3 class="anchored" data-anchor-id="simulating-an-exponential-rv">Simulating an Exponential RV</h3>
+<p><span class="math display">\[
+X \sim Exp(2)
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>xe <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">4</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100000</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>u <span class="sc">|&gt;</span> <span class="fu">tibble</span>(<span class="at">x =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>u, <span class="at">y =</span> ..density..)) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> xe, <span class="at">y =</span> <span class="fu">dexp</span>(xe, <span class="at">rate =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">mapping =</span> <span class="fu">aes</span>(x,y)) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
+ℹ Please use `after_stat(density)` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="simulating-an-exponential-rv-1" class="level3">
+<h3 class="anchored" data-anchor-id="simulating-an-exponential-rv-1">Simulating an Exponential RV</h3>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100000</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">-</span>u)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="simulating-an-exponential-rv-2" class="level3">
+<h3 class="anchored" data-anchor-id="simulating-an-exponential-rv-2">Simulating an Exponential RV</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">|&gt;</span> <span class="fu">tibble</span>(<span class="at">x =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y =</span> ..density..)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> xe, <span class="at">y =</span> <span class="fu">dexp</span>(xe, <span class="at">rate =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">mapping =</span> <span class="fu">aes</span>(x,y)) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exponential-rv-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="exponential-rv-in-r">Exponential RV in R</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Description</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>The exponential distribution can be simulated in R using the <code>rexp</code> function with the following arguments:</p>
+<ul>
+<li><code>n</code>: number of values to generate</li>
+<li><code>rate</code>: how fast would events occur</li>
+</ul>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rexp</span>(<span class="dv">1</span>, <span class="at">rate =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4129293</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="discrete-rv-inverse-transformations" class="level3">
+<h3 class="anchored" data-anchor-id="discrete-rv-inverse-transformations">Discrete RV Inverse-Transformations</h3>
+<ol type="1">
+<li>Generate a random value <span class="math inline">\(U\)</span> that follows a <span class="math inline">\(U(0,1)\)</span></li>
+<li>Using the CDF (<span class="math inline">\(F(X)\)</span>), find the smallest integer value <span class="math inline">\(k\)</span> such that:</li>
+</ol>
+<p><span class="math display">\[
+U \leq F(k)
+\]</span> 3. <span class="math inline">\(X \leftarrow k\)</span></p>
+</section>
+<section id="poisson-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="poisson-distribution">Poisson Distribution</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>xe <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100000</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>u <span class="sc">|&gt;</span> <span class="fu">tibble</span>(<span class="at">x =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y =</span> ..density..)) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_step</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> xe, <span class="at">y =</span> <span class="fu">dpois</span>(xe, <span class="at">lambda =</span> <span class="dv">6</span>)),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">mapping =</span> <span class="fu">aes</span>(x,y)) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="poisson-distribution-1" class="level3">
+<h3 class="anchored" data-anchor-id="poisson-distribution-1">Poisson Distribution</h3>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>finder <span class="ot">&lt;-</span> <span class="cf">function</span>(u){</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  condition <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> (condition) {</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    uu <span class="ot">&lt;-</span> <span class="fu">ppois</span>(x, <span class="at">lambda =</span> <span class="dv">6</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    condition <span class="ot">&lt;-</span> uu <span class="sc">&lt;=</span> u</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(condition){</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>xx <span class="ot">&lt;-</span> <span class="fu">sapply</span>(u, finder)  </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>xx <span class="sc">|&gt;</span> <span class="fu">tibble</span>(<span class="at">x =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y =</span> ..density..)) <span class="sc">+</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">21</span>) <span class="sc">+</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_step</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> xe, <span class="at">y =</span> <span class="fu">dpois</span>(xe, <span class="at">lambda =</span> <span class="dv">6</span>)),</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">mapping =</span> <span class="fu">aes</span>(x,y)) <span class="sc">+</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exponential-rv-in-r-1" class="level3">
+<h3 class="anchored" data-anchor-id="exponential-rv-in-r-1">Exponential RV in R</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Description</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>The Poisson distribution can be simulated in R using the <code>rpois</code> function with the following arguments:</p>
+<ul>
+<li><code>n</code>: number of values to generate</li>
+<li><code>lambda</code>: the average expected event</li>
+</ul>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpois</span>(<span class="dv">1</span>, <span class="at">lambda =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="normal-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="normal-distribution">Normal Distribution</h3>
+<p>Obtaining the inverse distribution function of a normal distribution requires the use of numeric algorithms.</p>
+<p>Therefore it is computationally inefficient to use the inverse-transformation algorithm to generate normal random variables. The Box-Muller algorithm was developed to generate 2 standard normal (<span class="math inline">\(N(0,1)\)</span>) random variables from uniform random variables.</p>
+</section>
+<section id="normal-distribution-1" class="level3">
+<h3 class="anchored" data-anchor-id="normal-distribution-1">Normal Distribution</h3>
+<p><span class="math display">\[
+y = \int^x_{-\infty}
+\frac{1}{\sqrt{2\pi}} \exp\left\{-\frac{z^2}{2}\right\}dz
+\]</span></p>
+</section>
+<section id="box-muller-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="box-muller-algorithm">Box-Muller Algorithm</h3>
+<ol type="1">
+<li>Generate 2 independent random variables from <span class="math inline">\(U(0,1)\)</span>, <span class="math inline">\(U_1\)</span> and <span class="math inline">\(U_2\)</span></li>
+<li><span class="math inline">\(X_1 = (-2 \log(U_1))^{1/2}\cos(2\pi U_2)\)</span></li>
+<li><span class="math inline">\(X_2 = (-2 \log(U_1))^{1/2}\sin(2\pi U_2)\)</span></li>
+</ol>
+<p>Both <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are independent <span class="math inline">\(N(0,1)\)</span></p>
+</section>
+<section id="normal-distribution-r" class="level3">
+<h3 class="anchored" data-anchor-id="normal-distribution-r">Normal Distribution R</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Description</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>The normal distribution can be simulated in R using the <code>rnorm</code> function with the following arguments:</p>
+<ul>
+<li><code>n</code>: number of values to generate</li>
+<li><code>mean</code>: the central tendency (peak)</li>
+<li><code>sd</code>: the variation of the data (width)</li>
+</ul>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.899738</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="accept-reject-algorithm" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="accept-reject-algorithm"><span class="header-section-number">12.7</span> Accept-Reject Algorithm</h2>
+<p>The Accept-Reject algorithm allows you to generate noncommon random variable by simulating from a common random variable.</p>
+<section id="algorithm-set-up" class="level3">
+<h3 class="anchored" data-anchor-id="algorithm-set-up">Algorithm Set Up</h3>
+<p>Let <span class="math inline">\(X\)</span> be the random variable, that is difficult to generate, you want to generate with a pdf <span class="math inline">\(f(x)\)</span>.</p>
+<p>Let <span class="math inline">\(Y\)</span> be an easily generated random variable with a pdf <span class="math inline">\(g(y)\)</span>. That follows the same support as <span class="math inline">\(f(x)\)</span></p>
+<p>Lastly, multiply <span class="math inline">\(g(y)\)</span> with a constant <span class="math inline">\(c\)</span> such that <span class="math inline">\(f(y)\leq cg(y)\)</span>.</p>
+</section>
+<section id="algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="algorithm">Algorithm</h3>
+<ol type="1">
+<li>Generate <span class="math inline">\(Y\)</span> with a pdf of <span class="math inline">\(g(y)\)</span></li>
+<li>Generate <span class="math inline">\(U\)</span> from <span class="math inline">\(U(0, cg(y))\)</span></li>
+<li>Accept-Reject</li>
+<li>Accept: <span class="math inline">\(U\leq f(y)\)</span>; <span class="math inline">\(Y \rightarrow X\)</span></li>
+<li>Reject: <span class="math inline">\(U&gt;f(y)\)</span>; repeat the algorithm</li>
+</ol>
+</section>
+<section id="modified-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="modified-algorithm">Modified Algorithm</h3>
+<ol type="1">
+<li>Generate <span class="math inline">\(Y\)</span> with a pdf of <span class="math inline">\(g(y)\)</span></li>
+<li>Generate <span class="math inline">\(U\)</span> from <span class="math inline">\(U(0,1)\)</span></li>
+<li>Accept-Reject</li>
+<li>Accept: <span class="math inline">\(U\leq f(y)/(cg(y))\)</span>; <span class="math inline">\(Y \rightarrow X\)</span></li>
+<li>Reject: <span class="math inline">\(U&gt;f(y)/(cg(y))\)</span>; repeat the algorithm</li>
+</ol>
+</section>
+<section id="gamma-random-variable" class="level3">
+<h3 class="anchored" data-anchor-id="gamma-random-variable">Gamma Random Variable</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>xe <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>xe <span class="sc">|&gt;</span> <span class="fu">tibble</span>(<span class="at">x =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y =</span> <span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="fl">2.3</span>, <span class="at">scale =</span> <span class="fl">1.2</span>))) <span class="sc">+</span> </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ylab</span>(<span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="gamma-rv" class="level4">
+<h4 class="anchored" data-anchor-id="gamma-rv">Gamma RV</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>xe <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">100000</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>x <span class="sc">|&gt;</span> <span class="fu">tibble</span>(<span class="at">x =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y =</span> ..density..)) <span class="sc">+</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Exponential"</span>)) <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> xe, </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y =</span> <span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="fl">2.3</span>, <span class="at">scale =</span> <span class="fl">1.2</span>)), </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(x,y, <span class="at">color =</span> <span class="st">"Gamma"</span>)) <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ylab</span>(<span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="gamma-rv-1" class="level4">
+<h4 class="anchored" data-anchor-id="gamma-rv-1">Gamma RV</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>xe <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>xe <span class="sc">|&gt;</span> <span class="fu">tibble</span>(<span class="at">x =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y =</span> <span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="fl">2.3</span>, <span class="at">scale =</span> <span class="fl">1.2</span>))) <span class="sc">+</span> </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Gamma"</span>)) <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> xe, <span class="at">y =</span> <span class="fu">dexp</span>(xe, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)), <span class="fu">aes</span>(x,y, <span class="at">color =</span> <span class="st">"Exponential"</span>)) <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ylab</span>(<span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="accept-reject-gamma-rv" class="level4">
+<h4 class="anchored" data-anchor-id="accept-reject-gamma-rv">Accept-Reject Gamma RV</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>xe <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>xe <span class="sc">|&gt;</span> <span class="fu">tibble</span>(<span class="at">x =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y =</span> <span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="fl">2.3</span>, <span class="at">scale =</span> <span class="fl">1.2</span>))) <span class="sc">+</span> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Gamma"</span>)) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> xe, <span class="at">y =</span> <span class="fl">1.5</span><span class="sc">*</span><span class="fu">dexp</span>(xe, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)), <span class="fu">aes</span>(x,y, <span class="at">color =</span> <span class="st">"Exponential"</span>)) <span class="sc">+</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ylab</span>(<span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="accept-reject-gamma-rv-1" class="level4">
+<h4 class="anchored" data-anchor-id="accept-reject-gamma-rv-1">Accept-Reject Gamma RV</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>xe <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>xe <span class="sc">|&gt;</span> <span class="fu">tibble</span>(<span class="at">x =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y =</span> <span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="fl">2.3</span>, <span class="at">scale =</span> <span class="fl">1.2</span>))) <span class="sc">+</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Gamma"</span>)) <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> xe, <span class="at">y =</span> <span class="dv">3</span><span class="sc">*</span><span class="fu">dexp</span>(xe, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)), <span class="fu">aes</span>(x,y, <span class="at">color =</span> <span class="st">"Exponential"</span>)) <span class="sc">+</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ylab</span>(<span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="accept-reject-gamma-rv-2" class="level4">
+<h4 class="anchored" data-anchor-id="accept-reject-gamma-rv-2">Accept-Reject Gamma RV</h4>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(n <span class="sc">&lt;</span> <span class="dv">10000</span>){</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  e <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="sc">/</span><span class="fl">2.3</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  u <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="fu">dgamma</span>(e, <span class="fl">2.3</span>, <span class="dv">1</span><span class="sc">/</span><span class="fl">1.2</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  g <span class="ot">&lt;-</span> <span class="fu">dexp</span>(e, <span class="dv">1</span><span class="sc">/</span><span class="fl">2.3</span>) <span class="sc">*</span> <span class="dv">3</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (u <span class="sc">&lt;</span> (f<span class="sc">/</span>g)){</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">c</span>(x, e)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="gamma-rv-2" class="level4">
+<h4 class="anchored" data-anchor-id="gamma-rv-2">Gamma RV</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">|&gt;</span> <span class="fu">tibble</span>(<span class="at">x =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y =</span> ..density..)) <span class="sc">+</span> </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Exponential"</span>)) <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> xe, </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y =</span> <span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="fl">2.3</span>, <span class="at">scale =</span> <span class="fl">1.2</span>)), </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(x,y, <span class="at">color =</span> <span class="st">"Gamma"</span>)) <span class="sc">+</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ylab</span>(<span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="gamma-distribution-r" class="level4">
+<h4 class="anchored" data-anchor-id="gamma-distribution-r">Gamma Distribution R</h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Description</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>The gamma distribution can be simulated in R using the <code>rgamma</code> function with the following arguments:</p>
+<ul>
+<li><code>n</code>: number of values to generate</li>
+<li><code>shape</code>: describes the shape of distribution (<span class="math inline">\(\alpha\)</span>)</li>
+<li><code>scale</code>: the spread of the data (<span class="math inline">\(\beta\)</span>)</li>
+</ul>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rgamma</span>(<span class="dv">1</span>, <span class="at">shape =</span> <span class="fl">1.2</span>, <span class="at">rate =</span> .<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2742456</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="beta-rv-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="beta-rv-in-r">Beta RV in R</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Description</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>The beta distribution can be simulated in R using the <code>rbeta</code> function with the following arguments:</p>
+<ul>
+<li><code>n</code>: number of values to generate</li>
+<li><code>shape1</code>: controls the shape of distribution</li>
+<li><code>shape2</code>: controls the shape of distribution</li>
+</ul>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbeta</span>(<span class="dv">1</span>, <span class="at">shape1 =</span> <span class="fl">1.2</span>, <span class="at">shape2 =</span> <span class="fl">6.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.08934998</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="bernoulli-rv-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="bernoulli-rv-in-r">Bernoulli RV in R</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Description</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p>The bernoulli distribution can be simulated in R using the <code>rbinom</code> function with the following arguments:</p>
+<ul>
+<li><code>n</code>: number of values to generate</li>
+<li><code>size = 1</code>: will give a bernoulli distribution</li>
+<li><code>prob</code>: probability of observing 1 (success)</li>
+</ul>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">1</span>, <span class="at">prob =</span> .<span class="dv">2</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="binomial-rv-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="binomial-rv-in-r">Binomial RV in R</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">Description</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<p>The binomial distribution can be simulated in R using the <code>rbinom</code> function with the following arguments:</p>
+<ul>
+<li><code>n</code>: number of values to generate</li>
+<li><code>size</code>: how many bernoulli trials to conduct</li>
+<li><code>prob</code>: probability of observing 1 (success)</li>
+</ul>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">1</span>, <span class="at">prob =</span> .<span class="dv">5</span>, <span class="at">size =</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="negative-binomial-rv-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="negative-binomial-rv-in-r">Negative Binomial RV in R</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">Description</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<p>The negative binomial distribution can be simulated in R using the <code>rnbinom</code> function with the following arguments:</p>
+<ul>
+<li><code>n</code>: number of values to generate</li>
+<li><code>size</code>: number of successful trials</li>
+<li><code>prob</code>: probability of observing 1 (success)</li>
+</ul>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnbinom</span>(<span class="dv">1</span>, <span class="at">prob =</span> .<span class="dv">6</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="transformation-methods" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="transformation-methods"><span class="header-section-number">12.8</span> Transformation Methods</h2>
+<section id="n01" class="level3">
+<h3 class="anchored" data-anchor-id="n01"><span class="math inline">\(N(0,1)\)</span></h3>
+<p><span class="math display">\[
+X \sim N(\mu, \sigma^2)
+\]</span></p>
+<p><span class="math display">\[
+Z = \frac{X-\mu}{\sigma} \sim N(0,1)
+\]</span></p>
+</section>
+<section id="nmu-sigma2" class="level3">
+<h3 class="anchored" data-anchor-id="nmu-sigma2"><span class="math inline">\(N(\mu, \sigma^2)\)</span></h3>
+<p><span class="math display">\[
+Z \sim N(0,1)
+\]</span></p>
+<p><span class="math display">\[
+X = Z\sigma + \mu \sim N(\mu, \sigma^2)
+\]</span></p>
+</section>
+<section id="chi21" class="level3">
+<h3 class="anchored" data-anchor-id="chi21"><span class="math inline">\(\chi^2(1)\)</span></h3>
+<p><span class="math display">\[
+Z \sim N(0,1)
+\]</span></p>
+<p><span class="math display">\[
+Z^2 \sim \chi^2(1)
+\]</span></p>
+</section>
+<section id="fmn" class="level3">
+<h3 class="anchored" data-anchor-id="fmn"><span class="math inline">\(F(m,n)\)</span></h3>
+<p><span class="math display">\[
+U \sim \chi^2(m)
+\]</span></p>
+<p><span class="math display">\[
+V \sim \chi^2(n)
+\]</span></p>
+<p><span class="math display">\[
+F = \frac{U/m}{V/n} \sim F(m,n)
+\]</span></p>
+</section>
+<section id="tn" class="level3">
+<h3 class="anchored" data-anchor-id="tn"><span class="math inline">\(t(n)\)</span></h3>
+<p><span class="math display">\[
+Z \sim N(0,1)
+\]</span></p>
+<p><span class="math display">\[
+U \sim \chi^2(m)
+\]</span></p>
+<p><span class="math display">\[
+T = \frac{Z}{\sqrt{U/m}} \sim t(n)
+\]</span></p>
+</section>
+<section id="betaalpha-beta" class="level3">
+<h3 class="anchored" data-anchor-id="betaalpha-beta"><span class="math inline">\(Beta(\alpha, \beta)\)</span></h3>
+<p><span class="math display">\[
+U \sim Gamma(\alpha,\lambda)
+\]</span></p>
+<p><span class="math display">\[
+V \sim Gamma(\beta,\lambda)
+\]</span></p>
+<p><span class="math display">\[
+X = \frac{U}{U+V} \sim Beta(\alpha,\beta)
+\]</span></p>
+</section>
+</section>
+<section id="monte-carlo-integration" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="monte-carlo-integration"><span class="header-section-number">12.9</span> Monte Carlo Integration</h2>
+<p>Monte Carlo Integration is a numerical technique to compute a numerical of an integral.</p>
+<p>It relies on simulating from a know distribution to obtain the expected value of a desired function.</p>
+<section id="integration" class="level3">
+<h3 class="anchored" data-anchor-id="integration">Integration</h3>
+<p>Integration is commonly used to find the area under a curve.</p>
+</section>
+<section id="expectation" class="level3">
+<h3 class="anchored" data-anchor-id="expectation">Expectation</h3>
+<p>Let <span class="math inline">\(X\)</span> be a continuous random variable:</p>
+<p><span class="math display">\[
+E(X) = \int_{X}xf(x)dx
+\]</span></p>
+<p><span class="math display">\[
+E\{g(X)\} = \int_Xg(x)f(x)dx
+\]</span></p>
+</section>
+<section id="strong-law-of-large-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="strong-law-of-large-numbers">Strong Law of Large Numbers</h3>
+<p>As <span class="math inline">\(n\rightarrow \infty\)</span> (ie simulate a large number of random variables):</p>
+<p><span class="math display">\[
+\bar X_n \rightarrow E_f(X)
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\bar X_n \rightarrow = \frac{1}{n}\sum^n_{i=1}X_i
+\]</span></p>
+</section>
+<section id="strong-law-of-large-numbers-1" class="level3">
+<h3 class="anchored" data-anchor-id="strong-law-of-large-numbers-1">Strong Law of Large Numbers</h3>
+<p><span class="math display">\[
+\bar X_n^{(g)} \rightarrow E_f\{g(X)\}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\bar X_n^{(g)} \rightarrow = \frac{1}{n}\sum^n_{i=1}g(X_i)
+\]</span></p>
+</section>
+<section id="the-expected-value-of-a-normal-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="the-expected-value-of-a-normal-distribution">The Expected Value of a Normal Distribution</h3>
+<p><span class="math display">\[
+E(X) = \int^{\infty}_{-\infty}\frac{x}{\sqrt{2\pi\sigma^2}} \exp\left\{-\frac{(x-\mu)^2}{\sigma^2}\right\} dx = \mu
+\]</span></p>
+</section>
+<section id="variance-of-a-normal-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="variance-of-a-normal-distribution">Variance of a Normal Distribution</h3>
+<p><span class="math display">\[
+Var(X) = E[\{X-E(X)\}^2] \\= \int^{\infty}_{-\infty}\frac{\{x-E(X)\}^2}{\sqrt{2\pi\sigma^2}} \exp\left\{-\frac{(x-\mu)^2}{\sigma^2}\right\} dx = \sigma^2
+\]</span></p>
+</section>
+<section id="using-monte-carlo-integration-to-obtain-expectations" class="level3">
+<h3 class="anchored" data-anchor-id="using-monte-carlo-integration-to-obtain-expectations">Using Monte Carlo Integration to obtain expectations</h3>
+<ol type="1">
+<li>Simulate from a target distribution <span class="math inline">\(f\)</span></li>
+<li>Calculate the mean for the expected value</li>
+</ol>
+</section>
+<section id="using-monte-carlo-integration" class="level3">
+<h3 class="anchored" data-anchor-id="using-monte-carlo-integration">Using Monte Carlo Integration</h3>
+<p><span class="math display">\[
+X \sim N(\mu, \sigma^2)
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100000</span>, <span class="at">mean =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.997172</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8.96003</code></pre>
+</div>
+</div>
+</section>
+<section id="gamma-distrbution" class="level3">
+<h3 class="anchored" data-anchor-id="gamma-distrbution">Gamma Distrbution</h3>
+<p><span class="math display">\[
+X \sim Gamma(3,4)
+\]</span></p>
+</section>
+<section id="beta-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="beta-distribution">Beta Distribution</h3>
+<p><span class="math display">\[
+X \sim Beta(2,3)
+\]</span></p>
+</section>
+<section id="chi2p" class="level3">
+<h3 class="anchored" data-anchor-id="chi2p"><span class="math inline">\(\chi^2(p)\)</span></h3>
+<p><span class="math display">\[
+X \sim \chi^2(39)
+\]</span></p>
+</section>
+<section id="finding-the-probability" class="level3">
+<h3 class="anchored" data-anchor-id="finding-the-probability">Finding the Probability</h3>
+<p>Integration is commonly used to determine the probability of observing a certain range of values for a continuous random variable.</p>
+<p><span class="math display">\[
+P(a &lt; X &lt; b)
+\]</span></p>
+</section>
+<section id="graphical-setting" class="level3">
+<h3 class="anchored" data-anchor-id="graphical-setting">Graphical Setting</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>dt_two<span class="ot">&lt;-</span><span class="cf">function</span>(x){</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>            y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>            y[x<span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">|</span> x<span class="sc">&gt;</span><span class="dv">2</span>] <span class="ot">&lt;-</span><span class="cn">NA</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>            <span class="fu">return</span>(y)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>x <span class="sc">|&gt;</span> (\(.) <span class="fu">tibble</span>(<span class="at">x =</span> ., <span class="at">y =</span> <span class="fu">dnorm</span>(.)))() <span class="sc">|&gt;</span> </span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_function</span>(<span class="at">fun =</span> dt_two, <span class="at">geom =</span> <span class="st">"area"</span>, <span class="at">fill =</span> <span class="st">"green"</span>) <span class="sc">+</span> </span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="finding-the-propbabilities-of-a-random-variable" class="level3">
+<h3 class="anchored" data-anchor-id="finding-the-propbabilities-of-a-random-variable">Finding the Propbabilities of a Random Variable</h3>
+<p>For a given random variable <span class="math inline">\(X\)</span>, finding the probability is the same as</p>
+<p><span class="math display">\[
+E\{I(a&lt;X&lt;b)\} = \int_X I(a&lt;X&lt;b) f(x) dx
+\]</span></p>
+<p>where <span class="math inline">\(I(a&lt;X&lt;b)\)</span> is the indicator function.</p>
+</section>
+<section id="indicator-function" class="level3">
+<h3 class="anchored" data-anchor-id="indicator-function">Indicator Function</h3>
+<p><span class="math display">\[
+I(a&lt;X&lt;b) = \left\{\begin{array}{cc}
+1 &amp; a&lt;X&lt;b\\
+0 &amp; \mathrm{otherwise}
+\end{array}
+\right.
+\]</span></p>
+</section>
+<section id="finding-the-probability-1" class="level3">
+<h3 class="anchored" data-anchor-id="finding-the-probability-1">Finding the Probability</h3>
+<p><span class="math display">\[
+\begin{align}
+E\{I(a&lt;X&lt;b)\} &amp;  = \int_X I(a&lt;X&lt;b) f(x) dx\\
+&amp; = \int_a^b f(x) dx\\
+&amp; = P(a &lt; X &lt; b)
+\end{align}
+\]</span></p>
+</section>
+<section id="monte-carlo-probability" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-probability">Monte Carlo Probability</h3>
+<ol type="1">
+<li>Simulate from a target distribution <span class="math inline">\(f\)</span></li>
+<li>Calculate the mean for <span class="math inline">\(I(a&lt;X&lt;b)\)</span></li>
+</ol>
+</section>
+<section id="normal-rv-example" class="level3">
+<h3 class="anchored" data-anchor-id="normal-rv-example">Normal RV Example</h3>
+<p>Let <span class="math inline">\(X\sim N(4, 2)\)</span>, find <span class="math inline">\(P(3 &lt; X &lt; 6)\)</span></p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">6</span>, <span class="dv">4</span>, <span class="fu">sqrt</span>(<span class="dv">2</span>)) <span class="sc">-</span>  <span class="fu">pnorm</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="fu">sqrt</span>(<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6816003</code></pre>
+</div>
+</div>
+</section>
+<section id="using-monte-carlo-methods" class="level3">
+<h3 class="anchored" data-anchor-id="using-monte-carlo-methods">Using Monte Carlo Methods</h3>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000000</span>, <span class="dv">4</span>, <span class="fu">sqrt</span>(<span class="dv">2</span>))</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>((x <span class="sc">&gt;</span> <span class="dv">3</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6816</code></pre>
+</div>
+</div>
+</section>
+<section id="logistic-rv-example" class="level3">
+<h3 class="anchored" data-anchor-id="logistic-rv-example">Logistic RV Example</h3>
+<p>Let <span class="math inline">\(X\sim Logistic(3, 5)\)</span>, find <span class="math inline">\(P(-1 &lt; X &lt; 5)\)</span></p>
+</section>
+<section id="weibull-rv-example" class="level3">
+<h3 class="anchored" data-anchor-id="weibull-rv-example">Weibull RV Example</h3>
+<p>Let <span class="math inline">\(X\sim Weibull(1, 1)\)</span>, find <span class="math inline">\(P(2 &lt; X &lt; 5.5)\)</span></p>
+</section>
+<section id="f-rv-example" class="level3">
+<h3 class="anchored" data-anchor-id="f-rv-example">F RV Example</h3>
+<p>Let <span class="math inline">\(X\sim F(2, 45)\)</span>, find <span class="math inline">\(P(1 &lt; X &lt; 3)\)</span></p>
+</section>
+<section id="monte-carlo-integration-1" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-integration-1">Monte Carlo Integration</h3>
+<p>Monte Carlo Integration can be used to evaluate finite-bounded integrals of the following form:</p>
+<p><span class="math display">\[
+\int^b_a g(x) dx
+\]</span> such that <span class="math inline">\(-\infty &lt;a,b&lt;\infty\)</span>.</p>
+</section>
+<section id="monte-carlo-example-integration" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-example-integration">Monte Carlo Example Integration</h3>
+<p><span class="math display">\[
+\int^1_{0} \{\cos(50x) - sin(20x)\}^2dx
+\]</span></p>
+</section>
+</section>
+<section id="monte-carlo-example-integration-1" class="level2" data-number="12.10">
+<h2 data-number="12.10" class="anchored" data-anchor-id="monte-carlo-example-integration-1"><span class="header-section-number">12.10</span> Monte Carlo Example Integration</h2>
+</section>
+<section id="section" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> </h1>
+<p>Let <span class="math inline">\(X \sim U(0,1)\)</span> with <span class="math inline">\(f(x) = 1\)</span>, then</p>
+<p><span class="math display">\[
+E[\{\cos(50x) - sin(20x)\}^2] =\int^1_{0} \{\cos(50x) - sin(20x)\}^2dx
+\]</span></p>
+<section id="using-numerical-integration" class="level3">
+<h3 class="anchored" data-anchor-id="using-numerical-integration">Using Numerical Integration</h3>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>ff <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  (<span class="fu">cos</span>(<span class="dv">50</span><span class="sc">*</span>x)<span class="sc">-</span><span class="fu">sin</span>(<span class="dv">50</span><span class="sc">*</span>x))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate</span>(ff,<span class="dv">0</span>,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.9986232 with absolute error &lt; 9.5e-11</code></pre>
+</div>
+</div>
+</section>
+<section id="monte-carlo-example-integration-2" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-example-integration-2">Monte Carlo Example Integration</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10000000</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>((<span class="fu">cos</span>(<span class="dv">50</span><span class="sc">*</span>x)<span class="sc">-</span><span class="fu">sin</span>(<span class="dv">50</span><span class="sc">*</span>x))<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9985862</code></pre>
+</div>
+</div>
+</section>
+<section id="monte-carlo-example-integration-3" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-example-integration-3">Monte Carlo Example Integration</h3>
+<p><span class="math display">\[
+\int^{15}_{10} \{\cos(50x) - sin(20x)\}^2dx
+\]</span></p>
+</section>
+<section id="monte-carlo-integration-2" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-integration-2">Monte Carlo Integration</h3>
+<p>Let <span class="math inline">\(X \sim U(10,15)\)</span> with <span class="math inline">\(f(x) = 1\)</span>, then</p>
+<p><span class="math display">\[
+E[\{\cos(50x) - sin(20x)\}^2] = \\
+\int^{15}_{10} \frac{1}{5} \{\cos(50x) - sin(20x)\}^2dx
+\]</span></p>
+</section>
+<section id="monte-carlo-example-integration-4" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-example-integration-4">Monte Carlo Example Integration</h3>
+<p><span class="math display">\[
+\int^{15}_{10} \{\cos(50x) - sin(20x)\}^2dx = \\
+5 * E[\{\cos(50x) - sin(20x)\}^2]
+\]</span></p>
+</section>
+<section id="monte-carlo-example-integration-5" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-example-integration-5">Monte Carlo Example Integration</h3>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>ff <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  (<span class="fu">cos</span>(<span class="dv">50</span><span class="sc">*</span>x)<span class="sc">-</span><span class="fu">sin</span>(<span class="dv">50</span><span class="sc">*</span>x))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate</span>(ff,<span class="dv">10</span>,<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.993274 with absolute error &lt; 1.1e-06</code></pre>
+</div>
+</div>
+</section>
+<section id="monte-carlo-example-integration-6" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-example-integration-6">Monte Carlo Example Integration</h3>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10000000</span>, <span class="dv">10</span>, <span class="dv">15</span>)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">ff</span>(x)) <span class="sc">*</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.993604</code></pre>
+</div>
+</div>
+</section>
+<section id="monte-carlo-integration-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-integration-algorithm">Monte Carlo Integration Algorithm</h3>
+<p>Given: <span class="math display">\[
+\int_a^b g(x) dx
+\]</span></p>
+<ol type="1">
+<li>Simulate <span class="math inline">\(n\)</span> value from <span class="math inline">\(X \sim U(a,b)\)</span></li>
+<li>Take the average, <span class="math inline">\(\frac{1}{n}\sum^{n}_{i=1}g(x_i)\)</span></li>
+<li>Multiply the average by <span class="math inline">\(b-a\)</span>: <span class="math inline">\(\frac{b-a}{n}\sum^{n}_{i=1}g(x_i)\)</span></li>
+</ol>
+</section>
+<section id="mc-examples" class="level3">
+<h3 class="anchored" data-anchor-id="mc-examples">MC Examples</h3>
+<p><span class="math display">\[
+\int_0^{2}  e^{-x^2/2} dx
+\]</span></p>
+</section>
+<section id="importance-sampling" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="importance-sampling"><span class="header-section-number">13.1</span> Importance Sampling</h2>
+<p>Importance sampling is an extension of Monte Carlo integration where it addresses the limitations of large variance of the expected value and the bounds required in integrals.</p>
+<p>This is done by simulating from a random variable that has an infinite support system.</p>
+<p>Let’s say we are interested in finding the numerical value of the following integral:</p>
+<p><span class="math display">\[
+\int_{-\infty}^\infty g(x) dx
+\]</span></p>
+<p>If we view the integral as an expectation of an easily simulated random variable, we can compute the numerical value.</p>
+<p>Let <span class="math inline">\(X\)</span> be a random variable <span class="math inline">\(f\)</span>, then</p>
+<p><span class="math display">\[
+\int_{-\infty}^\infty g(x) dx = \int_{-\infty}^\infty \frac{g(x)}{f(x)} f(x) dx = E\left\{\frac{g(x)}{f(x)}\right\}
+\]</span></p>
+<p>Since the integral is the expectation of <span class="math inline">\(X\)</span>, it can be obtained by taking the mean of the simulated values applied to <span class="math inline">\(g(x)/f(x)\)</span>.</p>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty}  e^{-x^2/2} dx
+\]</span></p>
+</section>
+<section id="example-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-1">Example</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rt</span>(<span class="dv">1000000</span>, <span class="at">df =</span> <span class="dv">1</span>)</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exp</span>(<span class="sc">-</span>x<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">dt</span>(x, <span class="dv">1</span>)</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">f2</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.506922</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.506628</code></pre>
+</div>
+</div>
+</section>
+<section id="choosing-fx" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-fx">Choosing <span class="math inline">\(f(x)\)</span></h3>
+<p>Choose a value <span class="math inline">\(f(x)\)</span> that follows a shape close enough to <span class="math inline">\(g(x)\)</span> that has the same bounds as the integral.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -832,8 +1986,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./permutations.html" class="pagination-link" aria-label="Randomizations">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Randomizations</span></span>
+      <a href="./permutations.html" class="pagination-link" aria-label="Permutation (Randomization) Tests">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Permutation (Randomization) Tests</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
