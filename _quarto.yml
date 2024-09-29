@@ -56,14 +56,21 @@ book:
     background: light
   downloads: [pdf, epub]
 
-
+knitr:
+  opts_chunk: 
+    echo: true
+    eval: true
+    message: false
+    warnings: false
+    comment: "#>" 
+    error: true
 
 format:
   html:
     theme: cosmo
     toc: false
     number-depth: 2
-    toc-depth: 3
+
 
 editor: source
 

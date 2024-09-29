@@ -1,13 +1,5 @@
 ---
 title: "Statistical Estimators"
-knitr:
-  opts_chunk: 
-    echo: true
-    eval: true
-    message: false
-    warnings: false
-    comment: "#>" 
-    error: true
 ---
 
 ## R Packages Loaded
