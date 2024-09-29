@@ -57,8 +57,6 @@ $$
 
 ::::
 
-## Permutation Distributions
-
 Suppose $\{X_i, Y_i\}^n_{i=1}$ is an observed permutation, $X = \{X_1, \ldots, X_n\}$, $Y = \{Y_1, \ldots, Y_n\}$.
 
 The Probability of any permuation is $1/n!$.
@@ -82,7 +80,7 @@ Therefore, simulation techniques are needed to approximate the p-value.
 By randomly drawing from the sample, we can approximate the p-value.
 
 
-## Algorithm
+### Algorithm
 
 1.    Construct a new data set
   1.    Fix the predictor ($X$) variable and randomly assign a data point $Y$ to the fixed $X$
@@ -107,7 +105,7 @@ penguins |> ggplot(aes(x=species, y = body_mass_g)) +
 
 ```
 
-## Example: Random Shuffling 
+### Example: Random Shuffling 
 
 ```{r}
 #| code-fold: true
@@ -117,7 +115,7 @@ penguins |> ggplot() +
 
 ```
 
-## Example: Random/Emperical 
+### Example: Random/Emperical 
 
 ```{r}
 #| code-fold: true
@@ -128,7 +126,7 @@ penguins |> ggplot(aes(x = species, y = body_mass_g)) +
 
 ```
 
-## Example: Random/Emperical 
+### Example: Random/Emperical 
 
 ```{r}
 #| code-fold: true
@@ -147,7 +145,7 @@ penguins |> ggplot(aes(x = species, y = body_mass_g)) +
   geom_jitter(col = "red") 
 ```
 
-## ANOVA
+### ANOVA
 
 We want to determine if body mass of penguins are different for different species.
 
@@ -155,7 +153,7 @@ We want to determine if body mass of penguins are different for different specie
 penguins |> aov(body_mass_g ~ species, data = _) |> anova()
 ```
 
-## Permutation Test
+### Permutation Test
 
 ```{r}
 f_stat <- penguins |> 
@@ -187,13 +185,13 @@ sum(f_stat < f_dist) + 1 / (length(f_dist) + 1)
 ## Permutation Example
 
 
-## Permutation Linear Regression
+### Permutation Linear Regression
 
 -   Keep the predictor values fixed (unchanged)
 -   Randomly assign the sampled outcome values to a fixed predictor
 -   Compute the regression coefficients for the predictor variable
 
-## Simulated Permutation
+### Simulated Permutation
 
 
 ## Permutations

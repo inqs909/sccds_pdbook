@@ -492,16 +492,13 @@ F_x \neq F_y
 </section>
 </div>
 </div>
-</section>
-<section id="permutation-distributions-1" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="permutation-distributions-1"><span class="header-section-number">11.4</span> Permutation Distributions</h2>
 <p>Suppose <span class="math inline">\(\{X_i, Y_i\}^n_{i=1}\)</span> is an observed permutation, <span class="math inline">\(X = \{X_1, \ldots, X_n\}\)</span>, <span class="math inline">\(Y = \{Y_1, \ldots, Y_n\}\)</span>.</p>
 <p>The Probability of any permuation is <span class="math inline">\(1/n!\)</span>.</p>
 <p>Therefore, for a statistic <span class="math inline">\(T(X,Y)\)</span>, a sampling distribution can be constructed by all the different permutations.</p>
 <p>A hypothesis test can be conducted by observing the proportion of more extreme values of the sample statistic.</p>
 </section>
-<section id="approximate-permutation-distribution" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="approximate-permutation-distribution"><span class="header-section-number">11.5</span> Approximate Permutation Distribution</h2>
+<section id="approximate-permutation-distribution" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="approximate-permutation-distribution"><span class="header-section-number">11.4</span> Approximate Permutation Distribution</h2>
 <p>Constructing the distribution for the permutations can be challenging if the number of permutations is high! If <span class="math inline">\(n=100\)</span>, the number of permutations is <span class="math inline">\(100!\)</span>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -511,9 +508,8 @@ F_x \neq F_y
 </div>
 <p>Therefore, simulation techniques are needed to approximate the p-value.</p>
 <p>By randomly drawing from the sample, we can approximate the p-value.</p>
-</section>
-<section id="algorithm" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="algorithm"><span class="header-section-number">11.6</span> Algorithm</h2>
+<section id="algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="algorithm">Algorithm</h3>
 <ol type="1">
 <li>Construct a new data set</li>
 <li>Fix the predictor (<span class="math inline">\(X\)</span>) variable and randomly assign a data point <span class="math inline">\(Y\)</span> to the fixed <span class="math inline">\(X\)</span></li>
@@ -527,8 +523,9 @@ F_x \neq F_y
 p = \frac{m +1}{N + 1}
 \]</span></p>
 </section>
-<section id="example-emperical-data" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="example-emperical-data"><span class="header-section-number">11.7</span> Example: Emperical Data</h2>
+</section>
+<section id="example-emperical-data" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="example-emperical-data"><span class="header-section-number">11.5</span> Example: Emperical Data</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -545,9 +542,8 @@ p = \frac{m +1}{N + 1}
 </div>
 </div>
 </div>
-</section>
-<section id="example-random-shuffling" class="level2" data-number="11.8">
-<h2 data-number="11.8" class="anchored" data-anchor-id="example-random-shuffling"><span class="header-section-number">11.8</span> Example: Random Shuffling</h2>
+<section id="example-random-shuffling" class="level3">
+<h3 class="anchored" data-anchor-id="example-random-shuffling">Example: Random Shuffling</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -564,8 +560,8 @@ p = \frac{m +1}{N + 1}
 </div>
 </div>
 </section>
-<section id="example-randomemperical" class="level2" data-number="11.9">
-<h2 data-number="11.9" class="anchored" data-anchor-id="example-randomemperical"><span class="header-section-number">11.9</span> Example: Random/Emperical</h2>
+<section id="example-randomemperical" class="level3">
+<h3 class="anchored" data-anchor-id="example-randomemperical">Example: Random/Emperical</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -583,8 +579,8 @@ p = \frac{m +1}{N + 1}
 </div>
 </div>
 </section>
-<section id="example-randomemperical-1" class="level2" data-number="11.10">
-<h2 data-number="11.10" class="anchored" data-anchor-id="example-randomemperical-1"><span class="header-section-number">11.10</span> Example: Random/Emperical</h2>
+<section id="example-randomemperical-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-randomemperical-1">Example: Random/Emperical</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -611,8 +607,8 @@ p = \frac{m +1}{N + 1}
 </div>
 </div>
 </section>
-<section id="anova" class="level2" data-number="11.11">
-<h2 data-number="11.11" class="anchored" data-anchor-id="anova"><span class="header-section-number">11.11</span> ANOVA</h2>
+<section id="anova" class="level3">
+<h3 class="anchored" data-anchor-id="anova">ANOVA</h3>
 <p>We want to determine if body mass of penguins are different for different species.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> <span class="fu">aov</span>(body_mass_g <span class="sc">~</span> species, <span class="at">data =</span> _) <span class="sc">|&gt;</span> <span class="fu">anova</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -628,8 +624,8 @@ p = \frac{m +1}{N + 1}
 </div>
 </div>
 </section>
-<section id="permutation-test" class="level2" data-number="11.12">
-<h2 data-number="11.12" class="anchored" data-anchor-id="permutation-test"><span class="header-section-number">11.12</span> Permutation Test</h2>
+<section id="permutation-test" class="level3">
+<h3 class="anchored" data-anchor-id="permutation-test">Permutation Test</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>f_stat <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aov</span>(body_mass_g <span class="sc">~</span> species, <span class="at">data =</span> _) <span class="sc">|&gt;</span> </span>
@@ -668,25 +664,26 @@ p = \frac{m +1}{N + 1}
 </div>
 </div>
 </section>
-<section id="permutation-example" class="level2" data-number="11.13">
-<h2 data-number="11.13" class="anchored" data-anchor-id="permutation-example"><span class="header-section-number">11.13</span> Permutation Example</h2>
 </section>
-<section id="permutation-linear-regression" class="level2" data-number="11.14">
-<h2 data-number="11.14" class="anchored" data-anchor-id="permutation-linear-regression"><span class="header-section-number">11.14</span> Permutation Linear Regression</h2>
+<section id="permutation-example" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="permutation-example"><span class="header-section-number">11.6</span> Permutation Example</h2>
+<section id="permutation-linear-regression" class="level3">
+<h3 class="anchored" data-anchor-id="permutation-linear-regression">Permutation Linear Regression</h3>
 <ul>
 <li>Keep the predictor values fixed (unchanged)</li>
 <li>Randomly assign the sampled outcome values to a fixed predictor</li>
 <li>Compute the regression coefficients for the predictor variable</li>
 </ul>
 </section>
-<section id="simulated-permutation" class="level2" data-number="11.15">
-<h2 data-number="11.15" class="anchored" data-anchor-id="simulated-permutation"><span class="header-section-number">11.15</span> Simulated Permutation</h2>
+<section id="simulated-permutation" class="level3">
+<h3 class="anchored" data-anchor-id="simulated-permutation">Simulated Permutation</h3>
 </section>
-<section id="permutations" class="level2" data-number="11.16">
-<h2 data-number="11.16" class="anchored" data-anchor-id="permutations"><span class="header-section-number">11.16</span> Permutations</h2>
 </section>
-<section id="permutation-test-1" class="level2" data-number="11.17">
-<h2 data-number="11.17" class="anchored" data-anchor-id="permutation-test-1"><span class="header-section-number">11.17</span> Permutation Test</h2>
+<section id="permutations" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="permutations"><span class="header-section-number">11.7</span> Permutations</h2>
+</section>
+<section id="permutation-test-1" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="permutation-test-1"><span class="header-section-number">11.8</span> Permutation Test</h2>
 
 
 </section>

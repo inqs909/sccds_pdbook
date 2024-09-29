@@ -364,7 +364,7 @@
     "href": "permutations.html#permutation-distributions",
     "title": "11  Permutation (Randomization) Tests",
     "section": "11.3 Permutation Distributions",
-    "text": "11.3 Permutation Distributions\n\n\n\nNull\n\\[\nF_x = F_y\n\\]\n\n\n\nAlternative\n\\[\nF_x \\neq F_y\n\\]",
+    "text": "11.3 Permutation Distributions\n\n\n\nNull\n\\[\nF_x = F_y\n\\]\n\n\n\nAlternative\n\\[\nF_x \\neq F_y\n\\]\n\n\n\nSuppose \\(\\{X_i, Y_i\\}^n_{i=1}\\) is an observed permutation, \\(X = \\{X_1, \\ldots, X_n\\}\\), \\(Y = \\{Y_1, \\ldots, Y_n\\}\\).\nThe Probability of any permuation is \\(1/n!\\).\nTherefore, for a statistic \\(T(X,Y)\\), a sampling distribution can be constructed by all the different permutations.\nA hypothesis test can be conducted by observing the proportion of more extreme values of the sample statistic.",
     "crumbs": [
       "Statistics",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Permutation (Randomization) Tests</span>"
@@ -385,8 +385,8 @@
     "objectID": "permutations.html#approximate-permutation-distribution",
     "href": "permutations.html#approximate-permutation-distribution",
     "title": "11  Permutation (Randomization) Tests",
-    "section": "11.5 Approximate Permutation Distribution",
-    "text": "11.5 Approximate Permutation Distribution\nConstructing the distribution for the permutations can be challenging if the number of permutations is high! If \\(n=100\\), the number of permutations is \\(100!\\):\n\nfactorial(100)\n\n#&gt; [1] 9.332622e+157\n\n\nTherefore, simulation techniques are needed to approximate the p-value.\nBy randomly drawing from the sample, we can approximate the p-value.",
+    "section": "11.4 Approximate Permutation Distribution",
+    "text": "11.4 Approximate Permutation Distribution\nConstructing the distribution for the permutations can be challenging if the number of permutations is high! If \\(n=100\\), the number of permutations is \\(100!\\):\n\nfactorial(100)\n\n#&gt; [1] 9.332622e+157\n\n\nTherefore, simulation techniques are needed to approximate the p-value.\nBy randomly drawing from the sample, we can approximate the p-value.\n\nAlgorithm\n\nConstruct a new data set\nFix the predictor (\\(X\\)) variable and randomly assign a data point \\(Y\\) to the fixed \\(X\\)\nCompute a test statistic using the new data set and store the value\nRepeat steps 1 and 2 for \\(N\\) times\nCompute the test statistic from the empirical sample (un-permutated)\nCount how many permutated statistics that are more extreme than the sample test statistic (\\(m\\))\nCompute the Monte Carlo p-value\n\n\\[\np = \\frac{m +1}{N + 1}\n\\]",
     "crumbs": [
       "Statistics",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Permutation (Randomization) Tests</span>"
@@ -407,8 +407,8 @@
     "objectID": "permutations.html#example-emperical-data",
     "href": "permutations.html#example-emperical-data",
     "title": "11  Permutation (Randomization) Tests",
-    "section": "11.7 Example: Emperical Data",
-    "text": "11.7 Example: Emperical Data\n\n\nCode\npenguins |&gt; ggplot(aes(x=species, y = body_mass_g)) +\n  geom_boxplot() +\n  geom_jitter() +\n  labs(x = \"Species\", y = \"Body Mass\")",
+    "section": "11.5 Example: Emperical Data",
+    "text": "11.5 Example: Emperical Data\n\n\nCode\npenguins |&gt; ggplot(aes(x=species, y = body_mass_g)) +\n  geom_boxplot() +\n  geom_jitter() +\n  labs(x = \"Species\", y = \"Body Mass\")\n\n\n\n\n\n\n\n\n\n\nExample: Random Shuffling\n\n\nCode\npenguins |&gt; ggplot() +\n  labs(x = \"Species\", y = \"Body Mass\") + \n  geom_jitter(aes(species, shuffle(body_mass_g)))\n\n\n\n\n\n\n\n\n\n\n\nExample: Random/Emperical\n\n\nCode\npenguins |&gt; ggplot(aes(x = species, y = body_mass_g)) +\n  labs(x = \"Species\", y = \"Body Mass\") + \n  geom_jitter(col = \"red\") +\n  geom_jitter(aes(species, shuffle(body_mass_g)))\n\n\n\n\n\n\n\n\n\n\n\nExample: Random/Emperical\n\n\nCode\npenguins |&gt; ggplot(aes(x = species, y = body_mass_g)) +\n  labs(x = \"Species\", y = \"Body Mass\") + \n  geom_jitter(aes(species, shuffle(body_mass_g))) +\n  geom_jitter(aes(species, shuffle(body_mass_g))) +\n  geom_jitter(aes(species, shuffle(body_mass_g))) +\n  geom_jitter(aes(species, shuffle(body_mass_g))) +\n  geom_jitter(aes(species, shuffle(body_mass_g))) +\n  geom_jitter(aes(species, shuffle(body_mass_g))) +\n  geom_jitter(aes(species, shuffle(body_mass_g))) +\n  geom_jitter(aes(species, shuffle(body_mass_g))) +\n  geom_jitter(aes(species, shuffle(body_mass_g))) +\n  geom_jitter(aes(species, shuffle(body_mass_g))) +\n  geom_jitter(col = \"red\") \n\n\n\n\n\n\n\n\n\n\n\nANOVA\nWe want to determine if body mass of penguins are different for different species.\n\npenguins |&gt; aov(body_mass_g ~ species, data = _) |&gt; anova()\n\n#&gt; Analysis of Variance Table\n#&gt; \n#&gt; Response: body_mass_g\n#&gt;            Df    Sum Sq  Mean Sq F value    Pr(&gt;F)    \n#&gt; species     2 145190219 72595110  341.89 &lt; 2.2e-16 ***\n#&gt; Residuals 330  70069447   212332                      \n#&gt; ---\n#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\n\nPermutation Test\n\nf_stat &lt;- penguins |&gt; \n  aov(body_mass_g ~ species, data = _) |&gt; \n  anova() |&gt; \n  _$`F value`[1]\n  \n\nf_sim &lt;- function(i){\n  ff &lt;- penguins |&gt; \n    aov(shuffle(body_mass_g) ~ species, data = _) |&gt; \n    anova() |&gt; \n    _$`F value`[1]\n  return(ff)\n}\n\nf_dist &lt;- replicate(10000, f_sim(1))\n\ntibble(x= f_dist) |&gt; \n  ggplot(aes(x, y = ..density..)) +\n  geom_histogram() +\n  geom_vline(xintercept = f_stat)\n\n#&gt; Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.\n#&gt; ℹ Please use `after_stat(density)` instead.\n\n\n\n\n\n\n\n\nsum(f_stat &lt; f_dist) + 1 / (length(f_dist) + 1)\n\n#&gt; [1] 9.999e-05",
     "crumbs": [
       "Statistics",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Permutation (Randomization) Tests</span>"
@@ -473,8 +473,8 @@
     "objectID": "permutations.html#permutation-example",
     "href": "permutations.html#permutation-example",
     "title": "11  Permutation (Randomization) Tests",
-    "section": "11.13 Permutation Example",
-    "text": "11.13 Permutation Example",
+    "section": "11.6 Permutation Example",
+    "text": "11.6 Permutation Example\n\nPermutation Linear Regression\n\nKeep the predictor values fixed (unchanged)\nRandomly assign the sampled outcome values to a fixed predictor\nCompute the regression coefficients for the predictor variable\n\n\n\nSimulated Permutation",
     "crumbs": [
       "Statistics",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Permutation (Randomization) Tests</span>"
@@ -506,8 +506,8 @@
     "objectID": "permutations.html#permutations",
     "href": "permutations.html#permutations",
     "title": "11  Permutation (Randomization) Tests",
-    "section": "11.16 Permutations",
-    "text": "11.16 Permutations",
+    "section": "11.7 Permutations",
+    "text": "11.7 Permutations",
     "crumbs": [
       "Statistics",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Permutation (Randomization) Tests</span>"
@@ -517,8 +517,8 @@
     "objectID": "permutations.html#permutation-test-1",
     "href": "permutations.html#permutation-test-1",
     "title": "11  Permutation (Randomization) Tests",
-    "section": "11.17 Permutation Test",
-    "text": "11.17 Permutation Test",
+    "section": "11.8 Permutation Test",
+    "text": "11.8 Permutation Test",
     "crumbs": [
       "Statistics",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Permutation (Randomization) Tests</span>"
