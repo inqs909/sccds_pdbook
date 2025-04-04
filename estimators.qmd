@@ -1,18 +1,22 @@
 ---
 title: "Statistical Estimators"
+date-modified: "2024-09-28"
 ---
 
-## R Packages Loaded
+## R Packages Used
 
 ```{r}
+#| code-fold: show
+
+
 library(ggplot2)
 ```
 
 ## Random Sample
 
-When collecting a random sample, it is believed that the data being collected comes from a probability distribution denoted as $F(\boldsymbol \theta)$, where $\boldsymbol \theta = (\theta_1, \theta_2, \ldots, \theta_p)^{\mathrm T}$ is a vector or parameters that describe the distribution. It is assumed that the random sample is a collection of random variables, denoted as $X_1, \cdots, X_n$, that are considered iid (identical and independently distributed[^estimators-1]). Using this random sample, one infer the value of the parameters $\boldsymbol \theta$ by functions (statistics) on the random sample.
+When collecting a random sample, it is believed that the data being collected comes from a probability distribution denoted as $F(\boldsymbol \theta)$, where $\boldsymbol \theta = (\theta_1, \theta_2, \ldots, \theta_p)^{\mathrm T}$ is a vector or parameters that describe the distribution. It is assumed that the random sample is a collection of random variables, denoted as $X_1, \cdots, X_n$, that are considered iid (identical and independently distributed[^1]). Using this random sample, one infer the value of the parameters $\boldsymbol \theta$ by functions (statistics) on the random sample.
 
-[^estimators-1]: This means that the random variables $X_1, \ldots, X_n$, come from the same distribution and the value for one random variable will not influence the value of a different random variable. See [here](https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables) for more information.
+[^1]: This means that the random variables $X_1, \ldots, X_n$, come from the same distribution and the value for one random variable will not influence the value of a different random variable. See [here](https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables) for more information.
 
 ## Statistical Estimators
 
@@ -100,7 +104,6 @@ The central limit theorem allows us to assume the distribution of $\bar X$ regar
 
 Assume that $X_1, \ldots, X_{25}\overset{iid}{\sim}\chi^2(4)$, Chi-Square distribution with 4 degrees of freedom. According to the central limit theorem, as $n\rightarrow \infty$, the distribution for $\bar X$ will approximately be normal with a mean of $4$ and variance $8/n$. The following examples show how the distribution begin to follow a normal distribution (red line) as $n$ increases 15, 30, 50, 100, 1000.
 
-
 #### $n = 15$
 
 ```{r}
@@ -156,7 +159,6 @@ data.frame(xbar = x_means, y = dnorm(x_means, 4, sqrt(8/50))) |>
   theme_bw()
 ```
 
-
 #### $n = 100$
 
 ```{r}
@@ -175,8 +177,6 @@ data.frame(xbar = x_means, y = dnorm(x_means, 4, sqrt(8/100))) |>
   theme_bw()
 ```
 
-
-
 #### $n = 1000$
 
 ```{r}
@@ -194,4 +194,3 @@ data.frame(xbar = x_means, y = dnorm(x_means, 4, sqrt(8/1000))) |>
   geom_line(aes(xbar, y), col = "red", lwd = 1) +
   theme_bw()
 ```
-

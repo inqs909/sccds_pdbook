@@ -1,34 +1,27 @@
 ---
 title: "The Bootstrap Method"
+date-modified: "2024-10-16"
 ---
 
+The Boostrap Method is an approach that can construct the sampling distribution of several estimators, not all estimators, without imposing a mathematical model on the data. The idea is that the sample $X_1, \ldots, X_n$ is generated from a distribution function called $F(\theta)$. If the sample is large enough, then the empirical distribution function $\hat F_n$ should begin to look like the true distribution function $F$. This implies that the sample contains all the information of $F$. Therefore, if we resample from our sample, with replacement, we are then sampling from our empirical distribution $\hat F_n$, which looks really close to the true distribution function $F$.
+
+**R Packages Used**
 
 ```{r}
-#| code-fold: false
+#| code-fold: show
 
 library(tidyverse)
-library(palmerpenguins)
-
 theme_set(theme_bw())
 theme_update(axis.title = element_text(size = 24))
 
-shuffle <- function(x){
-  n <- length(x)
-  return(sample(x, n))
-}
-
-penguins <- penguins |> drop_na() 
-
-
 ```
-
 
 ## Empirical Distribution Function
 
 The empirical distribution function is designed to estimate a random variable's distribution function. For an observed sample $\{x_i\}^n_{i=1}$, the empirical distribution function is
 
 $$
-F_n(x) \left\{\begin{array}{cc}
+\hat F_n(x) = \left\{\begin{array}{cc}
 0, & x < x_{(1)} \\
 \frac{i}{n},& x_{(i)} \leq x <x_{(i+1)},\ i = 1,\ldots,n-1\\
 1,& x_{(n)}\leq x
@@ -36,103 +29,149 @@ F_n(x) \left\{\begin{array}{cc}
 \right.
 $$
 
-where $x_{(1)}, \ldots, x_{(n)}$ are the ordered sample.
+where $x_{(1)}, \ldots, x_{(n)}$ is the ordered sample. Looking at the Glivenko-Cantelli Theorem, the empirical distribution function converges to the true function as $n\rightarrow \infty$. For a large enough sample, $\hat F_n$ will contain the same information as $F$.
 
-### Sampling an unknown $F$
 
-The idea behind bootstrapping is that the data comes from a distribution $F$ with unknown parameters.
+::: callout-note
+### Glivenko-Cantelli Theorem
 
-Using the sample, we can get parameters that explain a parameteric distribution or the emperical distribution for a nonparameteric approach. 
+If random variables $X_1, X_2, \cdots, X_n$ are independent come from the same distribution ($iid$), then
+
+$$
+\hat F_n (x) \rightarrow F(x)
+$$
+
+converges uniformly as $n\rightarrow \infty$, for more information click [here](https://en.wikipedia.org/wiki/Glivenko%E2%80%93Cantelli_theorem).
+
+:::
+
+
+
+Accordingly, the sample generated has it's own distribution function called $\hat F_n$ where the probability of seeing any value $x_i$ is $1/n$. Therefore, if we were to resample $\{x_i\}^n_{i=1}$, with replacement, it is equivalent to sampling from $\hat F_n$. 
 
 ## The Bootstrap Method
 
-The Bootstrap Method utilizes the sample to describe the target distribution function to construct a sampling mechanism of the target distribution.
+The Bootstrap Method is commonly used to obtain the standard error and or confidence limits of an estimator. By repeatedly sampling from $\hat F_n$, the sampling distribution of any estimator can be approximated. This is advantageous from standard mathematical models which imposes a distribution on $F$, which may be completely inaccurate. The only assumption being made is that $\hat F_n$ is close the true distribution function $F$.  
 
-This method will allow us to construct a new sample that targets the distribution.
+### Algorithm
 
-We can then construct the sampling distribution of a statistic based on the data.
+Let $\boldsymbol X = (X_1, X_2, \ldots, X_n)$ be a random sample from a distribution $F$. For an estimator $T(\cdot)$: 
 
-### Standard Error
+1.  Draw a sample $\boldsymbol X^*_b$ of size $n$, with replacement, from the original data $\boldsymbol X$.
+2.  Compute the bootstrap replicate statistic $T*_b = T(\boldsymbol X^*_b)$, where $T(\cdot)$ is the function that computes the statistic of interest.
+3.  Repeat steps 1-2 $B$ times to obtain $B$ bootstrap replicates $T^*{T*_1, T*_2, ..., T*_B}$.
 
-The bootstrap-based standard error of a test statistic is shown to provide an unbiased estimate of the true standard error. 
+
+The computed statistics from $B$ samples are the empirical bootstrap distribution of the estimator, $T(\boldsymbol X)$. This can be used to compute the standard error, bias, and confidence interval of the estimator $T(\boldsymbol X)$. The number or replicates needed is open to discussion; however, research has shown $B=200$ to suffiece. Larger $B$ may be needed for confidence limit estimation. Another rule of thumb is having $B=n$; however, this may be unfeasible for extremely large samples or computationally intensive tasks.
+
+### Standard Error Estimation
+
+The bootstrap-based standard error of an estimator is shown to provide an unbiased estimate of the true standard error. We can compute the standard eror using the following formula:
+
+$$
+\hat{se}\left\{T(\boldsymbol X)\right\} = \sqrt{\frac{1}{B-1}\sum^B_{i=1}(T^*_i-\bar T^*)^2}
+$$
+where $\bar T^* = \frac{1}{B}\sum^B_{i=1}T^*_i$.
+
+
+### Bias Estimation
+
+The bootstrap-based bias estimate can be computed by the following formula:
+
+$$
+\widehat{bias}\left\{T(\boldsymbol X)\right\} = \bar T^* -  T(X)
+$$
+
+where $\bar T^* = \frac{1}{B}\sum^B_{i=1}T^*_i$ is the mean estimate of the bootstrap samples and $T(X)$ is computed statistic from the data.
+
+### Confidence Limits Estimation
+
+The confidence limits of a parameter can be estimated by using the percentiles of the bootstrap replicates. The $(1-\alpha) 100 \%$ bootstrap confidence interval can be represented as:
+
+$$
+(T^*_{\alpha/2},\ T^*_{1-\alpha/2})
+$$
+where $T^*_{\alpha/2}$ with $\alpha/2$ quantile and $T^*_{1-\alpha/2}$ quantile of the bootstrap replicates.
+
 
 ### Limitation to Boostrap Methods
 
-The assumption is that the data provides a good estimate of the distribution function.
-
-If the data set is small, it may not contain enough information to accurately describe the distribution.
-
-
-## Parameteric Bootstrap
-
-Parametric bootstrap methods are statistical techniques used to estimate the sampling distribution of an estimator or test statistic by resampling with a model-based approach. This method assumes that the data follow a known probability distribution, and utilizes the estimated statistics as the parameters for the distribution function to construct the sampling distribution.
-
-### Parameteric Bootstrap Algorithm
-
-1. Estimate the Parameters: Fit a parametric model to the observed data and estimate the parameters of the model. 
-
-2. Generate Bootstrap Samples: Using the estimated parameters, generate a large number of new data sets (bootstrap samples) from the fitted model. These samples are simulated data sets that mimic the original data but are generated from the parametric model.
-
-3. Compute the Statistic of Interest: For each bootstrap sample, calculate the statistic of interest (e.g., the mean, variance, regression coefficients, etc.).
-
-4. Construct the Sampling Distribution: Use the calculated statistics from all the bootstrap samples to construct an empirical sampling distribution. 
-
-5. Estimate Confidence Intervals: Use the empirical sampling distribution to estimate confidence intervals.
-
-### Example
-
-Use a parameteric bootstrap model to determine the standard errors of the mean body mass of each penguin species.
+Let's say we randomly sample 5 data points from a Poisson Distribution with a rate of 5^[Note: The `set.seed` function ensures that the same random sample will be generated.]:
 
 ```{r}
-penguins |> group_by(species) |> 
-  summarise(mean = mean(body_mass_g),
-            se = sd(body_mass_g) / sqrt(n()))
+set.seed(42)
+x <- rpois(5, 1.5)
+x
 ```
 
-Answer:
+If we were to use this sample and generate bootstrap estimates, we will obtain inaccurate results. This is because the empirical distribution function is a poor estimate of the true distribution function. One reason being that the $P(X = 0) = 0.2231$, and our sample does not have any 0 values. Any bootstrap samples produced will never carry that information. This is why a large sample is needed so the sample space can be thoroughly explored.
+
+## Examples
+
+The examples below illustrate how to compute the bootstrap standard errors and confidence limits in a regression setting.
+
+### Linear Regression
+
+The `mtcars` data set contains information on cars from 1974 *Motor Trend* US Magazine. Fitting a linear regression model between the variable `mpg` and `wt`:
 
 ```{r}
-means <- penguins$body_mass_g |> tapply(penguins$species, mean)
-nns <- penguins$body_mass_g |> tapply(penguins$species, length)
-sds <- penguins$body_mass_g |> tapply(penguins$species, sd)
-Ameans <- numeric(10000)
-Cmeans <- numeric(10000)
-Gmeans <- numeric(10000)
-for (i in 1:10000){
-  Ameans[i] <- rnorm(nns[1], mean = means[1], sd = sds[1]) |> mean()
-  Cmeans[i] <- rnorm(nns[2], mean = means[2], sd = sds[2]) |> mean()
-  Gmeans[i] <- rnorm(nns[3], mean = means[3], sd = sds[3]) |> mean()
+lm(mpg ~ wt, mtcars) |> summary()
+lm(mpg ~ wt, mtcars) |> confint()
+```
+We can see that the estimated model between the 2 variables is $\widehat{mpg} = 37.285 - 5.345 wt$. The standard error, based on the normal distribution, for the coefficient of `wt` is 0.5591. The 95% confidence interval for the coefficient of `wt` is (-6.486, -4.203)^[Note: The residual analysis may suggest that the linear regression model is not appropriate.].
+
+To obtain the bootstrap-based standard error and 95% confidence interval, we will need to sample data points in the data set, with replacement. The user created function below will sample data points with replacement^[Note: You will need to have the `dplyr` function installed.]:
+
+```{r}
+resample <- function(df){
+  dplyr::slice_sample(df, n = nrow(df), replace = T )
 }
-
-
 ```
 
-## Nonparameteric Bootsrap
+Using the `resample`, we can get a bootstrap sample:
 
-The nonparameteric approach assumes that distribution function of the data does not follow a common distribution function. Therefore, the data itself will be contain all the information needed to construct the sampling distribution.
-
-This requires sampling with replacement.
-
-### Nonparameteric Bootstrap Algorithm
-
-1.  Draw a sample $X*$ of size $n$ with replacement from the original data $X$.
-    1.  $n$ is the size of the data
-2.  Compute the bootstrap replicate statistic $T* = g(X*)$, where $g(\cdot)$ is the function that computes the statistic of interest.
-3.  Repeat steps 1-2 $B$ times to obtain $B$ bootstrap replicates ${T*_1, T*_2, ..., T*_B}$.
-4.  The computed statistics from $B$ samples are the empirical bootstrap distribution of the statistic, $g(X)$.
-5.  Calculate the bootstrap standard error of the statistic, $se_b(g(X))$, as the standard deviation of the bootstrap replicates.
-6.  Calculate the bootstrap confidence interval for the statistic, $CI(g(X))$, with the $\alpha$ and $(1-\alpha)%$ percentiles of the bootstrap replicates, where $\alpha$ is the desired level of significance.
-
-### Example
-
-Fitting the following model:
 
 ```{r}
-library(palmerpenguins)
-library(tidyverse)
-penguins <- penguins |> drop_na()
-penguins |> lm(body_mass_g ~ flipper_length_mm + bill_length_mm + bill_depth_mm,
-               data = _)
+b1 <- resample(mtcars)
+b1
 ```
 
-Obtain the Bootstrap-based Standard Errors for the regression coefficients. Use $B=1000$ bootstrap samples.
+Notice that some data points are repeated. We will then construct 10,000 bootstrap samples:
+
+```{r}
+boots <- lapply(1:10000, \(x) resample(mtcars))
+```
+
+The object `boots` is a list, with each element contain a boot replicate data set. Now we will, apply the `lm` function for each data set in `boots`.
+
+```{r}
+boots_lm <- lapply(boots, \(x) lm(mpg ~ wt, x))
+```
+
+Lastly, we will extract the coefficient value for each replicate^[We will unlist the object to utilize a vector]:
+
+```{r}
+boots_wt <- lapply(boots_lm, \(x) coef(x)["wt"]) |> unlist()
+```
+
+Let's visualize the distribution for the coefficient of `wt`:
+
+```{r}
+data.frame(x = boots_wt) |> 
+  ggplot(aes(x)) +
+  geom_density()
+```
+
+The plot indicate that the coefficient for `wt` may not be symmetrical. The standard error can be obtained by applying the `sd` function to `boots_wt`:
+
+```{r}
+sd(boots_wt)
+```
+
+The bootstrap-based standard error is 0.71. This is different from the normal-based standard error of 0.55. The 95% confidence interval of the coefficient of `wt` cna be obtained by using the `quantile` function and setting `probs = c(0.025, 0.975)`:
+
+```{r}
+quantile(boots_wt, probs = c(0.025, 0.975))
+```
+
+The bootstrap-based 95% confidence interval is (-6.973, -4.164), which is slightly wider than the mathematical-based 95% confidence interval: (-6.486, -4.203).

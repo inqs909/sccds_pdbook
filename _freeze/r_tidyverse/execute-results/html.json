@@ -1,0 +1,15 @@
+{
+  "hash": "fedccf1489408fc7e4835e40b09f4891",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# Tidyverse\n\n[Tidyverse](https://www.tidyverse.org/) is a set of R packages that are commonly used to transform data for analysis. These packages share the same philosophy and structure when fixing data.\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ninstall.packages(\"tidyverse\")\n```\n:::\n\n\n\n\n## tidyr\n\n## dplyr\n\n## ggplot2\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

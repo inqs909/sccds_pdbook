@@ -1,5 +1,6 @@
 ---
 title: "Monte Carlo Methods"
+date-modified: "2025-03-23"
 ---
 
 ## R Setup
@@ -959,4 +960,3 @@ sqrt(2*pi)
 ### Choosing $f(x)$
 
 Choose a value $f(x)$ that follows a shape close enough to $g(x)$ that has the same bounds as the integral.
-

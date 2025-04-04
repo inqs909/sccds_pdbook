@@ -1,0 +1,811 @@
+---
+title: "Advanced R Programming"
+date-modified: "2024-09-28"
+---
+
+*Modifiend from [Statistical Computing](https://www.inqs.info/stat_comp/)*
+
+## Control Flow
+
+Control Flow is the process for a computer to complete a task. There are statements that a computer will read and react when executing a tasks. This section briefly discusses the main components and statements of completing tasks in R.
+
+### Indexing
+
+#### Vectors
+
+A vector can be a certain data type with a set number of elements. Here we construct a vector called `x` increasing from -5 to 5 by one unit:
+
+```{r}
+(x <- -5:5)
+```
+
+The vector `x` has 11 elements. If you want to know what the 6th element of `x`, you can index the 6th element from a vector. To do this, we use `[]` square brackets on `x` to index it. For example, we index the 6th element of `x`:
+
+```{r}
+x[6]
+```
+
+When ever we use `[]` next to an R object, it will print out the data to a specific value inside the square brackets. We can index an R object with multiple values:
+
+```{r}
+x[1:3]
+x[c(3,9)]
+```
+
+Notice how the second line uses the `c()`. This is necessary when we want to specify non-contiguous elements. Now let's see how we can index a matrix
+
+#### Matrices
+
+A matrix can be indexed the same way as a vector using the `[]` brackets. However, since the matrix is a 2-dimensional objects, we will need to include a comma to represent the different dimensions: `[,]`. The first element indexes the row and the second element indexes the columns. To begin, we create the following $4 \times 3$ matrix:
+
+```{r}
+(x <- matrix(1:12, nrow = 4, ncol = 3))
+```
+
+Now to index the element at row 2 and column 3, use `x[2, 3]`:
+
+```{r}
+x[2, 3]
+```
+
+We can also index a specific row and column:
+
+```{r}
+x[2,]
+x[,3]
+```
+
+#### Data Frames
+
+There are several ways to index a data frame, since it is in a matrix format, you can index it the same way as a matrix. Here are a couple of examples using the `mtcars` data frame.
+
+```{r}
+mtcars[,2]
+mtcars[2,]
+```
+However, a data frame has labeled components, variables, we can index the data frame with the variable names within the brackets:
+
+```{r}
+mtcars[, "cyl"]
+```
+
+Lastly, a data frame can be indexed to a specific variable using the `$` operator:
+
+```{r}
+mtcars$cyl
+```
+
+
+#### Lists
+
+Lists contain elements holding different R objects. To index a specific element of a list, you will use `[[]]` double brackets. Below is a toy list:
+
+```{r}
+toy_list <- list(mtcars = mtcars,
+                 vector = rep(0, 4),
+                 identity = diag(rep(1, 3)))
+```
+
+
+To access the second element, vector element, you can type `toy_list[[2]]`
+
+```{r}
+toy_list[[2]]
+```
+Since the elements are labeled within the list, you can place the label in quotes inside `[[]]`:
+
+```{r}
+toy_list[["vector"]]
+```
+
+The element can be accessed using the `$` notation with a list:
+
+```{r}
+toy_list$vector
+```
+
+Lastly, you can further index the list if needed, we can access the `mpg` variable in `mtcars` from the `toy_list`:
+
+```{r}
+toy_list$mtcars$mpg
+toy_list[["mtcars"]]$mpg
+toy_list$mtcars[,'mpg']
+```
+
+
+### If/Else Statements
+
+
+In R, there are control flow functions that will dictate how a program will be executed.
+The first set of functions we will talk about are `if` and `else` statements. First, the `if` statement will evaluate a task, If the conditions is satisfied, yields `TRUE`, then it will conduct a certain task, if it fails, yields `FALSE`, the `else` statement will guide it to a different task. Below is a general format:
+
+
+
+:::{.callout-note icon="false"}
+## Important Concept
+
+```{r}
+#| eval: false
+
+if (condition) {
+  TRUE task
+} else {
+  FALSE task
+}
+```
+:::
+
+
+
+#### Example
+
+Below is an example where we generate `x` from a standard normal distribution and print the statement 'positive' or  'non-positive' based on the condition `x > 0`.
+
+
+```{r}
+x <- rnorm(1)
+
+## if statements
+if (x > 0){
+  print("Positive")
+} else {
+  print("Non-Positive")
+}
+```
+
+What if we want to print the statement 'negative' as well if the value is negative? We will then need to add another `if` statement after the `else` statement since `x > 0` only lets us know if the value is positive.
+
+```{r}
+x <- rnorm(1)
+
+if (x > 0){
+  print("Positive")
+} else if (x < 0) {
+  print("Negative")
+}
+```
+
+Above, we add the `if` statement with condition `(x < 0)` indicating if the number is negative. Lastly, if `x` is ever $0$, we will want R to let us know it is $0$. We can achieve this by adding one last `else` statement:
+
+```{r}
+x <- rnorm(1)
+
+if (x > 0){
+  print("Positive")
+} else if (x < 0) {
+  print("Negative")
+} else {
+  print("Zero")
+}
+```
+
+### `for` loops
+
+A for `loop` is a way to repeat a task a certain amount of times. Every time a loop repeats a task, we state it is an iteration of the loop. For each iteration, we may change the inputs by a certain way, either from an indexed vector, and repeat the task. The general anatomy of a loop looks like:
+
+
+:::{.callout-note appearance='default' icon=false}
+## Important Concept
+
+```{r}
+#| eval: false
+
+for (i in vector){
+  perform task
+}
+```
+:::
+
+
+The `for` statement indicates that you will repeat a task inside the brackets. The `i` in the parenthesis controls how the task will be completed. The `in` statement tells R where `i` can look for the values, and `vectorr` is a vector R object that contains the values `i` can be. It also controls how many times the task will be repeated based on the length of the vector.  
+
+Learning about a loop is quite challenging, my recommendation is to read the section below and break the example code so you can understand how a `for` loop works.
+
+#### Basic `for` loop
+
+Let's say we want R to print one to five separately. We can achieve this by repeating the `print()` 5 times.
+
+```{r}
+print(1); print(2); print(3); print(4); print(5)
+```
+
+However, this takes quite awhile to type up. Let's try to achieve the same task using a `for` loop. 
+
+```{r}
+for (i in 1:5){
+  print(i)
+}
+```
+
+Here, `i` will take a value from the vector `1:5`,^[Type this in the console to see what it is.] Then, R will print out what the value of `i` is.
+
+Now, let's try another example with letters. To begin, create a new vector called `letters_10` containing the first 10 letters of the alphabet. Use the vector `letters` to construct the neww vector.
+
+```{r}
+letters_10 <- letters[1:10]
+```
+
+Now, we will use a loop to print out the first 10 letters:
+
+```{r}
+for (i in 1:10) {
+  print(letters_10[i])
+}
+```
+
+Here, we have `i` take on the values 1 through 10. Using those values, we will index the vector `letters_10` by `i`. The resulting letter will then be printed. This task repeated 10 times.
+
+Lastly, we can replace `1:10` by `letters_10` instead:
+
+
+```{r}
+for (i in letters_10){
+  print(i)
+}
+```
+
+This is because `letters_10` are the values that we want to print and `i` takes on the value of `letters_10` each time.
+
+#### Nested `for` loops
+
+A nested `for` loop is a loop that contain a loop within. Below is an example of 3 `for` loops nested within each other. Below is a general example:
+
+
+:::{.callout-note appearance='default' icon="false"}
+## Important Concept
+
+```{r}
+#| eval: false
+
+for (i in vector_1) {
+  for (ii in vector_2) {
+    for (iii in vector_3) {
+      perform task
+    }
+  }
+}
+
+```
+
+:::
+
+
+As an example, we will use the `greekLetter::`^[`install.packages(greekLetters)`] and use the `greek_vector` vector to obtain greek letters in R. Lastly, create a vector called `greek_10`.
+
+```{r}
+library(greekLetters)
+greek_10 <- print_greeks()[1:10]
+```
+
+
+For this example, we want R to print "a" and "$\alpha$" together as demonstrated below^[We will need to use `paste0()` to combine the letters together.]:
+
+```{r}
+print(paste0(letters_10[1], greek_10[1]))
+```
+
+Now let's repeat this process to print all possible combinations of the first 3 letters and 3 greek letters:
+
+```{r}
+for (i in 1:3){
+  for (ii in 1:3){
+    print(paste0(letters_10[i], greek_10[ii]))
+  }
+}
+```
+
+
+### `break`
+
+A `break` statement is used to stop a loop midway if a certain condition is met. A general setup of `break` statement goes as follows: 
+
+:::{.callout-note appearance='default' icon="false"}
+## Important Concept
+
+```{r}
+#| eval: false
+for (i in vector){
+  if (condition) {break}
+  else {
+    task
+  }
+}
+```
+:::
+
+As you can see there is an `if` statement in the loop. This is used to tell R when to break the loop. If the `if` statement was not there, then the loop will break without iterating. 
+
+To demonstrate the break statement, we will simulate from a $N(1,1)$ until we have 30 positive numbers or we simulate a negative number.
+
+
+```{r}
+x <- rep(NA,length = 30)
+
+for (i in seq_along(x)){
+  y <- rnorm(1,1)
+  if (y<0) {
+    break
+  }
+  else {
+    x[i] <- y
+  }
+}
+print(x)
+print(y)
+```
+
+Notice that the vector does not get filled up all the way, that is because the loop will break once a negative number is simulated
+
+### `next`
+
+Similar to the `break` statement, the `next` statement is used in loops that will tell R to move on to the next iteration if a certain condition is met. 
+
+:::{.callout-note appearance='default' icon="false"}
+## Important Note
+
+```{r}
+#| eval: false
+for (i in vector){
+  if (condition) {
+    next
+  } else {
+    task
+  }
+}
+```
+
+:::
+
+The main difference here is that a `next` statement is used instead of a `break` statement.
+
+Going back to simulating positive numbers, we will use the same setup but change it to a `next` statement.
+
+```{r}
+x <- rep(NA,length = 30)
+
+for (i in seq_along(x)){
+  y <- rnorm(1,1)
+  if (y<0) {
+    next
+  }
+  else {
+    x[i] <- y
+  }
+}
+print(x)
+```
+
+As you can see, the vector contains missing values, these were the iterations that a negative number was simulated. 
+
+### `while` loop
+
+The last loop that we will discuss is a while loop. The while loop is used to keep a loop running until a certain condition is met. To construct a while loop, we will use the `while` statement with a condition attached to it. In general, a while loop will have the following format:
+
+:::{.callout-note appearance='default' icon=false}
+## Important Concept
+
+```{r}
+#| eval: false
+
+while (condition) {
+  task
+  update condition
+}
+```
+
+:::
+
+Above, we see that the `while` statement is used followed by a condition. Then the loop will complete its task and update the condition. If the condition yields a `FALSE` value, then the loop will stop. Otherwise, it will continue.
+
+
+#### Basic `while` loops
+
+To implement a basic `while` loop, we will work on the previous example of simulating positive numbers. We want to simulate 30 positive numbers from $N(0,1)$ until we have 30 values. Here, our condition is that we need to have 30 numbers. Therefore we can use the following code to simulate the values:
+
+```{r}
+x <- c()
+size <- 0
+while (size < 30){
+  y <- rnorm(1) 
+  if (y > 0) {
+    x <- c(x, y)
+  }
+  size <- length(x)
+}
+print(size)
+print(x)
+```
+Notice that we do not use an `else` statement. This is because we do not need R to complete a task if the condition fails.
+
+#### Infinite `while` loops
+
+With while loops, we must be weary about potential infinite loops. This occurs when the condition will never yield a `FALSE` value. Therfore, R will never stop the loop because it does not know when to do this. 
+
+For example, let's say we are interest if $y=sin(x)$ will converge to a certain value. As you know it will not converge to a certain value; however, we can construct a while loop: 
+
+```{r}
+#| eval: false
+x <- 1
+diff <- 1
+while (diff > 1e-20) {
+  old_x <- x
+  x <- x + 1
+  diff <- abs(sin(x) - sin(old_x))
+}
+print(x)
+print(diff)
+
+```
+
+My condition above is to see if the absolute difference between sequential values is smaller than $10^{-20}$. As you may know, the absolute difference will never become that small. Therefore, the loop will continue on without stopping.
+
+
+To prevent an infinite while loop, we can add a counter to the condition statement. This counter will also need to be true for the loop to continue. Therefore, we can arbitrarily stop it when the loop has iterated a certain amount of times.  We just need to make sure to add one to the counter every time it iterates it. Below is the code that adds a counter to the while loop:
+
+```{r}
+x <- 1
+counter <- 0
+diff <- 1
+while (diff > 1e-20 & counter < 10^3) {
+  old_x <- x
+  x <- x + 1
+  diff <- abs(sin(x) - sin(old_x))
+  counter <- counter + 1
+}
+print(x)
+print(diff)
+print(counter)
+
+```
+
+
+## Functions
+
+The functionality in R is what makes it completely powerful compared to other statistical software. There are several pre-built functions, and you can extend R's functionality further with the use of R Packages.
+
+### Built-in Functions
+
+There are several available functions in R to conduct specific statistical methods. The table below provides a set of commonly used functions:
+
+| Functions  | Description                 |
+|:-----------|:----------------------------|
+| `aov()`    | Fits an ANOVA Model         |
+| `lm()`     | Fits a linear model         |
+| `glm()`    | Fits a general linear model |
+| `t.test()` | Conducts a t-test           |
+
+Several of these functions have help documentation that provide the following sections:
+
+| Section     | Description                                                 |
+|:------------|:------------------------------------------------------------|
+| Description | Provides a brief introduction of the function               |
+| Usage       | Provides potential usage of the function                    |
+| Arguments   | Arguments that the function can take                        |
+| Details     | An in depth description of the function                     |
+| Value       | Provides information of the output produced by the function |
+| Notes       | Any need to know information about the function             |
+| Authors     | Developers of the function                                  |
+| References  | References to the model and function                        |
+| See Also    | Provide information of supporting functions                 |
+| Examples    | Examples of the function                                    |
+
+To obtain the help documentation of each function, use the `?` operator and function name in the console pane.
+
+### Generic Functions
+
+Commonly used functions, such as `summary()` and `plot()` functions, are considered generic functions where their functionality is determined by the class of an R object. For example, the `summary()` function is a generic function for several types of functions: `summary.aov()`, `summary.lm()`, `summary.glm()`, and many more. Therefore, the appropriate function is needed depending the type of R object. This is where generic functions come in. We can use a generic function, ie `summary()`, to read the type of object and then apply to correct procedure to the object.
+
+### User-built Functions
+
+While R has many capable functions that can be used to analyze your data, you may need to create a custom function for specific needs. For example, if you find yourself writing the same to repeat a task, you can wrap the code into a user-built function and use it for analysis.
+
+To create a user-built function, you will using the `function()` to create an R object that is a function. To use the function Inside the `funtion()` parentheses, write the arguments that need to specified for your function. These are arguments you choose for the function.
+
+#### Anatomy
+
+In general function we construct a function with the following anatomy:
+
+```{r}
+#| eval: false
+
+name_of_function <- function(data_1, data_2 = NULL, 
+                             argument_1, argument_2 = TRUE, argument_3 = NULL,
+                             ...){
+  # Conduct Task
+  # Conduct Task
+  output_object <- Tasks
+  return(output_object)
+}
+
+```
+
+Here, we are creating an R function called `name_of_function` that will take the following arguments: `data_1`, `data_2`, `argument_1`, `argument_2`, `argument_3`, and `...`. From this function, it requires us to supply data for `data_1` and `argument_1`. Arguments `data_2` and `argument_3` are not required, but can be utilized in the function if necessary. Argument `argument_2` is also required for the function, but it it has a default setting (in this case `TRUE`) if it is not specified. Lastly, the `...` argument allows you to pass other arguments to R built in functions if they are present. For example, we may use the `plot()` to create graphics and want to manipulate the output plot further, but do not want to specify the arguments in the user-based function. In the function itself, we will complete the necessary tasks and then use the `return()` to return the output.
+
+#### Example
+
+To begin, let's create a function that squares any value:
+
+```{r}
+x_square <- function(x){x^2}
+```
+
+Above, a new function called `x_square` is being created and it will take values of `x` and square it. Here are a couple of examples of `x_square()`:
+
+```{r}
+x_square(4)
+x_square(5)
+```
+
+The `mtcars` data set has several numeric variables that can be used for analysis. Let's say we want to apply a function (`x_square()`) to the sum of a specific variable and return the value. Then let's further complicate the function by allowing the sum of 2 variables, take the log of the sum and dividing the value if necessary. Below is the code for such function called `summing`:
+
+```{r}
+summing <- function(vec1, vec2 = NULL, FUN, log_val = FALSE, divisor_val = NULL){
+  FUN <- match.fun(FUN)
+  wk_vec <- c(vec1, vec2)
+  fun_sum_val <- FUN(sum(wk_vec))
+  lval <- NULL
+  if (isTRUE(log_val)){
+    lval <- log(fun_sum_val)
+  } else {
+    lval <- fun_sum_val
+  }
+  if (!is.null(divisor_val)){
+    dval <- divisor_val
+  } else {dval <- 1}
+  output <- lval/dval
+  return(output)
+}
+```
+
+Now let's try obtaining the
+
+```{r}
+sum(mtcars$mpg)^2
+summing(mtcars$mpg, FUN = x_square)
+log(sum(c(mtcars$mpg,mtcars$disp))^2)
+summing(mtcars$mpg, mtcars$disp, x_square, T)
+log(sum(c(mtcars$mpg,mtcars$disp))^2)/5
+summing(mtcars$mpg, mtcars$disp, x_square, T, 5)
+```
+
+## \*apply Functions
+
+\*apply functions are used to iterate a function through a set of elements in a vector, matrix, or list. The process will return a vector or list depending on what is requested.
+
+### `apply()`
+
+The `apply()` function is used to apply a function to the margins of an array or matrix. It will iterate between the elements, apply a function to the data, and return a vector, array or list if necessary. To use the `apply()` function, you will need to specify three arguments, `X` or the array, `MARGIN` which margin to apply the function on, and `FUN` the function.
+
+Below we calculate the row means and column means using the apply function for a $5 \times 4$ matrix containing the elements 1 through 20:
+
+```{r}
+x <- matrix(1:20, nrow = 5, ncol = 4)
+
+# Row Means
+apply(x, 1, mean)
+
+# Col Means
+apply(x, 2, mean)
+```
+
+### `lapply()`
+
+The `lapply()` function is used to apply a function to all elements in a vector or list. The `lapply()` function will then return a list as the output.
+
+### `sapply()`
+
+The `sapply()` function is used to apply a function to all elements in a vector or list. Afterwards, the `sapply()` will return a "simplified" version of the list format. This could be a vector, matrix, or array.
+
+## Anonymous Functions
+
+Anonymous functions are functions that R temporarily creates to conduct a task. They are commonly used with the \*apply functions, piping or within functions. To create an anonymous function, we use the `function()` function to create a function.
+
+For example, let `x` be a vector with the values 1 through 15. Let's say we want to apply the function $f(x) = x^2+\ln(x) + e^x/x!$. We can evaluate the function as the expression in the function:
+
+```{r}
+x <- 1:15
+x^2 + log(x) + exp(x)/factorial(x)
+```
+
+Let's say we could not do that, we need to evaluate the function for each value of `x`. We can use the `sapply()` function with an anonymous function:
+
+```{r}
+sapply(x, function(x) x^2 + log(x) + exp(x) / factorial(x))
+```
+
+In R 4.1.0, developers introduce a shortcut approach to create functions. You can create a function using `\()` expression, and specify the arguments for your function within the parenthesis. Reworking the previous code, we can use `\()` instead of `function()`:
+
+```{r}
+sapply(x, \(x) x^2 + log(x) + exp(x)/factorial(x))
+sapply(x, \(.) .^2 + log(.) + exp(.)/factorial(.))
+```
+
+Notice that the argument in the anonymous function can be anything.
+
+## Scripting and Piping in R
+
+This section provides the basic components to script an R file.
+
+### Commenting
+
+A comment is used to describe your code within an R Script. To comment your code in R, you will use the `#` key, and R will not execute any code after the symbol. The `#` key can be used to anywhere in the line, from beginning to midway. It will not execute any code coming after the `#`.
+
+Additionally, commenting is a great way to debug long scripts of code or functions. You comment certain lines to see if any errors are being produced. It can be used to test code line by line with out having to delete everything.
+
+### Scripting
+
+When writing a script, it is important to follow a basic structure for you to follow your code. While this structure can be anything, the following sections below has my main recommendations for writing a script. The most important part is the **Beginning of the Script** section.
+
+#### Beginning of the Script
+
+Load any R packages, functions/scripts, and data that you will need for the analysis. It is also recommended to record the date the script is being executed.
+
+```{r}
+#| eval: false
+
+## Todays data 
+analysis_data <- format(Sys.time(),"%Y-%m-%d-%H-%M")
+
+## R Packages
+library(tidyverse)
+library(magrittr)
+
+## Functions
+source("fxs.R")
+Rcpp::sourceCpp("fxs.cpp")
+
+## Data
+df1 <- read_csv("file.csv")
+df2 <- load("file.RData") %>% get
+```
+
+#### Middle of the Script
+
+Run the analysis, including pre and post analysis.
+
+```{r}
+#| eval: false
+
+## Pre Analysis
+df1_prep <- Prep_data(df1)
+df2_prep <- Prep_data(df2)
+
+## Analysis
+df1_analysis <- analyze(df1_prep)
+df2_analysis <- analyze(df2_prep)
+
+## Post Analysis
+df1_post <- Prep_post(df1_anlysis)
+df2_post <- Prep_post(df2_anlysis)
+```
+
+#### End of the Script
+
+Save your results in an R Data file:
+
+```{r}
+#| eval: false
+
+## Save Results
+res <- list(df1 = list(pre = df1_prep,
+                       analysis = df1_analysis,
+                       post = df1_post),
+            df2 = list(pre = df2_prep,
+                       analysis = df2_analysis,
+                       post = df2_post))
+file_name <- paste0("results_", analysis_data, ".RData")
+save(res, file = file_name)
+
+```
+
+### Pipes
+
+In R, pipes are used to transfer the output from one function to the input of another function. Piping will then allow you to chain functions to run an analysis. Since R 4.1.0, there are two version of pipes, the base R pipe and the pipes from the [magrittr](https://magrittr.tidyverse.org/) package. The table below provides a brief description of each type pipes
+
+| Pipe   | Name            | Package  | Description                                                                                                                                                                                     |
+|---------------|---------------|---------------|---------------------------|
+| `|>`   | R Pipe          | Base     | This pipe will use the output of the previous function as the input for the first argument following function.                                                                                  |
+| `%>%`  | Forward Pipe    | magrittr | The forward pipe will use the output of the previous function as the input of the following function.                                                                                           |
+| `%$5`  | Exposition Pipe | magrittr | The exposition function will expose the named elements of an R object (or output) to the following function.                                                                                    |
+| `%T>%` | Tee Pipe        | magrittr | The Tee pipe will evaluate the next function using the output of the previous function, but it will not retain the output of the next function and utilize the output of the previous function. |
+| `%<>%` | Assignment Pipe | magrittr | The assignment pipe will rewrite the object that is being piped into the next function.                                                                                                         |
+
+Ehen using the pipe, it is recommend to only string a limited amount of functions (\~10) to maintain code readability and conciseness. Any more functions may make the code incoherent.
+
+If you plan to use magrittr's pipe, it is recommend to load the `magrittr` package instead of `tidyverse` package.
+
+```{r}
+library(magrittr)
+```
+
+#### `|>`
+
+The base pipe will use the output from the first function and use it as the input of the first argument in the second function. Below, we obtain the `mpg` variable from `mtcars` and pipe it in the `mean()` function.
+
+```{r}
+mtcars$mpg |> mean()
+```
+
+#### `%>%`
+
+##### Uses
+
+Magrittr's pipe is the equivalent of Base R's pipe, with some extra functionality. Below we repeat the same code as before:
+
+```{r}
+mtcars$mpg %>% mean()
+```
+
+Alternatively, we do not have to type the parenthesis in the second function:
+
+```{r}
+mtcars$mpg %>% mean
+```
+
+Below is another example where we will pipe the value `3` into the `rep()` with `times=5`, this will repeat the value `3` five times:
+
+```{r}
+3 %>% rep(5)
+```
+
+If we are interested in piping the output to another argument other than the first argument, we can use the (`.`) placeholder in the second function to indicate which argument should take the previous output. Below, we repeat the vector `c(1, 2)` three times because the `.` is in the second argument:
+
+```{r}
+3 %>% rep(c(1,2), .)
+```
+
+##### Creating Unary Functions
+
+You can use `%>%` and `.` to create unary functions, a function with one argument, can be created. The following code will create a new function called `logsqrt()` which evaluates $\sqrt{\log(x)}$:
+
+```{r}
+logsqrt <- . %>% log(base = 10) %>% sqrt
+logsqrt(10000)
+sqrt(log10(10000))
+```
+
+#### `%$%`
+
+The exposition pipe will expose the named elements of an object or output to the following function. For example, we will pipe the `mtcars` into the `lm()` function. However, we will use the `%$%` pipe to access the variables in the data frame for the `formula=` argument without having to specify the `data=` argument:
+
+```{r}
+mtcars %$% lm(mpg ~ hp)
+```
+
+#### `%T>%`
+
+The Tee pipe will pipe the contents of the previous function into the following function, but will retain the previous functions output instead of the current function. For example, we use the Tee pipe to push the results from the `lm()` function to print out the summary table, then use the same `lm()` function results to print out the model standard error:
+
+```{r}
+x_lm <- mtcars %$% lm(mpg ~ hp) %T>% 
+  (\(x) print(summary(x))) %T>% 
+  (\(x) print(sigma(x)))
+```
+
+### Keyboard Shortcuts
+
+Below is a list of recommended keyboard shortcuts:
+
+| Shortcut          | Windows/Linux    | Mac             |
+|-------------------|------------------|-----------------|
+| `%>%`             | Ctrl+Shift+M     | Cmd+Shift+M     |
+| Run Current Line  | Ctrl+Enter       | Cmd+Return      |
+| Run Current Chunk | Ctrl+Shift+Enter | Cmd+Shift+Enter |
+| Knit Document     | Ctrl+Shift+K     | Cmd+Shift+K     |
+| Add Cursor Below  | Ctrl+Alt+Down    | Cmd+Alt+Down    |
+| Comment Line      | Ctrl+Shift+C     | Cmd+Shift+C     |
+
+It is recommended to modify these keyboard shortcuts in RStudio
+
+| Shortcut | Windows/Linux | Mac         |
+|----------|---------------|-------------|
+| `%in%`   | Ctrl+Shift+I  | Cmd+Shift+I |
+| `%$%`    | Ctrl+Shift+D  | Cmd+Shift+D |
+| `%T>%`   | Ctrl+Shift+T  | Cmd+Shift+T |
+
+Note you will need to install the `extraInserts` package:
+
+```{r}
+#| eval: false
+remotes::install_github('konradzdeb/extraInserts')
+```

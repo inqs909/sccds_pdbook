@@ -1,16 +1,30 @@
+---
+title: "R and RStudio"
+date-modified: "2024-09-28"
+---
+
+R is a programming language that allows users to compute statistics and graphics. It is based on [S](https://en.wikipedia.org/wiki/S_%28programming_language%29) and is a [GNU Project](https://www.gnu.org/). It has several built-in function to compute statistics with ease, as well as allowing users to build their own functions to be executed.
+
+## Installing R
+
+R can be installed from the [R-Project](https://www.r-project.org/) with these general instructions:
+
+1.    Go to R's [website](https://www.r-project.org/)
+2.    Select **download R** in the first paragraph
+3.    Choose **0-Cloud** to automatically choose the closes mirror.
+4.    Select and follow the instructions for the respective operating system
+
+
 # RStudio
 
 RStudio is an integrated development environment ([IDE](https://en.wikipedia.org/wiki/Integrated_development_environment)) that allows users to write code in a script and execute code to the R console in one application. Furthermore, RStudio has rich set of features that make data science projects easier to execute.
 
 While RStudio has originally been used to program in R, it has been extended to program in python with the use of the [reticulate](https://rstudio.github.io/reticulate/) package.
 
-## Installing
+## Installation
 
 You can download and install the open-source (free) version of RStudio [here](https://posit.co/downloads/).
 
-### Installing on Windows
-
-### Installing on Mac
 
 ## Start-up
 
@@ -105,3 +119,12 @@ Access to installed packages:
 And access to help documentation:
 
 ![](img/rstudio_15.png){fig-alt="The RStudio IDE is displayed with 3 panes: source, console, and help documentation on the mean function. The source pane is expanded to cover half the image." fig-align="center"}
+
+# R Packages
+
+R's functionality can be extended to do more things by installing R packages. An R package can be thought as extra software. This allows you to do more with R. To install an R package, you will need to use the `install.packages("NAME_OF_PACKAGE")` function. Once you install it, you do not need to install it again. To use an R package, use `library("NAME_OF_PACKAGE")`. This allows you to load the package in R. You will need to load the package every time you start R. For more information, please watch the video:
+
+```{=html}
+<iframe src="https://player.vimeo.com/video/203516241?h=819422ce1e&color=428bca" width="640" height="400" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/203516241">install Packages</a> from <a href="https://vimeo.com/rstudioinc">RStudio, Inc.</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+```

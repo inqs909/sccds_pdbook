@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Version Control – SCCDS Professional Development Handbook</title>
+<title>Version Control Basics – SCCDS Professional Development Handbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -37,10 +71,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1a01bd2678427eee97947cbc2b697945.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar docked fullcontent">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -81,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./vc.html">Version Control</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./vc.html">Version Control Basics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -155,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -166,20 +200,38 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./r_plot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Summarization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_adv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Advanced R Programming</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./r_base.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Base R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Base R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./r_tidyverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Tidyverse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tidyverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./r_teaching.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Teaching R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Teaching R</span></span></a>
   </div>
 </li>
       </ul>
@@ -196,19 +248,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Python Basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Python Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_ds.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Python and Data Science</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Python and Data Science</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_teaching.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Teaching Python</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Teaching Python</span></span></a>
   </div>
 </li>
       </ul>
@@ -225,25 +277,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./estimators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Statistical Estimators</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Statistical Estimators</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bootstrapping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Bootstrap Method</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">The Bootstrap Method</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./permutations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Permutation (Randomization) Tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Randomization (Permutations) Tests</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Monte Carlo Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Monte Carlo Methods</span></span></a>
   </div>
 </li>
       </ul>
@@ -259,8 +311,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./positron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Positron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./tidytuesday.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tidy Tuesday Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tidy Tuesday Data</span></span></a>
   </div>
 </li>
       </ul>
@@ -277,25 +335,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Notebooks</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Notebooks</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./google.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Google Colab</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Google Colab and Assignments</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./jupyterhub.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">JupyterHub</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">JupyterHub</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Integrating in Learning Management System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Integrating in Learning Management System</span></span></a>
   </div>
 </li>
       </ul>
@@ -312,19 +370,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./markdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Markdown Basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Markdown Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./document.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quarto Documents with R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Quarto Documents</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./presentations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Quarto Presentations with R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Quarto Presentations with R</span></span></a>
   </div>
 </li>
       </ul>
@@ -332,7 +390,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./vc.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Version Control</span></a>
+ <span class="menu-text">Version Control Basics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -341,19 +399,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./vc_github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">GitHub</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">GitHub</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./vc_git.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Git Basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Git Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./website.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Creating a Quarto Website</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Creating a Quarto Website</span></span></a>
   </div>
 </li>
       </ul>
@@ -363,13 +421,37 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<p><img src="./img/SCCDS.png" class="img-fluid"></p>
+</div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#git" id="toc-git" class="nav-link active" data-scroll-target="#git">Git</a>
+  <ul class="collapse">
+  <li><a href="#getting-started-with-git" id="toc-getting-started-with-git" class="nav-link" data-scroll-target="#getting-started-with-git">Getting Started with Git</a></li>
+  <li><a href="#key-concepts-in-git" id="toc-key-concepts-in-git" class="nav-link" data-scroll-target="#key-concepts-in-git">Key Concepts in Git</a></li>
+  <li><a href="#essential-commands" id="toc-essential-commands" class="nav-link" data-scroll-target="#essential-commands">Essential Commands</a></li>
+  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices">Best Practices</a></li>
+  <li><a href="#use-of-ides" id="toc-use-of-ides" class="nav-link" data-scroll-target="#use-of-ides">Use of IDE’s</a></li>
+  </ul></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">Github</a>
+  <ul class="collapse">
+  <li><a href="#getting-started-with-github" id="toc-getting-started-with-github" class="nav-link" data-scroll-target="#getting-started-with-github">Getting Started with GitHub</a></li>
+  <li><a href="#why-use-github" id="toc-why-use-github" class="nav-link" data-scroll-target="#why-use-github">Why Use GitHub?</a></li>
+  <li><a href="#key-features-of-github" id="toc-key-features-of-github" class="nav-link" data-scroll-target="#key-features-of-github">Key Features of GitHub</a></li>
+  </ul></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Version Control</h1>
+<h1 class="title">Version Control Basics</h1>
 </div>
 
 
@@ -378,6 +460,12 @@ ul.task-list li input[type="checkbox"] {
 
     
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 12, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -387,14 +475,217 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>How many times when you are working finalizing a document and you save it as <code>final_15.docx</code> or something like <code>true_final_5.docx</code> or <code>FINAL_FINAL_3.docx</code> or <code>ONLY_LOOK_AT_THIS_ONE_FINAL_2.docx</code>. This is a common trait all of us do to ensure that we save our updates so we can look at the differences between versions. This is where version control can help organize and track your changes between different versions of a file.</p>
-<p>In this part of the book, we will demonstrate the basics of version control with the use of git and GitHub.</p>
+<p>There are 2 main tools that we can use for version control: <a href="https://git-scm.com/">git</a> and <a href="https://github.com/">GitHub</a>. We will briefly discuss these two tools.</p>
 <section id="git" class="level2">
 <h2 class="anchored" data-anchor-id="git">Git</h2>
-<p>Git is the system on a computer that will track changes of all the files in a specialized directory (folder) on your computer.</p>
+<p>Git is the system on a computer that will track changes of all the files in a specialized directory (folder) on your computer. Git has become an essential tool for data science development of programs.</p>
+<p>Git is a program that is primarily used via terminal app or commandline. However, several IDE’s, such as <a href="https://code.visualstudio.com/">VS Code</a>, <a href="https://posit.co/products/open-source/rstudio/">RStudio</a>, and <a href="https://positron.posit.co/">Positron</a> have provided an easy user interface to create repositories, track and save changes, and store repositories on a remove server (GitHub).</p>
+<section id="getting-started-with-git" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started-with-git">Getting Started with Git</h3>
+<section id="initializing-repository" class="level4">
+<h4 class="anchored" data-anchor-id="initializing-repository">1. Initializing Repository</h4>
+<p>Whenever you start a data science project, you first want to gather all your scripts, and possibly data if it is not sensitive and opened to be tracked, into one main project folder. This project folder will be tracked via git by making it as a repository. This can be thought as a special project going on in this folder.</p>
+</section>
+<section id="develop-project" class="level4">
+<h4 class="anchored" data-anchor-id="develop-project">2. Develop Project</h4>
+<p>Once everything is set up, work on your project as normal. Update scripts, analyze data, create plots, and any other task that needs to be completed.</p>
+</section>
+<section id="commit" class="level4">
+<h4 class="anchored" data-anchor-id="commit">3. Commit</h4>
+<p>Once your project, or certain files, is at a place where you want to make save and be tracked. You will <a href="https://www.geeksforgeeks.org/staging-in-git/">stage</a> them with the following code in a terminal app<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add fileneame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or you can stage all the files that have changes with</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This two lines of code will tell git: “hey prepare to track and save these files”.</p>
+<p>Afterwards, type this in the terminal:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"WRITE MESSAGE HERE"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will save and track the files and appends a message that provides brief information of what the commit is about.</p>
+<p>Certain IDE’s will allow you to do all of this with out using the terminal.</p>
+</section>
+<section id="save-in-the-cloud-github" class="level4">
+<h4 class="anchored" data-anchor-id="save-in-the-cloud-github">4. Save in the Cloud (GitHub)</h4>
+<p>If you want to save all your changes in the cloud, type this is in the terminal:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will connect to GitHub and tell it that this repository has updates that you should store.</p>
+</section>
+<section id="download-for-the-cloud" class="level4">
+<h4 class="anchored" data-anchor-id="download-for-the-cloud">5. Download for the Cloud</h4>
+<p>If you made some changes in GitHub, or another computer that changes were pushed to GitHub. You can download those changes with the terminal commands:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will download the changes into your computer’s repository.</p>
+</section>
+</section>
+<section id="key-concepts-in-git" class="level3">
+<h3 class="anchored" data-anchor-id="key-concepts-in-git">Key Concepts in Git</h3>
+<ol type="1">
+<li><strong>Repository (Repo)</strong>:
+<ul>
+<li>A directory tracked by git containing your project files and the history of their changes.</li>
+<li>Initialized using <code>git init</code> or cloned using <code>git clone</code>.</li>
+</ul></li>
+<li><strong>Commit</strong>:
+<ul>
+<li>A snapshot of your changes, representing a specific point in your project’s history.</li>
+<li>Created using <code>git commit</code> after staging changes.</li>
+</ul></li>
+<li><strong>Branch</strong>:
+<ul>
+<li>A separate line of development within a repository.</li>
+<li>The default branch is typically <code>main</code> or <code>master</code>.</li>
+<li>New branches are created using <code>git branch &lt;branch-name&gt;</code> and switched to with <code>git checkout</code> or <code>git switch</code>.</li>
+</ul></li>
+<li><strong>Remote</strong>:
+<ul>
+<li>A version of your repository hosted on a server, such as GitHub, GitLab, or Bitbucket.</li>
+<li>Allows for collaboration and centralized backups.</li>
+</ul></li>
+<li><strong>Working Directory, Staging Area, and Commit</strong>:
+<ul>
+<li><strong>Working Directory</strong>: The files you are actively working on.</li>
+<li><strong>Staging Area</strong>: A place where changes are prepared before being committed.</li>
+<li><strong>Commit</strong>: A saved snapshot of the staged changes.</li>
+</ul></li>
+</ol>
+</section>
+<section id="essential-commands" class="level3">
+<h3 class="anchored" data-anchor-id="essential-commands">Essential Commands</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git init</code></td>
+<td>Initialize a new Git repository.</td>
+</tr>
+<tr class="even">
+<td><code>git clone &lt;url&gt;</code></td>
+<td>Clone a repository from a remote source.</td>
+</tr>
+<tr class="odd">
+<td><code>git add &lt;file&gt;</code></td>
+<td>Stage changes for commit.</td>
+</tr>
+<tr class="even">
+<td><code>git commit -m "message"</code></td>
+<td>Save changes to the repository.</td>
+</tr>
+<tr class="odd">
+<td><code>git status</code></td>
+<td>Check the status of the repository.</td>
+</tr>
+<tr class="even">
+<td><code>git log</code></td>
+<td>View the commit history.</td>
+</tr>
+<tr class="odd">
+<td><code>git branch &lt;name&gt;</code></td>
+<td>Create a new branch.</td>
+</tr>
+<tr class="even">
+<td><code>git switch &lt;branch&gt;</code></td>
+<td>Switch to a different branch.</td>
+</tr>
+<tr class="odd">
+<td><code>git pull</code></td>
+<td>Fetch and merge changes from the remote.</td>
+</tr>
+<tr class="even">
+<td><code>git push</code></td>
+<td>Push commits to the remote repository.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="best-practices" class="level3">
+<h3 class="anchored" data-anchor-id="best-practices">Best Practices</h3>
+<ol type="1">
+<li><strong>Write Meaningful Commit Messages</strong>:
+<ul>
+<li>Describe what changes you made and why.</li>
+</ul></li>
+<li><strong>Commit Often</strong>:
+<ul>
+<li>Smaller, focused commits are easier to understand and debug.</li>
+</ul></li>
+<li><strong>Collaborate Effectively</strong>:
+<ul>
+<li>Pull changes from the remote repository frequently to avoid conflicts.</li>
+</ul></li>
+<li><strong>Review Changes</strong>:
+<ul>
+<li>Use <code>git diff</code> and <code>git status</code> to check your work before committing.</li>
+</ul></li>
+</ol>
+</section>
+<section id="use-of-ides" class="level3">
+<h3 class="anchored" data-anchor-id="use-of-ides">Use of IDE’s</h3>
+<p>While it is important to know all the terminal commands, several IDE’s will do this for you. You just need to know the concept of Stage, Commit, Push, and Pull.</p>
+</section>
 </section>
 <section id="github" class="level2">
 <h2 class="anchored" data-anchor-id="github">Github</h2>
-<p>Github is an online platform the programmers used to store their code. Users can create repositories (a centralized back-ups) that can be updated and shared to other individuals. Imagine the Google Drive of programming.</p>
+<p>Github is an online platform the programmers used to store their code. Users can create repositories (a centralized back-ups) that can be updated and shared to other individuals. Imagine it as the Google Drive of programming.</p>
+<section id="getting-started-with-github" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started-with-github">Getting Started with GitHub</h3>
+</section>
+<section id="why-use-github" class="level3">
+<h3 class="anchored" data-anchor-id="why-use-github">Why Use GitHub?</h3>
+<ol type="1">
+<li><strong>Remote Repository Hosting</strong>:
+<ul>
+<li>GitHub hosts your Git repositories, making them accessible to collaborators around the globe.</li>
+</ul></li>
+<li><strong>Collaboration Tools</strong>:
+<ul>
+<li>Includes features like pull requests, code reviews, and issue tracking.</li>
+</ul></li>
+<li><strong>Community and Discovery</strong>:
+<ul>
+<li>Public repositories enable sharing and discovering projects, fostering an open-source community.</li>
+</ul></li>
+</ol>
+</section>
+<section id="key-features-of-github" class="level3">
+<h3 class="anchored" data-anchor-id="key-features-of-github">Key Features of GitHub</h3>
+<ol type="1">
+<li><strong>Repositories</strong>:
+<ul>
+<li>Centralized storage for your project files and history.</li>
+<li>Can be public (open to everyone) or private (restricted access).</li>
+</ul></li>
+<li><strong>Pull Requests (PRs)</strong>:
+<ul>
+<li>A mechanism for proposing changes to a repository.</li>
+<li>Facilitates code reviews and discussions before merging changes.</li>
+</ul></li>
+<li><strong>Issues</strong>:
+<ul>
+<li>A built-in bug and task tracker.</li>
+<li>Enables collaboration on problem-solving and feature requests.</li>
+</ul></li>
+<li><strong>Actions</strong>:
+<ul>
+<li>A CI/CD tool to automate workflows like testing and deployment.</li>
+</ul></li>
+<li><strong>Branches and Forks</strong>:
+<ul>
+<li><strong>Branches</strong>: Allow isolated development within a repository.</li>
+<li><strong>Forks</strong>: Create a copy of a repository to experiment or contribute to the original project.</li>
+</ul></li>
+<li><strong>GitHub Pages</strong>:
+<ul>
+<li>Hosts static websites directly from your repositories.</li>
+</ul></li>
+</ol>
+</section>
 </section>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
@@ -427,6 +718,12 @@ ul.task-list li input[type="checkbox"] {
 </table>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Make sure to set the terminal app’s working directory to the repository<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -512,8 +809,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -624,7 +919,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -853,12 +1147,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./presentations.html" class="pagination-link" aria-label="Quarto Presentations with R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Quarto Presentations with R</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Quarto Presentations with R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./vc_github.html" class="pagination-link" aria-label="GitHub">
-        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">GitHub</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">GitHub</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,16 +1,183 @@
-# Version Control
+---
+title: "Version Control Basics"
+date-modified: "2025-02-12"
+---
 
 How many times when you are working finalizing a document and you save it as `final_15.docx` or something like `true_final_5.docx` or `FINAL_FINAL_3.docx` or `ONLY_LOOK_AT_THIS_ONE_FINAL_2.docx`. This is a common trait all of us do to ensure that we save our updates so we can look at the differences between versions. This is where version control can help organize and track your changes between different versions of a file.
 
-In this part of the book, we will demonstrate the basics of version control with the use of git and GitHub.
+There are 2 main tools that we can use for version control: [git](https://git-scm.com/) and [GitHub](https://github.com/). We will briefly discuss these two tools.
 
 ## Git
 
-Git is the system on a computer that will track changes of all the files in a specialized directory (folder) on your computer.
+Git is the system on a computer that will track changes of all the files in a specialized directory (folder) on your computer. Git has become an essential tool for data science development of programs.
+
+Git is a program that is primarily used via terminal app or commandline. However, several IDE's, such as [VS Code](https://code.visualstudio.com/), [RStudio](https://posit.co/products/open-source/rstudio/), and [Positron](https://positron.posit.co/) have provided an easy user interface to create repositories, track and save changes, and store repositories on a remove server (GitHub). 
+
+### Getting Started with Git
+
+#### 1. Initializing Repository
+
+Whenever you start a data science project, you first want to gather all your scripts, and possibly data if it is not sensitive and opened to be tracked, into one main project folder. This project folder will be tracked via git by making it as a repository. This can be thought as a special project going on in this folder.
+
+#### 2. Develop Project
+
+Once everything is set up, work on your project as normal. Update scripts, analyze data, create plots, and any other task that needs to be completed.
+
+#### 3. Commit
+
+Once your project, or certain files, is at a place where you want to make save and be tracked. You will [stage](https://www.geeksforgeeks.org/staging-in-git/) them with the following code in a terminal app^[Make sure to set the terminal app's working directory to the repository]:
+
+```bash
+git add fileneame
+```
+
+Or you can stage all the files that have changes with
+
+```bash
+git add .
+```
+
+This two lines of code will tell git: "hey prepare to track and save these files".
+
+Afterwards, type this in the terminal:
+
+```bash
+git commit -m "WRITE MESSAGE HERE"
+```
+
+This will save and track the files and appends a message that provides brief information of what the commit is about.
+
+Certain IDE's will allow you to do all of this with out using the terminal.
+
+#### 4. Save in the Cloud (GitHub)
+
+If you want to save all your changes in the cloud, type this is in the terminal:
+
+```bash
+git push
+```
+
+This will connect to GitHub and tell it that this repository has updates that you should store.
+
+#### 5. Download for the Cloud
+
+If you made some changes in GitHub, or another computer that changes were pushed to GitHub. You can download those changes with the terminal commands:
+
+```bash
+git pull
+```
+
+This will download the changes into your computer's repository.
+
+
+### Key Concepts in Git
+
+1. **Repository (Repo)**:
+   - A directory tracked by git containing your project files and the history of their changes.
+   - Initialized using `git init` or cloned using `git clone`.
+
+2. **Commit**:
+   - A snapshot of your changes, representing a specific point in your project’s history.
+   - Created using `git commit` after staging changes.
+
+3. **Branch**:
+   - A separate line of development within a repository.
+   - The default branch is typically `main` or `master`.
+   - New branches are created using `git branch <branch-name>` and switched to with `git checkout` or `git switch`.
+
+4. **Remote**:
+   - A version of your repository hosted on a server, such as GitHub, GitLab, or Bitbucket.
+   - Allows for collaboration and centralized backups.
+
+5. **Working Directory, Staging Area, and Commit**:
+   - **Working Directory**: The files you are actively working on.
+   - **Staging Area**: A place where changes are prepared before being committed.
+   - **Commit**: A saved snapshot of the staged changes.
+
+
+
+### Essential Commands
+
+| Command                       | Description                                      |
+|-------------------------------|--------------------------------------------------|
+| `git init`                    | Initialize a new Git repository.                |
+| `git clone <url>`             | Clone a repository from a remote source.        |
+| `git add <file>`              | Stage changes for commit.                       |
+| `git commit -m "message"`     | Save changes to the repository.                 |
+| `git status`                  | Check the status of the repository.             |
+| `git log`                     | View the commit history.                        |
+| `git branch <name>`           | Create a new branch.                            |
+| `git switch <branch>`         | Switch to a different branch.                   |
+| `git pull`                    | Fetch and merge changes from the remote.        |
+| `git push`                    | Push commits to the remote repository.          |
+
+
+### Best Practices
+
+1. **Write Meaningful Commit Messages**:
+   - Describe what changes you made and why.
+
+2. **Commit Often**:
+   - Smaller, focused commits are easier to understand and debug.
+
+3. **Collaborate Effectively**:
+   - Pull changes from the remote repository frequently to avoid conflicts.
+
+4. **Review Changes**:
+   - Use `git diff` and `git status` to check your work before committing.
+
+
+### Use of IDE's
+
+While it is important to know all the terminal commands, several IDE's will do this for you. You just need to know the concept of Stage, Commit, Push, and Pull.
 
 ## Github
 
-Github is an online platform the programmers used to store their code. Users can create repositories (a centralized back-ups) that can be updated and shared to other individuals. Imagine the Google Drive of programming.
+Github is an online platform the programmers used to store their code. Users can create repositories (a centralized back-ups) that can be updated and shared to other individuals. Imagine it as the Google Drive of programming.
+
+### Getting Started with GitHub
+
+
+
+### Why Use GitHub?
+
+1. **Remote Repository Hosting**:
+   - GitHub hosts your Git repositories, making them accessible to collaborators around the globe.
+
+2. **Collaboration Tools**:
+   - Includes features like pull requests, code reviews, and issue tracking.
+
+3. **Community and Discovery**:
+   - Public repositories enable sharing and discovering projects, fostering an open-source community.
+
+
+### Key Features of GitHub
+
+1. **Repositories**:
+   - Centralized storage for your project files and history.
+   - Can be public (open to everyone) or private (restricted access).
+
+2. **Pull Requests (PRs)**:
+   - A mechanism for proposing changes to a repository.
+   - Facilitates code reviews and discussions before merging changes.
+
+3. **Issues**:
+   - A built-in bug and task tracker.
+   - Enables collaboration on problem-solving and feature requests.
+
+4. **Actions**:
+   - A CI/CD tool to automate workflows like testing and deployment.
+
+5. **Branches and Forks**:
+   - **Branches**: Allow isolated development within a repository.
+   - **Forks**: Create a copy of a repository to experiment or contribute to the original project.
+
+6. **GitHub Pages**:
+   - Hosts static websites directly from your repositories.
+
+
+
+
 
 ## Resources
 

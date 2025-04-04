@@ -1,0 +1,15 @@
+{
+  "hash": "e5c1ad3f6da24021b56b163008485ecf",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# R Programming\n\n[R](https://www.r-project.org/) is an open-source programming language used to conduct statistical analysis.\n\n## Installing R\n\nYou can freely download and install R [here](https://cloud.r-project.org/).\n\n### Installing on Windows\n\n### Installing on Mac\n\n## Installing RStudio\n\n[RStudio](https://posit.co/products/open-source/rstudio/) is an Integrated Development Environment ([IDE](https://en.wikipedia.org/wiki/Integrated_development_environment)) used for data science. It contains several tools needed to extend your programming and project management skills.\n\nYou can download and install the open-source (free) version of RStudio [here](https://posit.co/downloads/).\n\n## Installing R Packages\n\nR Packages extends the functionality from the base functions in R. R packages contain extra functions to conduct uncommon statistical models.\n\nAs of right now, the [tidyverse](https://www.tidyverse.org/) is a set of comprehensive packages to prepare and analyze data. To install tidyverse, use the following line in the console:\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ninstall.packages(\"tidyverse\")\n```\n:::\n\n\n\n\n## Posit Cloud\n\nPosit Cloud is the online platform for RStudio. The free account provides users with limited computing resources that allow them to learn R and RStudio. One can access Posit Cloud [here](https://posit.cloud/).\n\n## Resources\n\n| Website                                                  | Description                                                                                                                           |\n|-----------------------------|-------------------------------------------|\n| [R 4 Data Science Book](https://r4ds.hadley.nz/)         | A highly recommended book to learn more about R for data science with a tidyverse implementation.                                     |\n| [Advanced R](https://adv-r.hadley.nz/)                   | A book that provides an in depth tutorial of using more advanced R concepts such as control flow concepts and functional programming. |\n| [Efficient R](https://csgillespie.github.io/efficientR/) | A book that provides tips to write more performative R code such as vectorization or compiling code.                                  |\n| [R 4 Data Science Community](https://rfordatasci.com/)   | This is an online learning community of R users that provides events and data for individuals to learn about data science and R.      |\n| [Deep R](https://deepr.gagolewski.com/index.html)        | A book that provides advance programming concepts in terms of R.                                                                      |\n| [Big Book of R](https://www.bigbookofr.com/)             | A website containing a list of resources for individuals to learn R.                                                                  |\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

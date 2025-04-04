@@ -1,7 +1,8 @@
 project:
   type: book
   output-dir: docs
-
+  resources: 
+    - "img/" 
 
 book:
   title: "SCCDS Professional Development Handbook"
@@ -17,6 +18,9 @@ book:
       chapters: 
         - rstudio.qmd
         - r_basics.qmd
+        - r_plot.qmd
+        - r_stats.qmd
+        - r_adv.qmd
         - r_base.qmd
         - r_tidyverse.qmd
         - r_teaching.qmd
@@ -33,6 +37,7 @@ book:
         - mc.qmd
     - part: data.qmd
       chapters: 
+        - positron.qmd
         - tidytuesday.qmd
     - part: oc.qmd
       chapters: 
@@ -68,9 +73,14 @@ knitr:
 format:
   html:
     theme: cosmo
-    toc: false
+    toc: true
     number-depth: 2
+    margin-header: |
+      ![](/img/SCCDS.png)
 
+
+execute:
+  freeze: auto
 
 editor: source
 
